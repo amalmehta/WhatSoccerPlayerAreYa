@@ -26,6 +26,7 @@ public enum PlayerImporter {
         "nationality": ["nationality", "nationality_name", "nation", "country"],
         "club": ["club", "club_name", "team", "team_name"],
         "positions": ["positions", "player_positions", "position", "best_position", "best position", "pos"],
+        "alt_positions": ["alternative positions", "alternative_positions", "alt positions", "alt_positions", "other positions"],
         "era": ["era"],
         "gender": ["gender", "sex"],
         "overall": ["overall", "ovr", "overall_rating", "overall rating", "rating"],
@@ -39,7 +40,8 @@ public enum PlayerImporter {
         "gk_handling": ["goalkeeping_handling", "gk_handling", "gk handling", "handling", "han"],
         "gk_kicking": ["goalkeeping_kicking", "gk_kicking", "gk kicking", "kicking", "kic"],
         "gk_reflexes": ["goalkeeping_reflexes", "gk_reflexes", "gk reflexes", "reflexes", "ref"],
-        "gk_speed": ["goalkeeping_speed", "gk_speed", "gk speed", "spd"],
+        // EA's keeper Speed is their sprint speed when an export has no separate keeper column.
+        "gk_speed": ["goalkeeping_speed", "gk_speed", "gk speed", "spd", "sprint speed", "sprint_speed", "movement_sprint_speed"],
         "gk_positioning": ["goalkeeping_positioning", "gk_positioning", "gk positioning", "positioning_gk"],
     ]
 
@@ -81,10 +83,13 @@ public enum PlayerImporter {
             }
 
             let name = text("name")
-            let positions = text("positions")
-                .split(whereSeparator: { $0 == "," || $0 == "/" || $0 == ";" || $0 == " " })
-                .map { $0.uppercased() }
-                .filter { PositionGroup.of(position: $0) != nil }
+            var positions: [String] = []
+            for raw in [text("positions"), text("alt_positions")] {
+                for p in raw.split(whereSeparator: { $0 == "," || $0 == "/" || $0 == ";" || $0 == " " }) {
+                    let code = p.uppercased()
+                    if PositionGroup.of(position: code) != nil, !positions.contains(code) { positions.append(code) }
+                }
+            }
             guard !name.isEmpty, !positions.isEmpty else { skipped += 1; continue }
 
             var traits = outfieldKeys.compactMap(number)
@@ -107,9 +112,18 @@ public enum PlayerImporter {
     }
 
     public static func load(url: URL, defaultEra: Era = .imported) throws -> ImportResult {
-        let data = try Data(contentsOf: url)
-        let text = String(decoding: data, as: UTF8.self)
-        return try load(csv: text, defaultEra: defaultEra)
+        try load(csv: decode(Data(contentsOf: url)), defaultEra: defaultEra)
+    }
+
+    /// UTF-8 when valid; UTF-16 when the file starts with a byte-order mark (Excel's "Unicode text");
+    /// otherwise Windows-1252, which older exports use, so accented names come through intact.
+    public static func decode(_ data: Data) -> String {
+        if data.starts(with: [0xFF, 0xFE]) || data.starts(with: [0xFE, 0xFF]),
+           let text = String(data: data, encoding: .utf16) {
+            return text
+        }
+        if let text = String(data: data, encoding: .utf8) { return text }
+        return String(data: data, encoding: .windowsCP1252) ?? String(decoding: data, as: UTF8.self)
     }
 }
 

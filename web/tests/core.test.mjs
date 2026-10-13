@@ -63,6 +63,27 @@ test("imports sofifa exports with keeper fallback, skips and gender", () => {
   assert.deepEqual(r.players[1].traits, [86, 85, 85, 89, 54, 90]);
 });
 
+test("imports EA FC Kaggle exports with alternative positions and sprint-speed keeper fallback", () => {
+  const csv = [
+    "Name,OVR,PAC,SHO,PAS,DRI,DEF,PHY,Position,Alternative positions,Team,Nation,GK Diving,GK Handling,GK Kicking,GK Positioning,GK Reflexes,Sprint Speed",
+    'Bukayo Saka,87,86,82,84,87,63,72,RW,"RM, LW",Arsenal,England,,,,,,88',
+    "David Raya,86,,,,,,,GK,,Arsenal,Spain,86,82,90,85,88,47",
+  ].join("\n");
+  const r = core.loadPlayers(csv);
+  assert.deepEqual(r.players.map((p) => p.name), ["Bukayo Saka", "David Raya"]);
+  assert.deepEqual(r.players[0].positions, ["RW", "RM", "LW"]);
+  assert.equal(r.players[0].club, "Arsenal");
+  assert.equal(r.players[0].nationality, "England");
+  assert.deepEqual(r.players[1].traits, [86, 82, 90, 88, 47, 85]);
+});
+
+test("decodes non-UTF-8 files", () => {
+  assert.equal(core.decode(new Uint8Array([0x4e, 0x61, 0x6d, 0x65, 0x0a, 0x4d, 0xfc, 0x6c, 0x6c, 0x65, 0x72])), "Name\nMüller");
+  const pele = [0xff, 0xfe, ...[..."Pelé"].flatMap((c) => [c.charCodeAt(0) & 0xff, c.charCodeAt(0) >> 8])];
+  assert.equal(core.decode(new Uint8Array(pele)), "Pelé");
+  assert.equal(core.decode(new TextEncoder().encode("Mbappé")), "Mbappé");
+});
+
 test("missing columns are reported", () => {
   assert.throws(() => core.loadPlayers("foo,bar\n1,2"), /no name column/);
   assert.throws(() => core.loadPlayers("name,position,pace\nA,ST,80"), /no shooting column/);

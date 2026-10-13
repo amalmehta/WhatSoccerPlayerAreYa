@@ -20,7 +20,7 @@ WhatSoccerPlayerAreYa/
 │   │   ├── Matcher.swift         Profile × players → ranked matches
 │   │   ├── Responses.swift       Saved responses, summary, CSV export
 │   │   └── Resources/
-│   │       └── players.csv       228 bundled players
+│   │       └── players.csv       228 bundled players (EA FC 27 cards)
 │   └── WhatSoccerPlayerAreYa/    The Mac app (SwiftUI)
 │       ├── App.swift             App entry, menus, Settings scene, settings keys
 │       ├── AppModel.swift        Shared state: players, responses, import, feedback
@@ -43,15 +43,18 @@ WhatSoccerPlayerAreYa/
 ├── Tests/
 │   ├── SoccerCoreTests/
 │   │   ├── SoccerCoreTests.swift 18 tests for the core logic
-│   │   └── ParityTests.swift     Writes and checks Fixtures/parity.json
+│   │   ├── ParityTests.swift     Writes and checks Fixtures/parity.json
+│   │   └── AccuracyTests.swift   Persona benchmark, position/trait balance, keeper matching
 │   └── Fixtures/
-│       └── parity.json           Questions + 40 worked matches shared with web/tests
+│       ├── parity.json           Questions + 40 worked matches shared with web/tests
+│       └── personas.json         How 30 well-known players would answer the quiz
 ├── .github/workflows/
 │   └── website.yml               Tests the website, then deploys web/ to GitHub Pages
 ├── docs/
 │   ├── INSTRUCTIONS.md           Setup, run, use
 │   ├── SYSTEM-DESIGN.md          Architecture, flows, decisions, limits
 │   ├── FILE-STRUCTURE.md         This file
+│   ├── Player Data Sources.csv   Where each bundled player's ratings came from
 │   └── screenshots/              Images used in the README
 └── build/                        Built app (not committed)
 ```

@@ -377,7 +377,7 @@ async function importFiles(files) {
   const csvs = [...files].filter((f) => /\.(csv|txt|tsv)$/i.test(f.name) || f.type === "text/csv" || f.type === "text/plain");
   if (!csvs.length) { banner("Drop a .csv file of players (FIFA / EA FC exports work).", true); return; }
   for (const file of csvs) {
-    try { mergeImported(core.loadPlayers(await file.text()), file.name); }
+    try { mergeImported(core.loadPlayers(core.decode(await file.arrayBuffer())), file.name); }
     catch (e) { banner(`Couldn't import ${file.name}: ${e.message}`, true); }
   }
 }

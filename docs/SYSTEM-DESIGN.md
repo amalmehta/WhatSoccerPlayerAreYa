@@ -107,7 +107,7 @@ score = 0.60 × shape + 0.35 × position + 0.05 × fame
 ```
 
 - **shape:** both trait vectors are mean-centred, then compared with cosine similarity, mapped from −1…1 to 0…1. This compares *which traits stand out*, not absolute ratings. Otherwise every quiz would match the highest-rated players.
-- **position:** (the person's share for the player's group ÷ their biggest share)². Squaring it makes a clear position preference count. In a 3,000-run random-answer simulation, 86% of top matches came from the person's main position, up from 75% before squaring.
+- **position:** for each of the player's positions, (the person's share for that position's group ÷ their biggest share)², taking the best. The player's best position counts in full; alternative positions count at 0.7, so Messi (CAM, ST, RW, RM on FC 27) suits both midfield and forward answers. Squaring makes a clear position preference count.
 - **fame:** a small bonus for higher overall ratings that mainly breaks ties in favour of well-known players.
 
 **Goalkeepers.** Keeper cards store Diving, Handling, Kicking, Reflexes, Speed and Positioning in the six slots, as EA does. To compare a person with a keeper, their traits are translated first:
@@ -121,15 +121,32 @@ score = 0.60 × shape + 0.35 × position + 0.05 × fame
 | Speed | pace |
 | Positioning | physical |
 
+Keeper cards all look alike: Speed is low and everything else is high. So each keeper's stats are first compared with the other keepers' (a z-score per stat) before the shape comparison. This brings out what makes each keeper different. When a quiz points to goalkeeper, a keeper now comes top 99.5% of the time (it was 76%), and 21 of 24 keepers can come up (it was 13).
+
 **Shared strengths.** These are the traits in both the person's top three and the player's top three.
 
-**Variety.** With the default filter (overall 75 or higher), 3,000 random answer sets produced about 145 different top matches out of 228 players.
+**Variety.** With the default filter (overall 75 or higher), 3,000 random answer sets produced about 160 different top matches out of 228 players (about 145 before the accuracy pass), and 91% of top matches play the position the answers lean towards.
+
+### How accuracy is measured
+
+Matching changes are kept only if they measurably help.
+
+- **Persona benchmark.** `Tests/Fixtures/personas.json` holds how 30 well-known players would answer the quiz. On EA FC 27 data, 14 of the 30 land in their own top 10 out of about 200 eligible players, with a median rank of 13. `AccuracyTests` fails if that drops below 12 in the top 10 or the median rises above 16.
+- **Balance.** Under random answers each position should win roughly a quarter of the time. It was 20–32% and is now 23–27%, after reducing the weight on the keeper answers and adding midfield weight to two answers. Every trait can now score about the same maximum; pace was 15 against 22–25 for the others, so two answers gained pace and two pace answers were added ("Chase them down — I'm quicker", "Getaway driver — first off the mark").
+- **Score spread.** "% match" is left as it is because it carries information. A typical top match is 89%; a scattered set of answers gets about 72% and consistent answers reach the mid 90s. An average player scores about 49%.
+- **Tried and rejected:**
+  - Re-weighting shape, position and fame. Every setting tested landed on the same plateau.
+  - Comparing outfield stats relative to the whole pool or to each position.
+  - Correcting answers for the quiz's own trait bias.
+  - A 13th question on playing wide or central.
+
+  None of these improved the benchmark, so none were added.
 
 ## Where data lives
 
 | Data | Location | Format |
 |---|---|---|
-| Bundled players (228: 156 current, 72 legends; 180 men, 48 women, tagged in a `gender` column) | `Sources/SoccerCore/Resources/players.csv`, copied to `Contents/Resources` in the app | CSV |
+| Bundled players (228: 154 current, 74 legends; 180 men, 48 women, tagged in a `gender` column). Where each row came from is in `docs/Player Data Sources.csv` | `Sources/SoccerCore/Resources/players.csv`, copied to `Contents/Resources` in the app | CSV |
 | Saved responses | `~/Library/Application Support/What Soccer Player Are Ya/Responses.json` | JSON, ISO 8601 dates |
 | Imported players | `…/Imported Players.json` | JSON |
 | Feedback | `…/Feedback.json` | JSON |
@@ -163,7 +180,12 @@ Related categories share a hue family. Shades within a family are spaced apart i
 
 ## Key decisions and trade-offs
 
-- **Bundled dataset plus CSV import, not a scraped third-party dataset.** Bundling a large FIFA dataset raises licensing questions. Instead the app ships 228 players compiled for it and imports any FIFA/EA FC CSV the user brings. *Trade-off:* the bundled ratings are approximations, not official card values.
+- **Bundled dataset plus CSV import, not a scraped third-party dataset.** Bundling a large FIFA dataset raises licensing questions. Instead the app ships 228 hand-picked players and imports any FIFA/EA FC CSV the user brings.
+  - **Current players** use their EA SPORTS FC 27 base cards, read from EA's official ratings site on 2026-10-13. Clubs are for the 2026–27 season, with summer 2026 transfers checked against news reports.
+  - **Legends** use their FC 27 base Icon cards; Yashin uses FC 26, his last Icon card.
+  - **Players who retired since 2025** (Busquets, Millie Bright) are Legends on their last base card.
+  - **Sources:** every row's source and what changed are in `docs/Player Data Sources.csv`.
+  - *Trade-off:* the data has to be re-checked each EA FC season.
 - **Matching on shape, not ratings.** Quiz answers say what someone is *like*, not how good they are. *Trade-off:* a player with a flat profile (good at everything) is a weaker match for anyone.
 - **SwiftPM package with a script that builds the .app, no Xcode project.** It's simple to build from the command line and keeps the repo small. The icon is drawn in code (`scripts/make-icon.swift`) and turned into an `.icns` by the build script. *Trade-off:* ad hoc code signing only, and no asset catalogue.
 - **Website as a static port, not shared code.** The site is plain JavaScript with no build step, so it can be hosted for free on GitHub Pages and opened with any web server. *Trade-off:* the logic is written twice, which is why the parity tests exist.
@@ -174,20 +196,24 @@ Related categories share a hue family. Shades within a family are spaced apart i
 
 ## Testing
 
-`swift test` runs 19 Swift Testing tests in `Tests/SoccerCoreTests`. One of them, `ParityTests`, checks that `Tests/Fixtures/parity.json` is up to date for the website (see above). The rest cover:
+`swift test` runs 25 Swift Testing tests in `Tests/SoccerCoreTests`:
+
+- `ParityTests` checks that `Tests/Fixtures/parity.json` is up to date for the website (see above).
+- `AccuracyTests` guards the measurements in *How accuracy is measured*: the persona benchmark, position balance, trait balance, and keepers matching keeper answers.
+- The rest cover:
 
 - **CSV parsing:** quotes, newlines, byte-order mark and CRLF.
-- **Import:** the app's own format, gender column and value aliases, sofifa format with keeper fallback and skipped rows, missing-column errors, and that the bundled dataset loads and covers every position.
+- **Import:** the app's own format, gender column and value aliases, sofifa format with keeper fallback and skipped rows, EA FC Kaggle format with alternative positions and a sprint-speed keeper fallback, Windows-1252 and UTF-16 files, missing-column errors, and that the bundled dataset loads and covers every position.
 - **Quiz:** unique question IDs, profile scaling, an empty quiz, and a JSON round trip.
 - **Matching:** striker, playmaker, defender and keeper answers each find the right archetype, plus filters (including men's/women's) and the result limit.
 - **Responses:** saving, reloading and deleting, summary counts, and CSV escaping.
 
-**Website:** `node --test web/tests/*.test.mjs` runs 7 tests:
+**Website:** `node --test web/tests/*.test.mjs` runs 9 tests:
 
 - `web/players.csv` matches the Mac app's file.
 - The questions match the Swift ones exactly.
 - All 40 parity cases give the same profiles, matches, scores and shared strengths.
-- CSV parsing, sofifa import with gender, and missing-column errors.
+- CSV parsing, sofifa and EA FC Kaggle imports, non-UTF-8 files, and missing-column errors.
 - Summary counts and CSV export.
 
 The website was also checked by hand in a browser:
@@ -206,10 +232,11 @@ The website was also checked by hand in a browser:
 
 ## Known limits
 
-- Bundled ratings are approximate EA FC-style values compiled from memory, and legends are rated at their peak. Clubs reflect summer 2025.
+- **Ratings are a snapshot** of EA SPORTS FC 27 as of 2026-10-13. EA updates cards during the season and some players move in January.
+- **Not from EA data:** 11 legends have never had an official EA Icon card (Zoff, Terry, Dani Alves, Platini, Di Stéfano, Romário, Solo, Houghton, Lloyd, Wambach, Rapinoe). Their ratings are still the original estimates. Two current players couldn't be checked: Neymar isn't in FC 27, and Sergio Ramos is a free agent with no FC 27 card.
+- **The persona benchmark is a judgement:** the persona answers are how I think each player would answer. Treat the numbers as a regression guard, not ground truth.
 - Imported players without a gender column only appear when matching against both men's and women's players.
 - The goalkeeper trait translation is a heuristic.
-- Imports read UTF-8 only. Files in other encodings may show garbled accents.
 - Very large imports (tens of thousands of rows) load all at once on the main thread.
 - The app is ad hoc signed, so other Macs will warn on first open.
 - The website can't combine responses from different visitors or devices. Each browser keeps its own.

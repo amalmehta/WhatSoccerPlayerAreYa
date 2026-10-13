@@ -4,11 +4,11 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 4,
         "fitness" : 3,
         "goal" : 2,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 3,
         "style" : 4,
         "weapon" : 0,
         "weekend" : 0
@@ -25,60 +25,63 @@
       },
       "matches" : [
         {
-          "name" : "Achraf Hakimi",
-          "score" : 96,
-          "shared" : [
-            "pace",
-            "passing"
-          ]
-        },
-        {
-          "name" : "Giulia Gwinn",
-          "score" : 94,
+          "name" : "Sakina Karchaoui",
+          "score" : 95,
           "shared" : [
             "pace",
             "passing",
-            "defending"
+            "dribbling"
           ]
         },
         {
-          "name" : "Dani Alves",
-          "score" : 93,
+          "name" : "Christian Pulisic",
+          "score" : 92,
           "shared" : [
             "pace",
-            "passing"
+            "dribbling"
           ]
         },
         {
-          "name" : "Cafu",
-          "score" : 93,
+          "name" : "Mallory Swanson",
+          "score" : 92,
           "shared" : [
             "pace",
-            "defending"
+            "passing",
+            "dribbling"
           ]
         },
         {
-          "name" : "Alejandro Balde",
-          "score" : 93,
+          "name" : "Andrés Iniesta",
+          "score" : 91,
           "shared" : [
             "pace",
-            "passing"
+            "passing",
+            "dribbling"
+          ]
+        },
+        {
+          "name" : "Arda Güler",
+          "score" : 91,
+          "shared" : [
+            "passing",
+            "dribbling"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.5,
-          "forward" : 0.125,
-          "midfielder" : 0.375
+          "defender" : 0.1111111111111111,
+          "forward" : 0.33333333333333331,
+          "goalkeeper" : 0.22222222222222221,
+          "midfielder" : 0.33333333333333331
         },
         "traits" : [
           1,
-          0,
-          0.59999999999999998,
-          0.20000000000000001,
-          0.40000000000000002,
-          0.20000000000000001
+          0.375,
+          0.75,
+          0.5,
+          0.125,
+          0
         ]
       }
     },
@@ -86,7 +89,7 @@
       "answers" : {
         "ball" : 2,
         "captain" : 1,
-        "duel" : 0,
+        "duel" : 1,
         "fitness" : 2,
         "goal" : 4,
         "loss" : 2,
@@ -108,55 +111,58 @@
       },
       "matches" : [
         {
-          "name" : "Hannah Hampton",
-          "score" : 81,
+          "name" : "Carli Lloyd",
+          "score" : 92,
           "shared" : [
-
+            "shooting",
+            "passing"
           ]
         },
         {
-          "name" : "Ann-Katrin Berger",
-          "score" : 80,
+          "name" : "Lindsey Heaps",
+          "score" : 87,
           "shared" : [
-
+            "shooting",
+            "passing"
           ]
         },
         {
-          "name" : "Mary Earps",
-          "score" : 78,
+          "name" : "Vivianne Miedema",
+          "score" : 86,
           "shared" : [
-
+            "shooting"
           ]
         },
         {
-          "name" : "Hope Solo",
-          "score" : 73,
+          "name" : "Marta",
+          "score" : 83,
           "shared" : [
-
+            "shooting",
+            "passing"
           ]
         },
         {
-          "name" : "Cata Coll",
-          "score" : 72,
+          "name" : "Temwa Chawinga",
+          "score" : 82,
           "shared" : [
-
+            "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.18181818181818182,
-          "forward" : 0.18181818181818182,
-          "goalkeeper" : 0.36363636363636365,
-          "midfielder" : 0.27272727272727271
+          "defender" : 0.1111111111111111,
+          "forward" : 0.22222222222222221,
+          "goalkeeper" : 0.33333333333333331,
+          "midfielder" : 0.33333333333333331
         },
         "traits" : [
-          0,
+          0.18181818181818182,
           1,
-          0.44444444444444442,
+          0.54545454545454541,
+          0.18181818181818182,
           0,
-          0.1111111111111111,
-          0.44444444444444442
+          0.81818181818181823
         ]
       }
     },
@@ -169,7 +175,7 @@
         "goal" : 1,
         "loss" : 1,
         "pitch" : 2,
-        "role" : 3,
+        "role" : 2,
         "style" : 3,
         "weapon" : 2,
         "weekend" : 4
@@ -187,7 +193,7 @@
       "matches" : [
         {
           "name" : "Reece James",
-          "score" : 96,
+          "score" : 97,
           "shared" : [
             "passing",
             "defending",
@@ -196,7 +202,7 @@
         },
         {
           "name" : "Franz Beckenbauer",
-          "score" : 95,
+          "score" : 97,
           "shared" : [
             "passing",
             "defending"
@@ -204,25 +210,24 @@
         },
         {
           "name" : "Bobby Moore",
+          "score" : 96,
+          "shared" : [
+            "passing",
+            "defending",
+            "physical"
+          ]
+        },
+        {
+          "name" : "Marc Cucurella",
           "score" : 94,
           "shared" : [
             "passing",
-            "defending",
-            "physical"
+            "defending"
           ]
         },
         {
-          "name" : "Sergio Ramos",
-          "score" : 92,
-          "shared" : [
-            "passing",
-            "defending",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Alessandro Bastoni",
-          "score" : 92,
+          "name" : "Rúben Dias",
+          "score" : 93,
           "shared" : [
             "passing",
             "defending",
@@ -232,31 +237,31 @@
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.41666666666666669,
+          "defender" : 0.5,
           "forward" : 0.16666666666666666,
-          "goalkeeper" : 0.25,
-          "midfielder" : 0.16666666666666666
+          "goalkeeper" : 0.083333333333333329,
+          "midfielder" : 0.25
         },
         "traits" : [
+          0.20000000000000001,
           0,
-          0.125,
           1,
-          0.375,
-          0.875,
-          0.625
+          0.40000000000000002,
+          1,
+          0.59999999999999998
         ]
       }
     },
     {
       "answers" : {
         "ball" : 0,
-        "duel" : 2,
+        "duel" : 0,
         "fitness" : 0,
         "goal" : 3,
         "loss" : 0,
         "pitch" : 1,
         "pressure" : 2,
-        "role" : 2,
+        "role" : 4,
         "style" : 0,
         "weapon" : 3,
         "weekend" : 1
@@ -271,56 +276,57 @@
       },
       "matches" : [
         {
-          "name" : "Zinedine Zidane",
-          "score" : 85,
-          "shared" : [
-            "dribbling"
-          ]
-        },
-        {
-          "name" : "Andrés Iniesta",
-          "score" : 83,
+          "name" : "Cafu",
+          "score" : 90,
           "shared" : [
             "dribbling",
             "pace"
           ]
         },
         {
-          "name" : "Diego Maradona",
-          "score" : 82,
+          "name" : "Dani Alves",
+          "score" : 88,
           "shared" : [
-            "dribbling"
+            "dribbling",
+            "pace"
           ]
         },
         {
-          "name" : "Juan Román Riquelme",
-          "score" : 81,
+          "name" : "Claude Makélélé",
+          "score" : 86,
           "shared" : [
-            "dribbling"
+            "pace",
+            "physical"
           ]
         },
         {
-          "name" : "Pavel Nedvěd",
-          "score" : 81,
+          "name" : "Javier Zanetti",
+          "score" : 85,
           "shared" : [
-            "dribbling"
+            "pace"
+          ]
+        },
+        {
+          "name" : "Philipp Lahm",
+          "score" : 84,
+          "shared" : [
+            "pace"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.18181818181818182,
-          "forward" : 0.27272727272727271,
-          "goalkeeper" : 0.18181818181818182,
-          "midfielder" : 0.36363636363636365
+          "defender" : 0.40000000000000002,
+          "forward" : 0.20000000000000001,
+          "midfielder" : 0.40000000000000002
         },
         "traits" : [
-          0.18181818181818182,
+          0.72727272727272729,
           0,
-          0.090909090909090912,
+          0.27272727272727271,
           1,
-          0,
-          0.45454545454545453
+          0.36363636363636365,
+          0.54545454545454541
         ]
       }
     },
@@ -328,7 +334,7 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 2,
         "goal" : 0,
         "loss" : 3,
         "pitch" : 0,
@@ -350,59 +356,55 @@
       },
       "matches" : [
         {
+          "name" : "Jan Oblak",
+          "score" : 71,
+          "shared" : [
+
+          ]
+        },
+        {
           "name" : "John Terry",
-          "score" : 88,
+          "score" : 69,
           "shared" : [
-            "defending",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Wendie Renard",
-          "score" : 88,
-          "shared" : [
-            "defending",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Sergio Ramos",
-          "score" : 86,
-          "shared" : [
-            "defending",
-            "physical"
+            "defending"
           ]
         },
         {
           "name" : "Steph Houghton",
-          "score" : 85,
+          "score" : 68,
           "shared" : [
-            "defending",
-            "physical"
+            "defending"
           ]
         },
         {
-          "name" : "Virgil van Dijk",
-          "score" : 83,
+          "name" : "Sergio Ramos",
+          "score" : 67,
           "shared" : [
-            "defending",
-            "physical"
+            "defending"
+          ]
+        },
+        {
+          "name" : "Alisson",
+          "score" : 67,
+          "shared" : [
+
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.40000000000000002,
-          "forward" : 0.40000000000000002,
-          "midfielder" : 0.20000000000000001
+          "defender" : 0.27272727272727271,
+          "forward" : 0.36363636363636365,
+          "goalkeeper" : 0.18181818181818182,
+          "midfielder" : 0.18181818181818182
         },
         "traits" : [
           0,
-          0.5,
+          0.44444444444444442,
           0,
           0,
           1,
-          0.25
+          0
         ]
       }
     },
@@ -410,12 +412,12 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 0,
         "fitness" : 3,
         "loss" : 3,
         "pitch" : 0,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 4,
         "style" : 0,
         "weapon" : 0,
         "weekend" : 1
@@ -432,41 +434,39 @@
       },
       "matches" : [
         {
-          "name" : "Sakina Karchaoui",
-          "score" : 79,
-          "shared" : [
-            "dribbling",
-            "defending",
-            "pace"
-          ]
-        },
-        {
-          "name" : "Lauren James",
-          "score" : 76,
+          "name" : "Melchie Dumornay",
+          "score" : 85,
           "shared" : [
             "dribbling",
             "pace"
           ]
         },
         {
-          "name" : "Caroline Graham Hansen",
-          "score" : 76,
+          "name" : "Alex Morgan",
+          "score" : 78,
           "shared" : [
             "dribbling",
             "pace"
           ]
         },
         {
-          "name" : "Salma Paralluelo",
-          "score" : 74,
+          "name" : "Ewa Pajor",
+          "score" : 77,
           "shared" : [
             "dribbling",
             "pace"
           ]
         },
         {
-          "name" : "Trinity Rodman",
-          "score" : 74,
+          "name" : "Megan Rapinoe",
+          "score" : 77,
+          "shared" : [
+            "dribbling"
+          ]
+        },
+        {
+          "name" : "Mia Hamm",
+          "score" : 77,
           "shared" : [
             "dribbling",
             "pace"
@@ -475,17 +475,17 @@
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.40000000000000002,
-          "forward" : 0.40000000000000002,
+          "defender" : 0.29999999999999999,
+          "forward" : 0.5,
           "midfielder" : 0.20000000000000001
         },
         "traits" : [
-          0.125,
-          0.125,
-          0,
+          0.63636363636363635,
+          0.36363636363636365,
+          0.27272727272727271,
           1,
-          0.25,
-          0.125
+          0.45454545454545453,
+          0
         ]
       }
     },
@@ -498,7 +498,7 @@
         "loss" : 2,
         "pitch" : 3,
         "pressure" : 0,
-        "role" : 0,
+        "role" : 1,
         "style" : 2,
         "weapon" : 1,
         "weekend" : 3
@@ -515,36 +515,36 @@
       },
       "matches" : [
         {
-          "name" : "Gianluigi Buffon",
-          "score" : 68,
+          "name" : "Dino Zoff",
+          "score" : 97,
           "shared" : [
 
           ]
         },
         {
           "name" : "Lev Yashin",
-          "score" : 68,
+          "score" : 91,
           "shared" : [
 
           ]
         },
         {
-          "name" : "Dino Zoff",
-          "score" : 67,
+          "name" : "Gregor Kobel",
+          "score" : 90,
           "shared" : [
 
           ]
         },
         {
-          "name" : "Oliver Kahn",
-          "score" : 66,
+          "name" : "Thibaut Courtois",
+          "score" : 88,
           "shared" : [
 
           ]
         },
         {
-          "name" : "Iker Casillas",
-          "score" : 65,
+          "name" : "Jan Oblak",
+          "score" : 83,
           "shared" : [
 
           ]
@@ -552,17 +552,17 @@
       ],
       "profile" : {
         "positions" : {
-          "forward" : 0.25,
-          "goalkeeper" : 0.5,
-          "midfielder" : 0.25
+          "defender" : 0.2857142857142857,
+          "forward" : 0.2857142857142857,
+          "goalkeeper" : 0.42857142857142855
         },
         "traits" : [
-          0.16666666666666666,
+          0.2857142857142857,
           1,
-          0.083333333333333329,
           0,
-          0.083333333333333329,
-          0.25
+          0.14285714285714285,
+          0.42857142857142855,
+          0.42857142857142855
         ]
       }
     },
@@ -570,7 +570,7 @@
       "answers" : {
         "ball" : 1,
         "captain" : 0,
-        "duel" : 3,
+        "duel" : 4,
         "fitness" : 1,
         "goal" : 2,
         "loss" : 1,
@@ -589,6 +589,15 @@
       },
       "matches" : [
         {
+          "name" : "Lothar Matthäus",
+          "score" : 91,
+          "shared" : [
+            "passing",
+            "defending",
+            "pace"
+          ]
+        },
+        {
           "name" : "Franz Beckenbauer",
           "score" : 86,
           "shared" : [
@@ -598,7 +607,7 @@
         },
         {
           "name" : "Steph Houghton",
-          "score" : 86,
+          "score" : 84,
           "shared" : [
             "passing",
             "defending"
@@ -606,14 +615,6 @@
         },
         {
           "name" : "Bobby Moore",
-          "score" : 85,
-          "shared" : [
-            "passing",
-            "defending"
-          ]
-        },
-        {
-          "name" : "Franco Baresi",
           "score" : 83,
           "shared" : [
             "passing",
@@ -621,11 +622,12 @@
           ]
         },
         {
-          "name" : "Philipp Lahm",
-          "score" : 82,
+          "name" : "Javier Zanetti",
+          "score" : 83,
           "shared" : [
             "passing",
-            "defending"
+            "defending",
+            "pace"
           ]
         }
       ],
@@ -633,11 +635,11 @@
         "positions" : {
           "defender" : 0.30769230769230771,
           "forward" : 0.23076923076923078,
-          "goalkeeper" : 0.23076923076923078,
-          "midfielder" : 0.23076923076923078
+          "goalkeeper" : 0.15384615384615385,
+          "midfielder" : 0.30769230769230771
         },
         "traits" : [
-          0.42857142857142855,
+          0.5714285714285714,
           0.2857142857142857,
           1,
           0,
@@ -649,13 +651,13 @@
     {
       "answers" : {
         "captain" : 3,
-        "duel" : 2,
+        "duel" : 1,
         "fitness" : 0,
         "goal" : 4,
         "loss" : 0,
         "pitch" : 1,
         "pressure" : 2,
-        "role" : 2,
+        "role" : 0,
         "style" : 1,
         "weapon" : 3
       },
@@ -671,65 +673,56 @@
       },
       "matches" : [
         {
-          "name" : "Enzo Fernández",
-          "score" : 97,
+          "name" : "Joshua Kimmich",
+          "score" : 89,
           "shared" : [
-            "passing",
-            "dribbling",
-            "shooting"
+            "passing"
           ]
         },
         {
           "name" : "David Beckham",
-          "score" : 96,
+          "score" : 89,
           "shared" : [
-            "passing",
-            "dribbling",
-            "shooting"
-          ]
-        },
-        {
-          "name" : "Andrea Pirlo",
-          "score" : 95,
-          "shared" : [
-            "passing",
-            "dribbling",
-            "shooting"
+            "passing"
           ]
         },
         {
           "name" : "Bruno Fernandes",
-          "score" : 95,
+          "score" : 87,
           "shared" : [
-            "passing",
-            "dribbling",
-            "shooting"
+            "passing"
           ]
         },
         {
-          "name" : "Kevin De Bruyne",
-          "score" : 95,
+          "name" : "Enzo Fernández",
+          "score" : 87,
+          "shared" : [
+            "passing"
+          ]
+        },
+        {
+          "name" : "Frenkie de Jong",
+          "score" : 87,
           "shared" : [
             "passing",
-            "dribbling",
-            "shooting"
+            "pace"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.083333333333333329,
-          "forward" : 0.25,
-          "goalkeeper" : 0.25,
-          "midfielder" : 0.41666666666666669
+          "defender" : 0.16666666666666666,
+          "forward" : 0.083333333333333329,
+          "goalkeeper" : 0.083333333333333329,
+          "midfielder" : 0.66666666666666663
         },
         "traits" : [
-          0.14285714285714285,
-          0.2857142857142857,
+          0.18181818181818182,
+          0.090909090909090912,
           1,
-          0.42857142857142855,
+          0.18181818181818182,
           0,
-          0.2857142857142857
+          0.45454545454545453
         ]
       }
     },
@@ -737,11 +730,11 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 3,
         "fitness" : 3,
         "goal" : 1,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 2,
         "style" : 3,
         "weapon" : 4,
         "weekend" : 4
@@ -758,59 +751,59 @@
       },
       "matches" : [
         {
-          "name" : "Steph Houghton",
-          "score" : 92,
+          "name" : "Giulia Gwinn",
+          "score" : 88,
+          "shared" : [
+            "dribbling",
+            "defending",
+            "pace"
+          ]
+        },
+        {
+          "name" : "Naomi Girma",
+          "score" : 78,
           "shared" : [
             "defending",
-            "physical"
+            "pace"
           ]
         },
         {
           "name" : "Leah Williamson",
-          "score" : 90,
+          "score" : 77,
           "shared" : [
             "defending",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Wendie Renard",
-          "score" : 90,
-          "shared" : [
-            "defending",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Millie Bright",
-          "score" : 90,
-          "shared" : [
-            "defending",
-            "physical"
+            "pace"
           ]
         },
         {
           "name" : "Mapi León",
-          "score" : 89,
+          "score" : 71,
           "shared" : [
-            "defending",
-            "dribbling"
+            "defending"
+          ]
+        },
+        {
+          "name" : "Lucy Bronze",
+          "score" : 71,
+          "shared" : [
+            "defending"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.625,
+          "defender" : 0.375,
+          "forward" : 0.25,
           "goalkeeper" : 0.125,
           "midfielder" : 0.25
         },
         "traits" : [
+          0.33333333333333331,
+          0.16666666666666666,
           0,
-          0,
-          0.125,
-          0.625,
           1,
-          0.5
+          0.66666666666666663,
+          0
         ]
       }
     },
@@ -824,7 +817,7 @@
         "loss" : 3,
         "pitch" : 0,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 0,
         "weapon" : 0,
         "weekend" : 2
       },
@@ -840,58 +833,60 @@
       },
       "matches" : [
         {
-          "name" : "Reece James",
-          "score" : 95,
+          "name" : "David Beckham",
+          "score" : 94,
           "shared" : [
             "passing",
-            "physical"
+            "dribbling"
           ]
         },
         {
-          "name" : "Dean Huijsen",
-          "score" : 92,
+          "name" : "Paul Scholes",
+          "score" : 93,
           "shared" : [
             "passing",
-            "physical"
+            "dribbling"
           ]
         },
         {
-          "name" : "Alessandro Bastoni",
+          "name" : "Zinedine Zidane",
           "score" : 91,
           "shared" : [
             "passing",
-            "physical"
+            "dribbling"
           ]
         },
         {
-          "name" : "Pau Cubarsí",
+          "name" : "Dominik Szoboszlai",
           "score" : 91,
           "shared" : [
-            "passing"
+            "passing",
+            "dribbling"
           ]
         },
         {
-          "name" : "Marc Cucurella",
-          "score" : 90,
+          "name" : "Xavi",
+          "score" : 91,
           "shared" : [
-            "physical",
-            "pace"
+            "passing",
+            "pace",
+            "dribbling"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.36363636363636365,
+          "defender" : 0.18181818181818182,
           "forward" : 0.36363636363636365,
-          "midfielder" : 0.27272727272727271
+          "midfielder" : 0.45454545454545453
         },
         "traits" : [
-          0.5,
-          0,
+          0.42857142857142855,
+          0.2857142857142857,
           1,
-          0.5,
-          0.5,
-          1
+          0.42857142857142855,
+          0,
+          0.42857142857142855
         ]
       }
     },
@@ -899,12 +894,12 @@
       "answers" : {
         "ball" : 2,
         "captain" : 1,
-        "duel" : 0,
+        "duel" : 3,
         "fitness" : 2,
         "goal" : 1,
         "loss" : 2,
         "pitch" : 3,
-        "role" : 0,
+        "role" : 2,
         "style" : 3,
         "weapon" : 1,
         "weekend" : 4
@@ -919,68 +914,72 @@
       },
       "matches" : [
         {
-          "name" : "Dino Zoff",
-          "score" : 90,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Gianluigi Buffon",
-          "score" : 90,
+          "name" : "Oliver Kahn",
+          "score" : 95,
           "shared" : [
 
           ]
         },
         {
           "name" : "Lev Yashin",
+          "score" : 93,
+          "shared" : [
+
+          ]
+        },
+        {
+          "name" : "Abby Wambach",
+          "score" : 92,
+          "shared" : [
+            "shooting",
+            "dribbling",
+            "physical"
+          ]
+        },
+        {
+          "name" : "Birgit Prinz",
           "score" : 89,
           "shared" : [
-
+            "shooting",
+            "dribbling",
+            "physical"
           ]
         },
         {
-          "name" : "Oliver Kahn",
-          "score" : 88,
+          "name" : "Didier Drogba",
+          "score" : 89,
           "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Hope Solo",
-          "score" : 88,
-          "shared" : [
-
+            "shooting",
+            "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.25,
-          "forward" : 0.16666666666666666,
-          "goalkeeper" : 0.41666666666666669,
-          "midfielder" : 0.16666666666666666
+          "defender" : 0.20000000000000001,
+          "forward" : 0.40000000000000002,
+          "goalkeeper" : 0.40000000000000002
         },
         "traits" : [
-          0,
+          0.45454545454545453,
           1,
-          0.14285714285714285,
-          0.42857142857142855,
-          0.42857142857142855,
-          0.5714285714285714
+          0,
+          0.63636363636363635,
+          0.18181818181818182,
+          0.63636363636363635
         ]
       }
     },
     {
       "answers" : {
         "ball" : 1,
-        "duel" : 3,
+        "duel" : 0,
         "fitness" : 1,
         "goal" : 3,
         "loss" : 1,
         "pitch" : 2,
         "pressure" : 3,
-        "role" : 3,
+        "role" : 4,
         "style" : 0,
         "weapon" : 2,
         "weekend" : 1
@@ -997,55 +996,62 @@
       },
       "matches" : [
         {
-          "name" : "Ederson",
-          "score" : 91,
+          "name" : "Reece James",
+          "score" : 97,
           "shared" : [
-
+            "passing",
+            "defending"
           ]
         },
         {
-          "name" : "Manuel Neuer",
-          "score" : 90,
+          "name" : "Marc Cucurella",
+          "score" : 96,
           "shared" : [
-
+            "passing",
+            "defending",
+            "dribbling"
           ]
         },
         {
-          "name" : "David Raya",
-          "score" : 89,
+          "name" : "Franz Beckenbauer",
+          "score" : 96,
           "shared" : [
-
+            "passing",
+            "defending",
+            "dribbling"
           ]
         },
         {
-          "name" : "Hannah Hampton",
-          "score" : 88,
+          "name" : "Javier Zanetti",
+          "score" : 95,
           "shared" : [
-
+            "passing",
+            "defending"
           ]
         },
         {
-          "name" : "Marc-André ter Stegen",
-          "score" : 88,
+          "name" : "Bobby Moore",
+          "score" : 95,
           "shared" : [
-
+            "passing",
+            "defending"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.30769230769230771,
-          "forward" : 0.15384615384615385,
-          "goalkeeper" : 0.38461538461538464,
-          "midfielder" : 0.15384615384615385
+          "defender" : 0.5,
+          "forward" : 0.083333333333333329,
+          "goalkeeper" : 0.16666666666666666,
+          "midfielder" : 0.25
         },
         "traits" : [
+          0.375,
           0,
-          0.1111111111111111,
           1,
-          0.77777777777777779,
-          0.44444444444444442,
-          0.77777777777777779
+          0.75,
+          0.875,
+          0.75
         ]
       }
     },
@@ -1058,7 +1064,7 @@
         "loss" : 0,
         "pitch" : 1,
         "pressure" : 2,
-        "role" : 2,
+        "role" : 1,
         "style" : 2,
         "weapon" : 3,
         "weekend" : 3
@@ -1075,58 +1081,60 @@
       },
       "matches" : [
         {
-          "name" : "Abby Wambach",
-          "score" : 80,
+          "name" : "Lena Oberdorf",
+          "score" : 82,
           "shared" : [
-            "shooting",
-            "dribbling"
+            "defending",
+            "physical"
           ]
         },
         {
-          "name" : "Ada Hegerberg",
-          "score" : 79,
+          "name" : "Patri Guijarro",
+          "score" : 75,
           "shared" : [
-            "shooting",
-            "dribbling"
+            "defending",
+            "physical"
           ]
         },
         {
-          "name" : "Birgit Prinz",
-          "score" : 79,
+          "name" : "Steph Houghton",
+          "score" : 71,
           "shared" : [
-            "shooting"
+            "defending",
+            "physical"
           ]
         },
         {
-          "name" : "Bunny Shaw",
-          "score" : 78,
+          "name" : "Mapi León",
+          "score" : 71,
           "shared" : [
-            "shooting"
+            "defending",
+            "physical"
           ]
         },
         {
-          "name" : "Lea Schüller",
-          "score" : 78,
+          "name" : "Millie Bright",
+          "score" : 70,
           "shared" : [
-            "shooting",
-            "dribbling"
+            "defending",
+            "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.083333333333333329,
-          "forward" : 0.33333333333333331,
+          "defender" : 0.25,
+          "forward" : 0.16666666666666666,
           "goalkeeper" : 0.25,
           "midfielder" : 0.33333333333333331
         },
         "traits" : [
-          0.25,
-          1,
+          0.40000000000000002,
+          0.40000000000000002,
           0,
+          0.40000000000000002,
           1,
-          0.5,
-          0.5
+          0.59999999999999998
         ]
       }
     },
@@ -1134,12 +1142,12 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 4,
         "fitness" : 3,
         "loss" : 3,
         "pitch" : 0,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 3,
         "style" : 4,
         "weapon" : 4,
         "weekend" : 0
@@ -1156,60 +1164,62 @@
       },
       "matches" : [
         {
-          "name" : "Franz Beckenbauer",
-          "score" : 96,
+          "name" : "Antoine Griezmann",
+          "score" : 82,
           "shared" : [
-            "defending",
+            "passing",
+            "dribbling",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Lamine Yamal",
+          "score" : 81,
+          "shared" : [
             "passing",
             "dribbling"
           ]
         },
         {
-          "name" : "Bobby Moore",
-          "score" : 93,
+          "name" : "Bukayo Saka",
+          "score" : 81,
           "shared" : [
-            "defending",
-            "passing"
+            "passing",
+            "dribbling",
+            "shooting"
           ]
         },
         {
-          "name" : "Philipp Lahm",
-          "score" : 92,
+          "name" : "Garrincha",
+          "score" : 81,
           "shared" : [
-            "defending",
             "passing",
             "dribbling"
           ]
         },
         {
-          "name" : "Franco Baresi",
-          "score" : 91,
+          "name" : "Neymar",
+          "score" : 80,
           "shared" : [
-            "defending",
-            "passing"
-          ]
-        },
-        {
-          "name" : "Alessandro Bastoni",
-          "score" : 88,
-          "shared" : [
-            "defending",
-            "passing"
+            "passing",
+            "dribbling",
+            "shooting"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.36363636363636365,
-          "forward" : 0.36363636363636365,
-          "midfielder" : 0.27272727272727271
+          "defender" : 0.083333333333333329,
+          "forward" : 0.5,
+          "goalkeeper" : 0.16666666666666666,
+          "midfielder" : 0.25
         },
         "traits" : [
-          0,
-          0,
           0.5,
-          0.25,
+          0.66666666666666663,
           1,
+          0.83333333333333337,
+          0.66666666666666663,
           0
         ]
       }
@@ -1238,17 +1248,8 @@
       },
       "matches" : [
         {
-          "name" : "Roberto Carlos",
-          "score" : 66,
-          "shared" : [
-            "defending",
-            "pace",
-            "shooting"
-          ]
-        },
-        {
-          "name" : "Pelé",
-          "score" : 66,
+          "name" : "George Best",
+          "score" : 69,
           "shared" : [
             "pace",
             "shooting"
@@ -1263,15 +1264,23 @@
           ]
         },
         {
-          "name" : "Mia Hamm",
-          "score" : 64,
+          "name" : "Ronaldo Nazário",
+          "score" : 65,
           "shared" : [
             "pace",
             "shooting"
           ]
         },
         {
-          "name" : "Alex Morgan",
+          "name" : "Lothar Matthäus",
+          "score" : 65,
+          "shared" : [
+            "defending",
+            "pace"
+          ]
+        },
+        {
+          "name" : "Gerd Müller",
           "score" : 64,
           "shared" : [
             "pace",
@@ -1299,7 +1308,7 @@
       "answers" : {
         "ball" : 2,
         "captain" : 1,
-        "duel" : 0,
+        "duel" : 4,
         "fitness" : 2,
         "goal" : 2,
         "loss" : 2,
@@ -1321,15 +1330,15 @@
       "matches" : [
         {
           "name" : "Gerd Müller",
-          "score" : 71,
+          "score" : 93,
           "shared" : [
             "shooting",
-            "physical"
+            "pace"
           ]
         },
         {
           "name" : "Erling Haaland",
-          "score" : 71,
+          "score" : 93,
           "shared" : [
             "shooting",
             "pace",
@@ -1338,58 +1347,55 @@
         },
         {
           "name" : "Gabriel Batistuta",
-          "score" : 71,
+          "score" : 93,
           "shared" : [
             "shooting",
-            "pace",
-            "physical"
+            "pace"
           ]
         },
         {
           "name" : "Abby Wambach",
-          "score" : 70,
+          "score" : 92,
           "shared" : [
             "shooting",
             "physical"
           ]
         },
         {
-          "name" : "Birgit Prinz",
-          "score" : 69,
+          "name" : "Alexander Isak",
+          "score" : 92,
           "shared" : [
             "shooting",
-            "pace",
-            "physical"
+            "pace"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.20000000000000001,
-          "forward" : 0.29999999999999999,
-          "goalkeeper" : 0.40000000000000002,
-          "midfielder" : 0.10000000000000001
+          "forward" : 0.55555555555555558,
+          "goalkeeper" : 0.33333333333333331,
+          "midfielder" : 0.1111111111111111
         },
         "traits" : [
-          0.375,
+          0.54545454545454541,
           1,
-          0.125,
+          0.27272727272727271,
+          0.27272727272727271,
           0,
-          0.125,
-          0.25
+          0.36363636363636365
         ]
       }
     },
     {
       "answers" : {
         "captain" : 0,
-        "duel" : 3,
+        "duel" : 1,
         "fitness" : 1,
         "goal" : 4,
         "loss" : 1,
         "pitch" : 2,
         "pressure" : 3,
-        "role" : 3,
+        "role" : 0,
         "style" : 1,
         "weapon" : 2
       },
@@ -1405,58 +1411,63 @@
       },
       "matches" : [
         {
-          "name" : "Hannah Hampton",
-          "score" : 83,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Ann-Katrin Berger",
-          "score" : 80,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Mary Earps",
-          "score" : 78,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Mapi León",
-          "score" : 76,
+          "name" : "Lena Oberdorf",
+          "score" : 87,
           "shared" : [
             "passing",
+            "physical",
             "defending"
           ]
         },
         {
-          "name" : "Leah Williamson",
+          "name" : "Steph Houghton",
+          "score" : 77,
+          "shared" : [
+            "passing",
+            "physical",
+            "defending"
+          ]
+        },
+        {
+          "name" : "Lucy Bronze",
+          "score" : 76,
+          "shared" : [
+            "passing",
+            "physical",
+            "defending"
+          ]
+        },
+        {
+          "name" : "Millie Bright",
           "score" : 75,
           "shared" : [
             "passing",
-            "defending",
-            "physical"
+            "physical",
+            "defending"
+          ]
+        },
+        {
+          "name" : "Patri Guijarro",
+          "score" : 74,
+          "shared" : [
+            "physical",
+            "defending"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.30769230769230771,
-          "forward" : 0.15384615384615385,
-          "goalkeeper" : 0.38461538461538464,
-          "midfielder" : 0.15384615384615385
+          "defender" : 0.38461538461538464,
+          "goalkeeper" : 0.15384615384615385,
+          "midfielder" : 0.46153846153846156
         },
         "traits" : [
           0,
-          0.083333333333333329,
+          0,
           1,
-          0.083333333333333329,
-          0.5,
-          0.41666666666666669
+          0,
+          0.42857142857142855,
+          0.5
         ]
       }
     },
@@ -1464,7 +1475,7 @@
       "answers" : {
         "ball" : 0,
         "captain" : 3,
-        "duel" : 2,
+        "duel" : 3,
         "fitness" : 0,
         "goal" : 1,
         "pressure" : 2,
@@ -1485,60 +1496,63 @@
       },
       "matches" : [
         {
-          "name" : "Iker Casillas",
+          "name" : "George Best",
+          "score" : 88,
+          "shared" : [
+            "dribbling",
+            "pace",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Ousmane Dembélé",
+          "score" : 88,
+          "shared" : [
+            "dribbling",
+            "pace",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Ronaldo Nazário",
+          "score" : 87,
+          "shared" : [
+            "dribbling",
+            "pace",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Gabriel Martinelli",
+          "score" : 87,
+          "shared" : [
+            "dribbling",
+            "pace",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Jérémy Doku",
           "score" : 86,
           "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Garrincha",
-          "score" : 82,
-          "shared" : [
             "dribbling",
-            "pace",
-            "shooting"
-          ]
-        },
-        {
-          "name" : "Romário",
-          "score" : 81,
-          "shared" : [
-            "dribbling",
-            "pace",
-            "shooting"
-          ]
-        },
-        {
-          "name" : "Lev Yashin",
-          "score" : 81,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "George Best",
-          "score" : 81,
-          "shared" : [
-            "dribbling",
-            "pace",
-            "shooting"
+            "pace"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.18181818181818182,
-          "forward" : 0.36363636363636365,
-          "goalkeeper" : 0.36363636363636365,
-          "midfielder" : 0.090909090909090912
+          "defender" : 0.29999999999999999,
+          "forward" : 0.40000000000000002,
+          "goalkeeper" : 0.20000000000000001,
+          "midfielder" : 0.10000000000000001
         },
         "traits" : [
-          0.44444444444444442,
+          0.88888888888888884,
           0.44444444444444442,
           0,
           1,
-          0.33333333333333331,
+          0.22222222222222221,
           0.22222222222222221
         ]
       }
@@ -1547,13 +1561,13 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 0,
         "fitness" : 3,
         "goal" : 3,
         "loss" : 3,
         "pitch" : 0,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 4,
         "weapon" : 4,
         "weekend" : 1
       },
@@ -1567,59 +1581,58 @@
       },
       "matches" : [
         {
-          "name" : "John Terry",
-          "score" : 88,
+          "name" : "Franz Beckenbauer",
+          "score" : 70,
           "shared" : [
-            "defending",
-            "physical"
+            "dribbling",
+            "defending"
           ]
         },
         {
-          "name" : "Bobby Moore",
-          "score" : 86,
+          "name" : "Philipp Lahm",
+          "score" : 69,
           "shared" : [
             "defending",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Steph Houghton",
-          "score" : 85,
-          "shared" : [
-            "defending",
-            "physical"
+            "pace"
           ]
         },
         {
           "name" : "Franco Baresi",
-          "score" : 84,
+          "score" : 68,
           "shared" : [
             "defending",
-            "physical"
+            "pace"
           ]
         },
         {
-          "name" : "Franz Beckenbauer",
-          "score" : 82,
+          "name" : "Alessandro Nesta",
+          "score" : 67,
           "shared" : [
-            "dribbling",
+            "defending",
+            "pace"
+          ]
+        },
+        {
+          "name" : "Bobby Moore",
+          "score" : 67,
+          "shared" : [
             "defending"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.45454545454545453,
-          "forward" : 0.36363636363636365,
+          "defender" : 0.36363636363636365,
+          "forward" : 0.45454545454545453,
           "midfielder" : 0.18181818181818182
         },
         "traits" : [
+          0.20000000000000001,
+          0.20000000000000001,
           0,
-          0.42857142857142855,
-          0.2857142857142857,
           1,
           1,
-          0.8571428571428571
+          0
         ]
       }
     },
@@ -1627,12 +1640,12 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 3,
         "fitness" : 3,
         "goal" : 1,
         "loss" : 3,
         "pitch" : 0,
-        "role" : 1,
+        "role" : 2,
         "style" : 3,
         "weapon" : 0,
         "weekend" : 4
@@ -1649,60 +1662,65 @@
       },
       "matches" : [
         {
-          "name" : "Fabio Cannavaro",
+          "name" : "Melchie Dumornay",
           "score" : 92,
           "shared" : [
-            "defending",
-            "physical"
+            "pace",
+            "dribbling",
+            "shooting"
           ]
         },
         {
-          "name" : "Virgil van Dijk",
-          "score" : 92,
-          "shared" : [
-            "defending",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Gabriel Magalhães",
+          "name" : "George Best",
           "score" : 91,
           "shared" : [
-            "defending",
-            "physical"
+            "pace",
+            "dribbling",
+            "shooting"
           ]
         },
         {
-          "name" : "Carles Puyol",
-          "score" : 91,
+          "name" : "Ousmane Dembélé",
+          "score" : 90,
           "shared" : [
-            "defending",
-            "physical"
+            "pace",
+            "dribbling",
+            "shooting"
           ]
         },
         {
-          "name" : "Cristian Romero",
-          "score" : 91,
+          "name" : "Ronaldo Nazário",
+          "score" : 89,
           "shared" : [
-            "defending",
-            "physical"
+            "pace",
+            "dribbling",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Ewa Pajor",
+          "score" : 88,
+          "shared" : [
+            "pace",
+            "dribbling",
+            "shooting"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.41666666666666669,
-          "forward" : 0.33333333333333331,
+          "defender" : 0.25,
+          "forward" : 0.5,
           "goalkeeper" : 0.083333333333333329,
           "midfielder" : 0.16666666666666666
         },
         "traits" : [
-          0.5,
-          0.25,
-          0,
-          0.75,
           1,
-          0.75
+          0.59999999999999998,
+          0,
+          1,
+          0.20000000000000001,
+          0
         ]
       }
     },
@@ -1715,7 +1733,7 @@
         "loss" : 2,
         "pitch" : 3,
         "pressure" : 0,
-        "role" : 0,
+        "role" : 4,
         "style" : 0,
         "weapon" : 1,
         "weekend" : 1
@@ -1733,54 +1751,59 @@
       "matches" : [
         {
           "name" : "Hope Solo",
-          "score" : 86,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Mary Earps",
-          "score" : 86,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Ann-Katrin Berger",
-          "score" : 85,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Cata Coll",
           "score" : 84,
           "shared" : [
 
           ]
         },
         {
-          "name" : "Hannah Hampton",
-          "score" : 83,
+          "name" : "Abby Wambach",
+          "score" : 70,
+          "shared" : [
+            "shooting",
+            "physical",
+            "dribbling"
+          ]
+        },
+        {
+          "name" : "Cata Coll",
+          "score" : 68,
           "shared" : [
 
+          ]
+        },
+        {
+          "name" : "Bunny Shaw",
+          "score" : 68,
+          "shared" : [
+            "shooting",
+            "physical",
+            "dribbling"
+          ]
+        },
+        {
+          "name" : "Birgit Prinz",
+          "score" : 66,
+          "shared" : [
+            "shooting",
+            "physical",
+            "dribbling"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.29999999999999999,
-          "forward" : 0.10000000000000001,
-          "goalkeeper" : 0.40000000000000002,
-          "midfielder" : 0.20000000000000001
+          "defender" : 0.375,
+          "forward" : 0.25,
+          "goalkeeper" : 0.375
         },
         "traits" : [
-          0,
+          0.36363636363636365,
           1,
-          0.20000000000000001,
-          0.5,
-          0.20000000000000001,
-          0.59999999999999998
+          0,
+          0.54545454545454541,
+          0.27272727272727271,
+          0.63636363636363635
         ]
       }
     },
@@ -1788,12 +1811,12 @@
       "answers" : {
         "ball" : 1,
         "captain" : 0,
-        "duel" : 3,
+        "duel" : 2,
         "goal" : 0,
         "loss" : 1,
         "pitch" : 2,
         "pressure" : 3,
-        "role" : 3,
+        "role" : 1,
         "style" : 2,
         "weapon" : 2,
         "weekend" : 3
@@ -1810,55 +1833,63 @@
       },
       "matches" : [
         {
-          "name" : "Manuel Neuer",
-          "score" : 80,
+          "name" : "John Terry",
+          "score" : 91,
           "shared" : [
-
+            "defending",
+            "passing",
+            "physical"
           ]
         },
         {
-          "name" : "Ederson",
-          "score" : 80,
+          "name" : "Bobby Moore",
+          "score" : 91,
           "shared" : [
-
+            "defending",
+            "passing",
+            "physical"
           ]
         },
         {
-          "name" : "Marc-André ter Stegen",
-          "score" : 77,
+          "name" : "Franz Beckenbauer",
+          "score" : 91,
           "shared" : [
-
+            "defending",
+            "passing"
           ]
         },
         {
-          "name" : "David Raya",
-          "score" : 76,
+          "name" : "Virgil van Dijk",
+          "score" : 89,
           "shared" : [
-
+            "defending",
+            "passing",
+            "physical"
           ]
         },
         {
-          "name" : "Unai Simón",
-          "score" : 76,
+          "name" : "Sergio Ramos",
+          "score" : 89,
           "shared" : [
-
+            "defending",
+            "passing",
+            "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.33333333333333331,
-          "forward" : 0.16666666666666666,
-          "goalkeeper" : 0.41666666666666669,
-          "midfielder" : 0.083333333333333329
+          "defender" : 0.5,
+          "goalkeeper" : 0.33333333333333331,
+          "midfielder" : 0.16666666666666666
         },
         "traits" : [
           0.25,
-          0.375,
-          1,
+          0.25,
+          0.66666666666666663,
           0,
-          0.875,
-          0.375
+          1,
+          0.41666666666666669
         ]
       }
     },
@@ -1866,12 +1897,12 @@
       "answers" : {
         "ball" : 0,
         "captain" : 3,
-        "duel" : 2,
+        "duel" : 4,
         "fitness" : 0,
         "loss" : 0,
         "pitch" : 1,
         "pressure" : 2,
-        "role" : 2,
+        "role" : 3,
         "style" : 4,
         "weapon" : 3,
         "weekend" : 0
@@ -1887,43 +1918,45 @@
       "matches" : [
         {
           "name" : "Kaká",
-          "score" : 95,
+          "score" : 94,
           "shared" : [
             "pace",
+            "passing",
             "dribbling"
           ]
         },
         {
           "name" : "Andrés Iniesta",
-          "score" : 94,
+          "score" : 93,
           "shared" : [
             "pace",
-            "dribbling",
-            "passing"
+            "passing",
+            "dribbling"
           ]
         },
         {
-          "name" : "Diego Maradona",
-          "score" : 94,
+          "name" : "Roberto Baggio",
+          "score" : 93,
           "shared" : [
-            "dribbling",
-            "passing"
-          ]
-        },
-        {
-          "name" : "Zico",
-          "score" : 92,
-          "shared" : [
-            "dribbling",
-            "passing"
+            "passing",
+            "dribbling"
           ]
         },
         {
           "name" : "Pavel Nedvěd",
-          "score" : 91,
+          "score" : 92,
           "shared" : [
-            "dribbling",
-            "passing"
+            "pace",
+            "passing",
+            "dribbling"
+          ]
+        },
+        {
+          "name" : "Diego Maradona",
+          "score" : 92,
+          "shared" : [
+            "passing",
+            "dribbling"
           ]
         }
       ],
@@ -1936,11 +1969,11 @@
         },
         "traits" : [
           1,
-          0.40000000000000002,
-          0.80000000000000004,
-          1,
+          0.2857142857142857,
+          0.8571428571428571,
+          0.7142857142857143,
           0,
-          0.40000000000000002
+          0.42857142857142855
         ]
       }
     },
@@ -1953,7 +1986,7 @@
         "loss" : 3,
         "pitch" : 0,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 0,
         "style" : 1,
         "weapon" : 4,
         "weekend" : 2
@@ -1970,64 +2003,60 @@
       },
       "matches" : [
         {
+          "name" : "Toni Kroos",
+          "score" : 95,
+          "shared" : [
+            "passing",
+            "dribbling"
+          ]
+        },
+        {
           "name" : "Joshua Kimmich",
-          "score" : 81,
+          "score" : 94,
           "shared" : [
             "passing",
-            "defending",
+            "dribbling",
+            "defending"
+          ]
+        },
+        {
+          "name" : "Luka Modrić",
+          "score" : 92,
+          "shared" : [
+            "passing",
             "dribbling"
           ]
         },
         {
-          "name" : "Franz Beckenbauer",
-          "score" : 79,
+          "name" : "Enzo Fernández",
+          "score" : 92,
           "shared" : [
             "passing",
-            "defending",
             "dribbling"
           ]
         },
         {
-          "name" : "Patri Guijarro",
-          "score" : 79,
+          "name" : "Hakan Çalhanoğlu",
+          "score" : 92,
           "shared" : [
             "passing",
-            "defending",
-            "dribbling"
-          ]
-        },
-        {
-          "name" : "Sergio Busquets",
-          "score" : 77,
-          "shared" : [
-            "passing",
-            "defending",
-            "dribbling"
-          ]
-        },
-        {
-          "name" : "Sandro Tonali",
-          "score" : 76,
-          "shared" : [
-            "passing",
-            "defending",
             "dribbling"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.29999999999999999,
-          "forward" : 0.40000000000000002,
-          "midfielder" : 0.29999999999999999
+          "defender" : 0.090909090909090912,
+          "forward" : 0.36363636363636365,
+          "midfielder" : 0.54545454545454541
         },
         "traits" : [
           0,
-          0.2857142857142857,
+          0.20000000000000001,
           1,
-          0.42857142857142855,
-          0.8571428571428571,
-          0.14285714285714285
+          0.29999999999999999,
+          0.29999999999999999,
+          0
         ]
       }
     },
@@ -2035,7 +2064,7 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 4,
         "fitness" : 3,
         "goal" : 2,
         "loss" : 3,
@@ -2057,23 +2086,15 @@
       "matches" : [
         {
           "name" : "Megan Rapinoe",
-          "score" : 98,
+          "score" : 92,
           "shared" : [
             "shooting",
             "passing"
           ]
         },
         {
-          "name" : "Kelly Smith",
-          "score" : 96,
-          "shared" : [
-            "shooting",
-            "passing"
-          ]
-        },
-        {
-          "name" : "Mia Hamm",
-          "score" : 96,
+          "name" : "Melchie Dumornay",
+          "score" : 91,
           "shared" : [
             "shooting",
             "pace"
@@ -2081,41 +2102,49 @@
         },
         {
           "name" : "Caroline Graham Hansen",
-          "score" : 96,
+          "score" : 89,
           "shared" : [
-            "passing",
+            "pace",
+            "passing"
+          ]
+        },
+        {
+          "name" : "Mia Hamm",
+          "score" : 89,
+          "shared" : [
+            "shooting",
             "pace"
           ]
         },
         {
-          "name" : "Vivianne Miedema",
-          "score" : 95,
+          "name" : "Alex Morgan",
+          "score" : 89,
           "shared" : [
             "shooting",
-            "passing"
+            "pace"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.20000000000000001,
-          "forward" : 0.5,
-          "midfielder" : 0.29999999999999999
+          "defender" : 0.090909090909090912,
+          "forward" : 0.63636363636363635,
+          "midfielder" : 0.27272727272727271
         },
         "traits" : [
-          0.75,
+          0.8571428571428571,
           1,
-          1,
-          0.75,
-          0,
-          0.25
+          0.8571428571428571,
+          0.8571428571428571,
+          0.2857142857142857,
+          0
         ]
       }
     },
     {
       "answers" : {
         "captain" : 1,
-        "duel" : 0,
+        "duel" : 1,
         "fitness" : 2,
         "goal" : 4,
         "loss" : 2,
@@ -2137,56 +2166,60 @@
       },
       "matches" : [
         {
-          "name" : "Ederson",
-          "score" : 89,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Manuel Neuer",
-          "score" : 86,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Marc-André ter Stegen",
-          "score" : 83,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Lothar Matthäus",
-          "score" : 82,
+          "name" : "Steven Gerrard",
+          "score" : 93,
           "shared" : [
             "passing",
             "shooting"
           ]
         },
         {
-          "name" : "Unai Simón",
-          "score" : 82,
+          "name" : "Frank Lampard",
+          "score" : 92,
           "shared" : [
-
+            "passing",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Bruno Fernandes",
+          "score" : 91,
+          "shared" : [
+            "passing",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "David Beckham",
+          "score" : 91,
+          "shared" : [
+            "passing",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Paul Scholes",
+          "score" : 88,
+          "shared" : [
+            "passing",
+            "shooting"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.20000000000000001,
-          "forward" : 0.10000000000000001,
-          "goalkeeper" : 0.40000000000000002,
-          "midfielder" : 0.29999999999999999
+          "defender" : 0.1111111111111111,
+          "forward" : 0.1111111111111111,
+          "goalkeeper" : 0.33333333333333331,
+          "midfielder" : 0.44444444444444442
         },
         "traits" : [
-          0,
-          0.875,
+          0.1111111111111111,
+          0.88888888888888884,
           1,
-          0.125,
-          0.25,
-          0.375
+          0.22222222222222221,
+          0,
+          0.77777777777777779
         ]
       }
     },
@@ -2198,7 +2231,7 @@
         "fitness" : 1,
         "goal" : 1,
         "pressure" : 3,
-        "role" : 3,
+        "role" : 2,
         "style" : 3,
         "weapon" : 2,
         "weekend" : 4
@@ -2213,54 +2246,57 @@
       },
       "matches" : [
         {
-          "name" : "Hope Solo",
-          "score" : 81,
+          "name" : "Millie Bright",
+          "score" : 93,
           "shared" : [
-
+            "physical",
+            "passing"
           ]
         },
         {
-          "name" : "Dino Zoff",
-          "score" : 80,
+          "name" : "Javier Zanetti",
+          "score" : 90,
           "shared" : [
-
+            "passing"
           ]
         },
         {
-          "name" : "Peter Schmeichel",
-          "score" : 78,
+          "name" : "Bobby Moore",
+          "score" : 90,
           "shared" : [
-
+            "physical",
+            "passing"
           ]
         },
         {
-          "name" : "Gianluigi Buffon",
-          "score" : 78,
+          "name" : "Steph Houghton",
+          "score" : 89,
           "shared" : [
-
+            "physical",
+            "passing"
           ]
         },
         {
-          "name" : "Oliver Kahn",
-          "score" : 77,
+          "name" : "Franco Baresi",
+          "score" : 89,
           "shared" : [
-
+            "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.16666666666666666,
-          "forward" : 0.16666666666666666,
-          "goalkeeper" : 0.5,
-          "midfielder" : 0.16666666666666666
+          "defender" : 0.29999999999999999,
+          "forward" : 0.20000000000000001,
+          "goalkeeper" : 0.29999999999999999,
+          "midfielder" : 0.20000000000000001
         },
         "traits" : [
+          0.25,
           0,
-          0.16666666666666666,
-          1,
+          0.75,
           0.5,
-          0.66666666666666663,
+          0.5,
           1
         ]
       }
@@ -2269,13 +2305,13 @@
       "answers" : {
         "ball" : 0,
         "captain" : 3,
-        "duel" : 2,
+        "duel" : 0,
         "fitness" : 0,
         "goal" : 3,
         "loss" : 0,
         "pitch" : 1,
         "pressure" : 2,
-        "role" : 2,
+        "role" : 4,
         "weapon" : 3,
         "weekend" : 1
       },
@@ -2291,59 +2327,61 @@
       },
       "matches" : [
         {
-          "name" : "Jude Bellingham",
-          "score" : 93,
+          "name" : "Alphonso Davies",
+          "score" : 94,
           "shared" : [
-            "dribbling",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Melchie Dumornay",
-          "score" : 88,
-          "shared" : [
-            "dribbling",
-            "pace"
-          ]
-        },
-        {
-          "name" : "Zinedine Zidane",
-          "score" : 88,
-          "shared" : [
+            "pace",
             "dribbling"
           ]
         },
         {
-          "name" : "Lautaro Martínez",
-          "score" : 87,
+          "name" : "Nuno Mendes",
+          "score" : 93,
           "shared" : [
+            "pace",
+            "dribbling"
+          ]
+        },
+        {
+          "name" : "Theo Hernández",
+          "score" : 93,
+          "shared" : [
+            "pace",
             "dribbling",
             "physical"
           ]
         },
         {
-          "name" : "Zlatan Ibrahimović",
-          "score" : 87,
+          "name" : "Alejandro Balde",
+          "score" : 91,
           "shared" : [
-            "dribbling",
+            "pace",
+            "dribbling"
+          ]
+        },
+        {
+          "name" : "Micky van de Ven",
+          "score" : 90,
+          "shared" : [
+            "pace",
             "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.15384615384615385,
-          "forward" : 0.30769230769230771,
-          "goalkeeper" : 0.23076923076923078,
-          "midfielder" : 0.30769230769230771
+          "defender" : 0.33333333333333331,
+          "forward" : 0.25,
+          "goalkeeper" : 0.083333333333333329,
+          "midfielder" : 0.33333333333333331
         },
         "traits" : [
-          0.25,
-          0.25,
-          0.125,
           1,
           0,
-          0.625
+          0.16666666666666666,
+          1,
+          0.33333333333333331,
+          0.66666666666666663
         ]
       }
     },
@@ -2351,7 +2389,7 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 2,
         "fitness" : 3,
         "goal" : 0,
         "loss" : 3,
@@ -2373,72 +2411,69 @@
       },
       "matches" : [
         {
-          "name" : "Wendie Renard",
-          "score" : 88,
+          "name" : "Steph Houghton",
+          "score" : 69,
           "shared" : [
-            "defending",
-            "physical"
+            "defending"
           ]
         },
         {
-          "name" : "Steph Houghton",
-          "score" : 87,
+          "name" : "Wendie Renard",
+          "score" : 65,
           "shared" : [
-            "defending",
-            "physical"
+            "defending"
+          ]
+        },
+        {
+          "name" : "Mapi León",
+          "score" : 65,
+          "shared" : [
+            "defending"
           ]
         },
         {
           "name" : "Millie Bright",
-          "score" : 83,
+          "score" : 64,
           "shared" : [
-            "defending",
-            "physical"
+            "defending"
           ]
         },
         {
           "name" : "Leah Williamson",
-          "score" : 78,
+          "score" : 61,
           "shared" : [
             "defending",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Lucy Bronze",
-          "score" : 78,
-          "shared" : [
-            "defending",
-            "physical"
+            "pace"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.40000000000000002,
-          "forward" : 0.40000000000000002,
-          "midfielder" : 0.20000000000000001
+          "defender" : 0.27272727272727271,
+          "forward" : 0.36363636363636365,
+          "goalkeeper" : 0.18181818181818182,
+          "midfielder" : 0.18181818181818182
         },
         "traits" : [
-          0.125,
-          0.375,
+          0.1111111111111111,
+          0.33333333333333331,
           0,
           0,
           1,
-          0.25
+          0
         ]
       }
     },
     {
       "answers" : {
         "ball" : 3,
-        "duel" : 1,
+        "duel" : 0,
         "fitness" : 3,
         "goal" : 3,
         "loss" : 3,
         "pitch" : 0,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 4,
         "style" : 0,
         "weapon" : 0,
         "weekend" : 1
@@ -2455,59 +2490,63 @@
       },
       "matches" : [
         {
-          "name" : "Alphonso Davies",
-          "score" : 75,
+          "name" : "George Best",
+          "score" : 84,
           "shared" : [
             "dribbling",
-            "pace"
+            "pace",
+            "shooting"
           ]
         },
         {
-          "name" : "Nuno Mendes",
-          "score" : 75,
+          "name" : "Ousmane Dembélé",
+          "score" : 83,
           "shared" : [
             "dribbling",
-            "pace"
+            "pace",
+            "shooting"
           ]
         },
         {
-          "name" : "Joško Gvardiol",
-          "score" : 74,
+          "name" : "Ronaldo Nazário",
+          "score" : 82,
           "shared" : [
-            "physical",
-            "pace"
+            "dribbling",
+            "pace",
+            "shooting"
           ]
         },
         {
-          "name" : "Fabio Cannavaro",
-          "score" : 74,
+          "name" : "Désiré Doué",
+          "score" : 82,
           "shared" : [
-            "physical",
-            "pace"
+            "dribbling",
+            "pace",
+            "shooting"
           ]
         },
         {
-          "name" : "William Saliba",
-          "score" : 74,
+          "name" : "Jérémy Doku",
+          "score" : 82,
           "shared" : [
-            "physical",
+            "dribbling",
             "pace"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.5,
-          "forward" : 0.40000000000000002,
+          "defender" : 0.40000000000000002,
+          "forward" : 0.5,
           "midfielder" : 0.10000000000000001
         },
         "traits" : [
-          0.29999999999999999,
+          0.59999999999999998,
           0.29999999999999999,
           0,
           1,
           0.29999999999999999,
-          0.59999999999999998
+          0.20000000000000001
         ]
       }
     },
@@ -2515,12 +2554,12 @@
       "answers" : {
         "ball" : 2,
         "captain" : 1,
-        "duel" : 0,
+        "duel" : 2,
         "goal" : 0,
         "loss" : 2,
         "pitch" : 3,
         "pressure" : 0,
-        "role" : 0,
+        "role" : 1,
         "style" : 2,
         "weapon" : 1,
         "weekend" : 3
@@ -2536,35 +2575,35 @@
       "matches" : [
         {
           "name" : "Dino Zoff",
-          "score" : 67,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Oliver Kahn",
-          "score" : 66,
+          "score" : 94,
           "shared" : [
 
           ]
         },
         {
           "name" : "Lev Yashin",
-          "score" : 66,
+          "score" : 86,
+          "shared" : [
+
+          ]
+        },
+        {
+          "name" : "Oliver Kahn",
+          "score" : 81,
+          "shared" : [
+
+          ]
+        },
+        {
+          "name" : "Hope Solo",
+          "score" : 80,
           "shared" : [
 
           ]
         },
         {
           "name" : "Gianluigi Buffon",
-          "score" : 64,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Peter Schmeichel",
-          "score" : 63,
+          "score" : 78,
           "shared" : [
 
           ]
@@ -2572,18 +2611,17 @@
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.20000000000000001,
-          "forward" : 0.20000000000000001,
-          "goalkeeper" : 0.40000000000000002,
-          "midfielder" : 0.20000000000000001
+          "defender" : 0.22222222222222221,
+          "forward" : 0.22222222222222221,
+          "goalkeeper" : 0.55555555555555558
         },
         "traits" : [
-          0.16666666666666666,
+          0.2857142857142857,
           1,
-          0.083333333333333329,
           0,
-          0.33333333333333331,
-          0
+          0.14285714285714285,
+          0.5,
+          0.2857142857142857
         ]
       }
     },
@@ -2591,7 +2629,7 @@
       "answers" : {
         "ball" : 1,
         "captain" : 0,
-        "duel" : 3,
+        "duel" : 4,
         "fitness" : 1,
         "loss" : 1,
         "pitch" : 2,
@@ -2613,40 +2651,40 @@
       },
       "matches" : [
         {
-          "name" : "Ederson",
-          "score" : 84,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Reece James",
-          "score" : 82,
-          "shared" : [
-            "passing",
-            "defending",
-            "physical"
-          ]
-        },
-        {
           "name" : "Manuel Neuer",
-          "score" : 82,
-          "shared" : [
-
-          ]
-        },
-        {
-          "name" : "Hannah Hampton",
-          "score" : 79,
+          "score" : 97,
           "shared" : [
 
           ]
         },
         {
           "name" : "Marc-André ter Stegen",
-          "score" : 78,
+          "score" : 95,
           "shared" : [
 
+          ]
+        },
+        {
+          "name" : "David Raya",
+          "score" : 93,
+          "shared" : [
+
+          ]
+        },
+        {
+          "name" : "Diogo Costa",
+          "score" : 93,
+          "shared" : [
+
+          ]
+        },
+        {
+          "name" : "Reece James",
+          "score" : 91,
+          "shared" : [
+            "passing",
+            "defending",
+            "physical"
           ]
         }
       ],
@@ -2654,8 +2692,8 @@
         "positions" : {
           "defender" : 0.2857142857142857,
           "forward" : 0.14285714285714285,
-          "goalkeeper" : 0.35714285714285715,
-          "midfielder" : 0.21428571428571427
+          "goalkeeper" : 0.2857142857142857,
+          "midfielder" : 0.2857142857142857
         },
         "traits" : [
           0.18181818181818182,
@@ -2676,7 +2714,7 @@
         "loss" : 0,
         "pitch" : 1,
         "pressure" : 2,
-        "role" : 2,
+        "role" : 0,
         "style" : 1,
         "weapon" : 3,
         "weekend" : 2
@@ -2693,60 +2731,62 @@
       },
       "matches" : [
         {
-          "name" : "Alexia Putellas",
-          "score" : 94,
-          "shared" : [
-            "passing",
-            "dribbling"
-          ]
-        },
-        {
-          "name" : "Mariona Caldentey",
-          "score" : 94,
-          "shared" : [
-            "passing",
-            "dribbling"
-          ]
-        },
-        {
           "name" : "Lindsey Heaps",
-          "score" : 93,
+          "score" : 86,
           "shared" : [
             "passing",
             "dribbling"
           ]
         },
         {
-          "name" : "Marta",
-          "score" : 93,
+          "name" : "Chloe Kelly",
+          "score" : 85,
           "shared" : [
             "passing",
+            "pace"
+          ]
+        },
+        {
+          "name" : "Mallory Swanson",
+          "score" : 85,
+          "shared" : [
+            "passing",
+            "pace",
             "dribbling"
           ]
         },
         {
-          "name" : "Aitana Bonmatí",
-          "score" : 92,
+          "name" : "Sakina Karchaoui",
+          "score" : 85,
           "shared" : [
             "passing",
+            "pace",
+            "dribbling"
+          ]
+        },
+        {
+          "name" : "Trinity Rodman",
+          "score" : 83,
+          "shared" : [
+            "pace",
             "dribbling"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.090909090909090912,
-          "forward" : 0.36363636363636365,
-          "goalkeeper" : 0.090909090909090912,
-          "midfielder" : 0.45454545454545453
+          "defender" : 0.083333333333333329,
+          "forward" : 0.16666666666666666,
+          "goalkeeper" : 0.083333333333333329,
+          "midfielder" : 0.66666666666666663
         },
         "traits" : [
-          0.5,
-          0.375,
+          0.45454545454545453,
+          0.090909090909090912,
           1,
-          0.75,
+          0.36363636363636365,
           0,
-          0.5
+          0.36363636363636365
         ]
       }
     },
@@ -2754,7 +2794,7 @@
       "answers" : {
         "ball" : 3,
         "captain" : 2,
-        "duel" : 1,
+        "duel" : 3,
         "fitness" : 3,
         "goal" : 1,
         "loss" : 3,
@@ -2775,46 +2815,47 @@
       },
       "matches" : [
         {
-          "name" : "Harry Kane",
-          "score" : 80,
+          "name" : "George Best",
+          "score" : 87,
           "shared" : [
             "dribbling",
+            "pace",
             "shooting"
           ]
         },
         {
-          "name" : "Zlatan Ibrahimović",
-          "score" : 79,
+          "name" : "Ousmane Dembélé",
+          "score" : 86,
           "shared" : [
             "dribbling",
-            "shooting",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Robert Lewandowski",
-          "score" : 79,
-          "shared" : [
-            "dribbling",
-            "shooting",
-            "physical"
-          ]
-        },
-        {
-          "name" : "Karim Benzema",
-          "score" : 79,
-          "shared" : [
-            "dribbling",
+            "pace",
             "shooting"
           ]
         },
         {
-          "name" : "Lautaro Martínez",
-          "score" : 78,
+          "name" : "Ronaldo Nazário",
+          "score" : 84,
           "shared" : [
             "dribbling",
-            "shooting",
-            "physical"
+            "pace",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Romário",
+          "score" : 84,
+          "shared" : [
+            "dribbling",
+            "pace",
+            "shooting"
+          ]
+        },
+        {
+          "name" : "Lamine Yamal",
+          "score" : 84,
+          "shared" : [
+            "dribbling",
+            "pace"
           ]
         }
       ],
@@ -2826,12 +2867,12 @@
           "midfielder" : 0.20000000000000001
         },
         "traits" : [
+          0.40000000000000002,
+          0.40000000000000002,
           0,
-          0.5,
-          0.16666666666666666,
           1,
-          0.33333333333333331,
-          0.5
+          0.20000000000000001,
+          0
         ]
       }
     },
@@ -2844,7 +2885,7 @@
         "loss" : 3,
         "pitch" : 0,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 0,
         "style" : 1,
         "weapon" : 0
       },
@@ -2858,32 +2899,32 @@
       },
       "matches" : [
         {
-          "name" : "Megan Rapinoe",
-          "score" : 83,
+          "name" : "Andrea Pirlo",
+          "score" : 95,
           "shared" : [
             "passing",
             "dribbling"
           ]
         },
         {
-          "name" : "Dennis Bergkamp",
-          "score" : 83,
+          "name" : "David Beckham",
+          "score" : 94,
           "shared" : [
             "passing",
             "dribbling"
           ]
         },
         {
-          "name" : "Francesco Totti",
-          "score" : 82,
+          "name" : "Toni Kroos",
+          "score" : 94,
           "shared" : [
             "passing",
             "dribbling"
           ]
         },
         {
-          "name" : "Johan Cruyff",
-          "score" : 81,
+          "name" : "Xavi",
+          "score" : 94,
           "shared" : [
             "passing",
             "dribbling",
@@ -2891,8 +2932,8 @@
           ]
         },
         {
-          "name" : "Roberto Baggio",
-          "score" : 81,
+          "name" : "Paul Scholes",
+          "score" : 93,
           "shared" : [
             "passing",
             "dribbling"
@@ -2901,17 +2942,17 @@
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.33333333333333331,
-          "forward" : 0.44444444444444442,
-          "midfielder" : 0.22222222222222221
+          "defender" : 0.10000000000000001,
+          "forward" : 0.40000000000000002,
+          "midfielder" : 0.5
         },
         "traits" : [
-          0,
-          0,
+          0.29999999999999999,
+          0.29999999999999999,
           1,
-          0.25,
+          0.40000000000000002,
           0,
-          0
+          0.20000000000000001
         ]
       }
     },
@@ -2919,11 +2960,11 @@
       "answers" : {
         "ball" : 2,
         "captain" : 1,
-        "duel" : 0,
+        "duel" : 3,
         "fitness" : 2,
         "goal" : 1,
         "pressure" : 0,
-        "role" : 0,
+        "role" : 2,
         "style" : 3,
         "weapon" : 1,
         "weekend" : 4
@@ -2940,57 +2981,62 @@
       },
       "matches" : [
         {
-          "name" : "Sergio Ramos",
-          "score" : 74,
+          "name" : "Abby Wambach",
+          "score" : 91,
           "shared" : [
-            "defending"
+            "shooting",
+            "dribbling",
+            "physical"
           ]
         },
         {
-          "name" : "Wendie Renard",
-          "score" : 72,
+          "name" : "Bunny Shaw",
+          "score" : 89,
           "shared" : [
-            "defending"
+            "shooting",
+            "dribbling",
+            "physical"
           ]
         },
         {
-          "name" : "Scott McTominay",
-          "score" : 70,
+          "name" : "Erling Haaland",
+          "score" : 89,
+          "shared" : [
+            "shooting",
+            "physical"
+          ]
+        },
+        {
+          "name" : "Lautaro Martínez",
+          "score" : 87,
           "shared" : [
             "shooting",
             "dribbling"
           ]
         },
         {
-          "name" : "Lothar Matthäus",
-          "score" : 69,
+          "name" : "Birgit Prinz",
+          "score" : 87,
           "shared" : [
             "shooting",
-            "dribbling"
-          ]
-        },
-        {
-          "name" : "John Terry",
-          "score" : 68,
-          "shared" : [
-            "defending"
+            "dribbling",
+            "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.375,
-          "forward" : 0.25,
-          "goalkeeper" : 0.125,
-          "midfielder" : 0.25
+          "defender" : 0.2857142857142857,
+          "forward" : 0.5714285714285714,
+          "goalkeeper" : 0.14285714285714285
         },
         "traits" : [
-          0,
+          0.33333333333333331,
           1,
-          0.22222222222222221,
-          0.44444444444444442,
-          0.44444444444444442,
-          0.44444444444444442
+          0,
+          0.58333333333333337,
+          0.16666666666666666,
+          0.5
         ]
       }
     },
@@ -2998,13 +3044,13 @@
       "answers" : {
         "ball" : 1,
         "captain" : 0,
-        "duel" : 3,
+        "duel" : 0,
         "fitness" : 1,
         "goal" : 3,
         "loss" : 1,
         "pitch" : 2,
         "pressure" : 3,
-        "role" : 3,
+        "role" : 4,
         "weapon" : 2,
         "weekend" : 1
       },
@@ -3021,63 +3067,63 @@
       "matches" : [
         {
           "name" : "Steph Houghton",
-          "score" : 91,
+          "score" : 97,
           "shared" : [
+            "defending",
             "passing",
-            "physical",
-            "defending"
-          ]
-        },
-        {
-          "name" : "Millie Bright",
-          "score" : 91,
-          "shared" : [
-            "passing",
-            "physical",
-            "defending"
-          ]
-        },
-        {
-          "name" : "Leah Williamson",
-          "score" : 91,
-          "shared" : [
-            "passing",
-            "physical",
-            "defending"
+            "physical"
           ]
         },
         {
           "name" : "Mapi León",
-          "score" : 91,
+          "score" : 97,
           "shared" : [
+            "defending",
             "passing",
-            "defending"
+            "physical"
           ]
         },
         {
-          "name" : "Wendie Renard",
-          "score" : 89,
+          "name" : "Millie Bright",
+          "score" : 95,
           "shared" : [
+            "defending",
             "passing",
-            "physical",
-            "defending"
+            "physical"
+          ]
+        },
+        {
+          "name" : "Lucy Bronze",
+          "score" : 95,
+          "shared" : [
+            "defending",
+            "passing",
+            "physical"
+          ]
+        },
+        {
+          "name" : "Leah Williamson",
+          "score" : 93,
+          "shared" : [
+            "defending",
+            "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.35714285714285715,
-          "forward" : 0.14285714285714285,
-          "goalkeeper" : 0.35714285714285715,
-          "midfielder" : 0.14285714285714285
+          "defender" : 0.53846153846153844,
+          "forward" : 0.076923076923076927,
+          "goalkeeper" : 0.15384615384615385,
+          "midfielder" : 0.23076923076923078
         },
         "traits" : [
+          0.33333333333333331,
           0,
-          0.1111111111111111,
+          0.88888888888888884,
+          0.33333333333333331,
           1,
-          0.44444444444444442,
-          0.66666666666666663,
-          0.88888888888888884
+          0.77777777777777779
         ]
       }
     },
@@ -3090,7 +3136,7 @@
         "goal" : 0,
         "loss" : 0,
         "pitch" : 1,
-        "role" : 2,
+        "role" : 1,
         "style" : 2,
         "weapon" : 3,
         "weekend" : 3
@@ -3107,74 +3153,69 @@
       },
       "matches" : [
         {
-          "name" : "Victor Osimhen",
-          "score" : 90,
+          "name" : "Gregor Kobel",
+          "score" : 91,
           "shared" : [
-            "pace",
-            "shooting"
+
           ]
         },
         {
-          "name" : "Erling Haaland",
+          "name" : "Oliver Kahn",
           "score" : 89,
           "shared" : [
-            "pace",
-            "shooting"
+
           ]
         },
         {
-          "name" : "Samuel Eto'o",
-          "score" : 89,
-          "shared" : [
-            "pace",
-            "shooting",
-            "dribbling"
-          ]
-        },
-        {
-          "name" : "Ronaldo Nazário",
-          "score" : 88,
-          "shared" : [
-            "pace",
-            "shooting",
-            "dribbling"
-          ]
-        },
-        {
-          "name" : "Gerd Müller",
+          "name" : "Lev Yashin",
           "score" : 87,
           "shared" : [
-            "shooting",
-            "dribbling"
+
+          ]
+        },
+        {
+          "name" : "Dino Zoff",
+          "score" : 85,
+          "shared" : [
+
+          ]
+        },
+        {
+          "name" : "Federico Valverde",
+          "score" : 83,
+          "shared" : [
+            "pace",
+            "physical"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "forward" : 0.40000000000000002,
+          "defender" : 0.20000000000000001,
+          "forward" : 0.20000000000000001,
           "goalkeeper" : 0.29999999999999999,
           "midfielder" : 0.29999999999999999
         },
         "traits" : [
           1,
-          1,
+          0.5,
           0,
-          1,
-          0.40000000000000002,
-          0.59999999999999998
+          0.5,
+          0.83333333333333337,
+          0.66666666666666663
         ]
       }
     },
     {
       "answers" : {
         "ball" : 3,
-        "duel" : 1,
+        "duel" : 4,
         "fitness" : 3,
         "goal" : 2,
         "loss" : 3,
         "pitch" : 0,
         "pressure" : 1,
-        "role" : 1,
+        "role" : 3,
         "style" : 4,
         "weapon" : 4,
         "weekend" : 0
@@ -3189,56 +3230,62 @@
       },
       "matches" : [
         {
-          "name" : "John Terry",
-          "score" : 62,
+          "name" : "George Best",
+          "score" : 90,
           "shared" : [
-            "defending"
+            "shooting",
+            "pace",
+            "dribbling"
           ]
         },
         {
-          "name" : "Fabio Cannavaro",
-          "score" : 61,
+          "name" : "Garrincha",
+          "score" : 87,
           "shared" : [
-            "defending",
-            "pace"
+            "pace",
+            "dribbling"
           ]
         },
         {
-          "name" : "Steph Houghton",
-          "score" : 61,
+          "name" : "Romário",
+          "score" : 87,
           "shared" : [
-            "defending"
+            "shooting",
+            "pace",
+            "dribbling"
           ]
         },
         {
-          "name" : "Alessandro Nesta",
-          "score" : 61,
+          "name" : "Megan Rapinoe",
+          "score" : 86,
           "shared" : [
-            "defending",
-            "pace"
+            "shooting",
+            "dribbling"
           ]
         },
         {
-          "name" : "Carles Puyol",
-          "score" : 61,
+          "name" : "Ferenc Puskás",
+          "score" : 86,
           "shared" : [
-            "defending",
-            "pace"
+            "shooting",
+            "pace",
+            "dribbling"
           ]
         }
       ],
       "profile" : {
         "positions" : {
-          "defender" : 0.36363636363636365,
-          "forward" : 0.45454545454545453,
-          "midfielder" : 0.18181818181818182
+          "defender" : 0.083333333333333329,
+          "forward" : 0.58333333333333337,
+          "goalkeeper" : 0.16666666666666666,
+          "midfielder" : 0.16666666666666666
         },
         "traits" : [
-          0.33333333333333331,
-          0.66666666666666663,
-          0,
-          0.33333333333333331,
+          0.83333333333333337,
           1,
+          0.66666666666666663,
+          0.83333333333333337,
+          0.5,
           0
         ]
       }
@@ -3278,7 +3325,7 @@
         },
         {
           "positions" : {
-            "goalkeeper" : 4
+            "goalkeeper" : 3
           },
           "text" : "In goal — someone has to",
           "traits" : {
@@ -3299,7 +3346,7 @@
           "text" : "Run at them",
           "traits" : {
             "dribbling" : 2,
-            "pace" : 1
+            "pace" : 2
           }
         },
         {
@@ -3429,6 +3476,16 @@
         },
         {
           "positions" : {
+            "defender" : 1
+          },
+          "text" : "Chase them down — I'm quicker",
+          "traits" : {
+            "defending" : 1,
+            "pace" : 3
+          }
+        },
+        {
+          "positions" : {
             "forward" : 2
           },
           "text" : "Honestly? Hope someone else deals with it",
@@ -3470,7 +3527,7 @@
           },
           "text" : "A tap-in after a perfect run",
           "traits" : {
-            "pace" : 1,
+            "pace" : 2,
             "shooting" : 2
           }
         },
@@ -3622,7 +3679,7 @@
         },
         {
           "positions" : {
-            "goalkeeper" : 3
+            "goalkeeper" : 2
           },
           "text" : "Wish I was the keeper facing it",
           "traits" : {
@@ -3647,7 +3704,7 @@
         },
         {
           "positions" : {
-
+            "midfielder" : 1
           },
           "text" : "The brains of the group",
           "traits" : {
@@ -3700,7 +3757,7 @@
         },
         {
           "positions" : {
-
+            "midfielder" : 1
           },
           "text" : "Rewatch the match and analyse it",
           "traits" : {
@@ -3779,7 +3836,8 @@
           },
           "text" : "Rest. Recovery is training too",
           "traits" : {
-            "defending" : 2
+            "defending" : 1,
+            "physical" : 1
           }
         }
       ],
@@ -3826,6 +3884,15 @@
           "traits" : {
             "passing" : 1,
             "physical" : 1
+          }
+        },
+        {
+          "positions" : {
+            "forward" : 1
+          },
+          "text" : "Getaway driver — first off the mark",
+          "traits" : {
+            "pace" : 3
           }
         }
       ],

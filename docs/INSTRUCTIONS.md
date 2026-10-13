@@ -97,7 +97,11 @@ The table at the bottom lists each response. Select rows and press Delete to rem
 The app reads two kinds of CSV:
 
 - **Its own format:** `name,nationality,club,positions,era,overall,pace,shooting,passing,dribbling,defending,physical,gender`
-- **FIFA / EA FC exports**, such as sofifa or Kaggle files. These use columns like `short_name`, `player_positions`, `overall`, `pace`, `shooting`, `passing`, `dribbling`, `defending`, `physic`, `club_name` and `nationality_name`. For goalkeepers it uses `goalkeeping_*` columns when the outfield ones are blank.
+- **FIFA / EA FC exports**, such as sofifa or Kaggle files. These use columns like:
+  - `short_name`, `player_positions`, `overall`, `pace`, `shooting`, `passing`, `dribbling`, `defending`, `physic`, `club_name`, `nationality_name`
+  - or EA FC's `Name`, `OVR`, `PAC`, `SHO`, `PAS`, `DRI`, `DEF`, `PHY`, `Position`, `Alternative positions`, `Team`, `Nation`
+
+  For goalkeepers it uses the `goalkeeping_*` or `GK …` columns when the outfield ones are blank. If there's no keeper Speed column, it uses Sprint Speed. Alternative positions are added after the best position. Files can be UTF-8, UTF-16 (Excel's "Unicode text") or Windows-1252.
 
 An optional `gender` (or `sex`) column marks men's and women's players. It accepts values like Men/Women, Male/Female or M/F. Players from a file without that column are only matched when the filter is set to Men's & Women's.
 

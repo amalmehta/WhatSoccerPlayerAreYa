@@ -60,6 +60,29 @@ import Testing
         #expect(r.players.map(\.gender) == [.women, .men, nil])
     }
 
+    @Test func eaFCKaggleFormatWithAlternativePositions() throws {
+        let csv = """
+        Name,OVR,PAC,SHO,PAS,DRI,DEF,PHY,Position,Alternative positions,Team,Nation,GK Diving,GK Handling,GK Kicking,GK Positioning,GK Reflexes,Sprint Speed
+        Bukayo Saka,87,86,82,84,87,63,72,RW,"RM, LW",Arsenal,England,,,,,,88
+        David Raya,86,,,,,,,GK,,Arsenal,Spain,86,82,90,85,88,47
+        """
+        let r = try PlayerImporter.load(csv: csv)
+        #expect(r.players.map(\.name) == ["Bukayo Saka", "David Raya"])
+        #expect(r.players[0].positions == ["RW", "RM", "LW"])
+        #expect(r.players[0].club == "Arsenal")
+        #expect(r.players[0].nationality == "England")
+        // Keeper slots in EA order: Diving, Handling, Kicking, Reflexes, Speed (sprint speed), Positioning.
+        #expect(r.players[1].traits == [86, 82, 90, 88, 47, 85])
+    }
+
+    @Test func decodesNonUTF8Files() {
+        let latin = Data([0x4E, 0x61, 0x6D, 0x65, 0x0A, 0x4D, 0xFC, 0x6C, 0x6C, 0x65, 0x72])  // "Name\nMüller" in Windows-1252
+        #expect(PlayerImporter.decode(latin) == "Name\nMüller")
+        let utf16 = Data([0xFF, 0xFE]) + "Pelé".data(using: .utf16LittleEndian)!
+        #expect(PlayerImporter.decode(utf16) == "Pelé")
+        #expect(PlayerImporter.decode("Mbappé".data(using: .utf8)!) == "Mbappé")
+    }
+
     @Test func bundledDatasetLoads() {
         let players = BundledPlayers.load()
         #expect(players.count >= 150)

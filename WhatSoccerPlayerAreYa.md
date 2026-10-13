@@ -70,8 +70,10 @@ Asked and answered (2026-10-12):
   Created it private (no visibility was given): github.com/amalmehta/WhatSoccerPlayerAreYa
 
 Decided without asking:
-- Bundled ratings are approximate EA FC-style values compiled from memory (peak
-  values for legends, clubs as of summer 2025), not official data.
+- Bundled ratings: first compiled from memory; on 2026-10-13 checked against
+  EA SPORTS FC 27 (base cards for current players, base Icon cards for legends,
+  2026-27 clubs). 11 legends with no official card keep estimates. Sources are in
+  docs/Player Data Sources.csv.
 - Matching compares the shape of the traits (which ones stand out), not absolute
   ratings, and weights position. Goalkeepers use a trait translation.
   Default minimum overall rating is 75 so matches are well-known names.
@@ -117,3 +119,4 @@ CHANGELOG:
 - 2026-10-13 — added an app icon (soccer ball on a pitch with a "?" badge), drawn in code
 - 2026-10-13 — added a men's / women's filter (quiz start screen, Settings, Players page) and a gender column in the player data
 - 2026-10-13 — built the website (web/): full parity with the Mac app, parity tests against the Swift code, GitHub Pages deploy workflow
+- 2026-10-13 — accuracy pass: player data verified against EA FC 27; quiz rebalanced (pace, positions); keepers compared with keepers; alternative positions count in matching; EA FC import columns and non-UTF-8 files; persona benchmark and accuracy tests
