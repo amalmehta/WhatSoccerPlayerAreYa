@@ -139,7 +139,7 @@ Related categories share a hue family. Shades within a family are spaced apart i
 
 - **Bundled dataset plus CSV import, not a scraped third-party dataset.** Bundling a large FIFA dataset raises licensing questions. Instead the app ships 228 players compiled for it and imports any FIFA/EA FC CSV the user brings. *Trade-off:* the bundled ratings are approximations, not official card values.
 - **Matching on shape, not ratings.** Quiz answers say what someone is *like*, not how good they are. *Trade-off:* a player with a flat profile (good at everything) is a weaker match for anyone.
-- **SwiftPM package with a script that builds the .app, no Xcode project.** It's simple to build from the command line and keeps the repo small. *Trade-off:* no app icon asset catalogue and ad hoc code signing only.
+- **SwiftPM package with a script that builds the .app, no Xcode project.** It's simple to build from the command line and keeps the repo small. The icon is drawn in code (`scripts/make-icon.swift`) and turned into an `.icns` by the build script. *Trade-off:* ad hoc code signing only, and no asset catalogue.
 - **Local-only storage in JSON.** Simple and private. *Trade-off:* no syncing or multi-device survey collection. Responses are only gathered on one Mac.
 - **Feedback saved locally, not emailed.** Nothing leaves the machine without the user doing it.
 - **The ⌘V import uses an `NSEvent` local monitor** rather than replacing the Paste menu command, so normal pasting into text fields keeps working.
@@ -165,5 +165,5 @@ Related categories share a hue family. Shades within a family are spaced apart i
 - The goalkeeper trait translation is a heuristic.
 - Imports read UTF-8 only. Files in other encodings may show garbled accents.
 - Very large imports (tens of thousands of rows) load all at once on the main thread.
-- No app icon yet. The app is ad hoc signed, so other Macs will warn on first open.
+- The app is ad hoc signed, so other Macs will warn on first open.
 - The website version hasn't been built. The spec says it comes after the Mac app, as its own step.

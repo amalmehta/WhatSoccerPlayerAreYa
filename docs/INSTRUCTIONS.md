@@ -21,6 +21,12 @@ To drag it into Applications, copy it from `build/`. It's signed for this Mac on
 
 For development you can also run `swift run WhatSoccerPlayerAreYa`.
 
+The app icon is drawn by `scripts/make-icon.swift`. To change it, edit that script, then redraw it and rebuild:
+
+```bash
+swift scripts/make-icon.swift && ./scripts/build-app.sh
+```
+
 ## Run the tests
 
 ```bash

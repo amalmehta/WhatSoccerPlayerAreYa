@@ -5,8 +5,11 @@ WhatSoccerPlayerAreYa/
 ├── README.md                     What it is, screenshots, links
 ├── WhatSoccerPlayerAreYa.md      The project spec, with assumptions and changelog
 ├── Package.swift                 SwiftPM manifest: SoccerCore library, app, tests
+├── Assets/
+│   └── AppIcon.png               App icon (1024×1024), drawn by make-icon.swift
 ├── scripts/
-│   └── build-app.sh              Builds "build/What Soccer Player Are Ya.app"
+│   ├── build-app.sh              Builds "build/What Soccer Player Are Ya.app" (and its .icns icon)
+│   └── make-icon.swift           Draws Assets/AppIcon.png
 ├── Sources/
 │   ├── SoccerCore/               All logic, no UI
 │   │   ├── Models.swift          Player, Trait, PositionGroup, Era

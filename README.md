@@ -1,3 +1,5 @@
+<img src="Assets/AppIcon.png" width="96" alt="App icon">
+
 # What Soccer Player Are Ya
 
 A Mac app with a 12-question quiz that tells you which soccer player you play like. It saves every response and shows a summary of everyone's answers.
