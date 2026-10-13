@@ -66,7 +66,8 @@ Asked and answered (2026-10-12):
   CSV. A scraped third-party dataset wasn't bundled because its licence is unclear.
 - Questions: a mix of playing style and personality (12 questions).
 - Responses: saved on this Mac, with a Results summary and CSV export.
-- GitHub: local git only, no remote repo yet.
+- GitHub: local git at first; on 2026-10-13 asked to create the repo and push.
+  Created it private (no visibility was given): github.com/amalmehta/WhatSoccerPlayerAreYa
 
 Decided without asking:
 - Bundled ratings are approximate EA FC-style values compiled from memory (peak
@@ -85,7 +86,6 @@ Proposals (not done):
 - An app icon.
 - A gender column, with a men's / women's filter.
 - The website version.
-- Creating the GitHub repo "WhatSoccerPlayerAreYa" and pushing.
 
 CHANGELOG:
 
@@ -109,3 +109,4 @@ CHANGELOG:
 - 2026-10-08 — added meta-instruction: color-code tags by similarity (related share a hue family, each distinct)
 - 2026-10-09 — added meta-instruction: apps that take files have an Upload button, drop anywhere, and paste
 - 2026-10-12 — built the Mac app: quiz, matching against 228 bundled players + CSV import, saved responses with summary and export, settings, feedback, docs
+- 2026-10-13 — created the private GitHub repo WhatSoccerPlayerAreYa and pushed
