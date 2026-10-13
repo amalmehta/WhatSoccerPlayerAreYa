@@ -1,0 +1,21 @@
+# What Soccer Player Are Ya
+
+A Mac app with a 12-question quiz that tells you which soccer player you play like. It saves every response and shows a summary of everyone's answers.
+
+![Your match](docs/screenshots/Your%20Match.png)
+
+| Take the quiz | Everyone's results (dark mode) | Player pool |
+|---|---|---|
+| ![Quiz](docs/screenshots/Quiz.png) | ![Results](docs/screenshots/Results.png) | ![Players](docs/screenshots/Players.png) |
+
+```mermaid
+flowchart LR
+    Q[12 answers] --> P[Your style profile<br/>6 traits + position]
+    D[(228 bundled players<br/>+ imported CSVs)] --> M{Matcher}
+    P --> M --> R[Top match + runners-up]
+    R --> S[(Saved responses)] --> X[Results summary · CSV export]
+```
+
+- [How to build, run and use it](docs/INSTRUCTIONS.md)
+- [System design](docs/SYSTEM-DESIGN.md)
+- [What's where](docs/FILE-STRUCTURE.md)
