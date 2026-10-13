@@ -21,6 +21,14 @@ struct PlayersView: View {
                     || p.club.localizedStandardContains(search) || p.nationality.localizedStandardContains(search))
         }
         VStack(spacing: 0) {
+            HStack(alignment: .firstTextBaseline) {
+                Text("The squad").font(Theme.display(26)).foregroundStyle(.white)
+                Text("Everyone you can be matched with").font(Theme.display(14, .semibold)).foregroundStyle(.white.opacity(0.8))
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+            .background(PitchBackground())
             HStack {
                 Picker("Position", selection: $group) {
                     Text("All positions").tag(PositionGroup?.none)
@@ -39,13 +47,9 @@ struct PlayersView: View {
             }
             .padding(10)
             if model.allPlayers.isEmpty {
-                ContentUnavailableView {
-                    Label("No players", systemImage: "person.3")
-                } description: {
-                    Text("Turn the bundled players back on in Settings, or upload a CSV. You can also drop a file anywhere on this window or paste it with ⌘V.")
-                } actions: {
-                    Button("Upload Players…") { model.showingImporter = true }
-                }
+                EmptyPitch(emoji: "👟", title: "The squad is empty",
+                           message: "Turn the bundled players back on in Settings, or upload a CSV. You can also drop a file anywhere on this window or paste it with ⌘V.",
+                           button: "Upload Players…") { model.showingImporter = true }
             } else {
                 Table(players.sorted(using: sortOrder), sortOrder: $sortOrder) {
                     TableColumn("Name", value: \.name) { Text($0.name).fontWeight(.medium) }

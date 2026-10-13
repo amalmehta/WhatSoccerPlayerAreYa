@@ -106,50 +106,96 @@ function render() {
 
 // MARK: Quiz
 
+/** An emoji for every quiz answer (same as the Mac app's AnswerIcons). */
+const ICONS = {
+  pitch: ["🎯", "🔄", "🧱", "🧤"], ball: ["💨", "🪄", "🚀", "♻️"], weapon: ["⚡️", "🎯", "👀", "🪄", "🧠", "💪"],
+  duel: ["🦵", "💪", "🧤", "🏃", "🙈"], goal: ["🚀", "🌀", "👟", "⬆️", "🤝"], fitness: ["⚡️", "🏃", "🏋️", "🪜"],
+  captain: ["📣", "🎶", "📊", "🎧"], pressure: ["✋", "🥄", "🤝", "🧤"], style: ["✨", "🧠", "🛡️", "🔥", "⏱️"],
+  loss: ["🏋️", "📺", "🙌", "🤫"], weekend: ["♟️", "🤹", "🥾", "🏎️", "🛋️"], role: ["📐", "🛡️", "🎸", "🛫", "🚗"],
+};
+const icon = (id, i) => ICONS[id]?.[i] ?? "⚽️";
+
+/** A collectible player card. Generic design: no club badges, photos or EA marks. */
+function playerCard(p, small = false) {
+  const parts = p.name.split(" ");
+  const initials = (parts[0]?.[0] ?? "") + (parts.length > 1 ? parts[parts.length - 1][0] : "");
+  const keeper = core.isKeeper(p);
+  const label = (t) => (keeper ? core.KEEPER_NAMES[t].slice(0, 3).toUpperCase() : core.TRAIT_ABBR[t]);
+  const stat = (i) => `<div><span>${p.traits[i]}</span><em>${label(core.TRAITS[i])}</em></div>`;
+  return `<div class="card ${p.era}${small ? " small" : ""}" role="img" aria-label="${esc(`${p.name}, ${p.overall} ${p.positions[0]}`)}">
+    <div class="top"><div><div class="ovr">${p.overall}</div><div class="pos">${esc(p.positions[0] ?? "")}</div></div>
+      ${p.era === "Legend" ? `<span class="legend">LEGEND</span>` : ""}</div>
+    <div class="face">${esc(initials)}</div>
+    <div class="name">${esc(p.name)}</div><hr>
+    <div class="stats">${stat(0)}${stat(3)}${stat(1)}${stat(4)}${stat(2)}${stat(5)}</div>
+    ${small ? "" : `<div class="meta-line">${esc([p.nationality, p.club].filter(Boolean).join(" · "))}</div>`}
+  </div>`;
+}
+
+let featuredSeed = Math.floor(Math.random() * 10000);
+function featuredPlayer() {
+  const f = filter();
+  const eligible = allPlayers().filter((p) => core.allows(f, p));
+  const stars = eligible.filter((p) => p.overall >= 88 && !core.isKeeper(p));
+  const pool = stars.length ? stars : eligible;
+  return pool.length ? pool[featuredSeed % pool.length] : null;
+}
+
 function renderQuiz() {
   const q = state.quiz;
   const view = $("#view");
   if (q.stage === "start") {
     const n = eligibleCount();
-    view.innerHTML = `<div class="page"><div class="start">
-      <img src="icon.png" alt="">
-      <h2>Which soccer player are you?</h2>
-      <p>${core.QUESTIONS.length} quick questions about how you play and who you are. We'll match you against ${n.toLocaleString()} players.</p>
-      ${state.settings.askForName ? `<input class="text-input" id="name" placeholder="Your name (optional)" value="${esc(q.name)}" autocomplete="off">` : ""}
-      <div class="match-with"><span>Match me with</span>${genderSegmented("quiz-gender", state.settings.gender)}</div>
-      <button class="btn primary big" id="start" ${n ? "" : "disabled"}>Start the Quiz</button>
-      ${n ? "" : `<p class="warn">No players match your Settings. Loosen the filters or import players.</p>`}
+    const featured = featuredPlayer();
+    const g = state.settings.gender;
+    view.innerHTML = `<div class="welcome pitch"><div class="welcome-inner">
+      <div class="welcome-text">
+        <span class="badge">⚽️&nbsp; ${core.QUESTIONS.length} questions · 2 minutes · ${n.toLocaleString()} players</span>
+        <h2>Which soccer player are you?</h2>
+        <p class="lede">Tell us how you play and who you are off the pitch. We'll scout every player and find the one who plays just like you.</p>
+        ${state.settings.askForName ? `<input class="name-input" id="name" placeholder="Your name (optional)" value="${esc(q.name)}" autocomplete="off" aria-label="Your name">` : ""}
+        <div class="match-row"><span>Match me with</span>${[["All", "Everyone"], ["Men", "Men's"], ["Women", "Women's"]].map(([v, l]) =>
+          `<button class="pill ${g === v ? "on" : ""}" data-gender="${v}" aria-pressed="${g === v}">${l}</button>`).join("")}</div>
+        <button class="gold-btn" id="start" ${n ? "" : "disabled"}>Kick off &nbsp;→</button>
+        ${n ? "" : `<p style="color:var(--gold);font-weight:700;margin:0">No players match your Settings. Loosen the filters or import players.</p>`}
+      </div>
+      ${featured ? `<div class="sample">${playerCard(featured)}<span>Could this be you?</span></div>` : ""}
     </div></div>`;
     $("#name")?.addEventListener("input", (e) => (q.name = e.target.value));
     $("#name")?.addEventListener("keydown", (e) => e.key === "Enter" && $("#start").click());
-    for (const input of view.querySelectorAll('input[name="quiz-gender"]')) {
-      input.onchange = () => { updateSettings({ gender: input.value }); renderQuiz(); };
-    }
-    $("#start").onclick = () => { q.answers = {}; q.index = 0; q.stage = "question"; renderQuiz(); };
+    for (const b of view.querySelectorAll("[data-gender]")) b.onclick = () => { updateSettings({ gender: b.dataset.gender }); renderQuiz(); };
+    $("#start").onclick = () => { q.answers = {}; q.index = 0; q.back = false; q.stage = "question"; renderQuiz(); };
     return;
   }
   if (q.stage === "question") {
     const question = core.QUESTIONS[q.index];
-    const kindColor = question.kind === "Playing style" ? groupColor("forward") : groupColor("goalkeeper");
-    view.innerHTML = `<div class="page">
-      <div class="q-head">${chip(question.kind, kindColor)}<span>Question ${q.index + 1} of ${core.QUESTIONS.length}</span></div>
-      <div class="progress"><div style="width:${(q.index / core.QUESTIONS.length) * 100}%"></div></div>
+    const total = core.QUESTIONS.length;
+    const kindColor = question.kind === "Playing style" ? "var(--accent)" : groupColor("goalkeeper");
+    const pct = (q.index / total) * 100;
+    view.innerHTML = `<div class="q-page ${q.back ? "back" : ""}">
+      <div class="pitch-progress" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${q.index}" aria-label="Quiz progress">
+        <div class="trail" style="width:calc((100% - 72px) * ${pct / 100})"></div>
+        <span class="ball" style="left:calc(36px + (100% - 72px) * ${pct / 100})">⚽️</span><span class="goal">🥅</span>
+      </div>
+      <div class="q-head">${chip(question.kind, kindColor)}<span class="display" style="font-weight:700;font-size:14px">Question ${q.index + 1} of ${total}</span></div>
       <p class="q-prompt">${esc(question.prompt)}</p>
-      <div class="options">${question.options.map((o, i) =>
-        `<button class="option ${q.answers[question.id] === i ? "chosen" : ""}" data-i="${i}"><kbd>${i + 1}</kbd>${esc(o.text)}</button>`).join("")}</div>
-      <div class="q-foot"><button class="btn" id="back">Back</button><span>Tip: press 1–${question.options.length} to answer</span></div>
+      <div class="answers">${question.options.map((o, i) =>
+        `<button class="answer ${q.answers[question.id] === i ? "chosen" : ""}" data-i="${i}"><span class="emoji" aria-hidden="true">${icon(question.id, i)}</span><span>${esc(o.text)}</span><kbd>${i + 1}</kbd></button>`).join("")}</div>
+      <div class="q-foot"><button class="btn" id="back">‹ Back</button><span>Tip: press 1–${question.options.length} to answer</span></div>
     </div>`;
-    for (const b of view.querySelectorAll(".option")) b.onclick = () => answer(Number(b.dataset.i));
-    $("#back").onclick = () => { if (q.index === 0) q.stage = "start"; else q.index--; renderQuiz(); };
+    for (const b of view.querySelectorAll(".answer")) b.onclick = () => answer(Number(b.dataset.i));
+    $("#back").onclick = () => { q.back = true; if (q.index === 0) q.stage = "start"; else q.index--; renderQuiz(); };
+    return;
+  }
+  if (q.stage === "scouting") {
+    const lines = ["Checking your first touch…", "Timing your sprint…", "Studying your game…", `Comparing you with ${eligibleCount().toLocaleString()} players…`];
+    view.innerHTML = `<div class="scouting pitch"><div><span class="spin" aria-hidden="true">⚽️</span><h2>Scouting your style</h2><p id="scout-line" aria-live="polite">${lines[0]}</p></div></div>`;
+    let i = 0;
+    const timer = setInterval(() => { const el = $("#scout-line"); if (!el) return clearInterval(timer); el.textContent = lines[++i % lines.length]; }, 450);
+    setTimeout(() => { clearInterval(timer); if (q.stage === "scouting") { q.stage = "result"; if (state.section === "quiz") renderQuiz(); } }, 1800);
     return;
   }
   renderResult();
-}
-
-function genderSegmented(name, value) {
-  const options = [["All", "Men's & Women's"], ["Men", "Men's"], ["Women", "Women's"]];
-  return `<div class="segmented" role="radiogroup">${options.map(([v, label]) =>
-    `<label><input type="radio" name="${name}" value="${v}" ${v === value ? "checked" : ""}><span>${label}</span></label>`).join("")}</div>`;
 }
 
 function answer(i) {
@@ -157,6 +203,7 @@ function answer(i) {
   const question = core.QUESTIONS[q.index];
   if (i < 0 || i >= question.options.length) return;
   q.answers[question.id] = i;
+  q.back = false;
   if (q.index + 1 < core.QUESTIONS.length) { q.index++; renderQuiz(); return; }
   const profile = core.profileFrom(q.answers);
   const matches = core.rank(profile, allPlayers(), filter(), Math.max(1, Number(state.settings.matchCount)));
@@ -164,9 +211,32 @@ function answer(i) {
   state.responses.push(response);
   if (!save(KEYS.responses, state.responses)) banner("Couldn't save this response — browser storage is full or blocked.", true);
   q.result = { profile, matches };
-  q.stage = "result";
+  q.stage = "scouting";
   renderQuiz();
   $("#view").scrollTop = 0;
+}
+
+/** The match explained in plain words. */
+function why(profile, top) {
+  const p = top.player;
+  const last = p.name.split(" ").pop();
+  const place = { forward: "up front", midfielder: "in midfield", defender: "at the back", goalkeeper: "in goal" }[core.topPosition(profile)];
+  if (core.isKeeper(p)) return `Like ${last}, you're happiest ${place} — calm, brave and ready to organise everyone in front of you.`;
+  if (!top.sharedStrengths.length) return `You and ${last} share the same balance of skills and you both belong ${place}.`;
+  const list = new Intl.ListFormat("en", { type: "conjunction" }).format(top.sharedStrengths.map((t) => core.TRAIT_NAMES[t].toLowerCase()));
+  return `Like ${last}, your game is built on ${list} — and you both belong ${place}.`;
+}
+
+async function share(top) {
+  const text = `I play like ${top.player.name} (${top.score}% match) on What Soccer Player Are Ya! Which player are you?`;
+  const url = location.origin + location.pathname;
+  try {
+    if (navigator.share) { await navigator.share({ title: "What Soccer Player Are Ya", text, url }); return; }
+    await navigator.clipboard.writeText(`${text} ${url}`);
+    banner("Copied to your clipboard — paste it anywhere to share.");
+  } catch (e) {
+    if (e?.name !== "AbortError") banner("Couldn't share from this browser.", true);
+  }
 }
 
 function renderResult() {
@@ -175,8 +245,8 @@ function renderResult() {
   const view = $("#view");
   const top = matches[0];
   if (!top) {
-    view.innerHTML = `<div class="page"><div class="empty"><h2>No players to match</h2><p>Loosen the filters in Settings or import players.</p>
-      <button class="btn primary" id="again">Take It Again</button></div></div>`;
+    view.innerHTML = `<div class="empty-pitch pitch"><div><div class="emoji">🤷</div><h2>No players to match</h2><p>Loosen the filters in Settings or import players.</p>
+      <button class="gold-btn" id="again">Take It Again</button></div></div>`;
     $("#again").onclick = restart;
     return;
   }
@@ -184,33 +254,41 @@ function renderResult() {
   const lowHigh = [Math.min(...p.traits), Math.max(...p.traits)];
   const rel = (v) => (lowHigh[1] > lowHigh[0] ? (v - lowHigh[0]) / (lowHigh[1] - lowHigh[0]) : 0.5);
   const keeper = core.isKeeper(p);
-  const list = new Intl.ListFormat("en", { type: "conjunction" });
-  view.innerHTML = `<div class="page">
-    <div class="hero">
-      <div class="lead">${name ? `${esc(name)}, you're most like` : "You're most like"}</div>
-      <div class="hero-name"><h2>${esc(p.name)}</h2><span class="pct">${top.score}% match</span></div>
-      <div class="meta">${positionChips(p.positions)}${chip(p.era, eraColor(p.era))}<span>${esc([p.club, p.nationality].filter(Boolean).join(" · "))}</span></div>
-      ${top.sharedStrengths.length ? `<div class="why">You both stand out for ${esc(list.format(top.sharedStrengths.map((t) => core.TRAIT_NAMES[t].toLowerCase())))}.</div>` : ""}
-    </div>
-    <h3>Your style vs ${esc(p.name)} <small>Bars show each side's relative strengths</small></h3>
-    <div class="compare">${core.TRAITS.map((t, i) => {
-      const mine = keeper ? profile.traits[core.TRAITS.indexOf(core.KEEPER_SOURCE[i])] : profile.traits[i];
-      const color = traitColor(t);
-      return `<div>${esc(core.traitName(p, t))}</div><div class="bars">
-        <span>You</span><div class="track"><div style="width:${mine * 100}%;background:${color}"></div></div>
-        <span>${p.traits[i]}</span><div class="track"><div style="width:${rel(p.traits[i]) * 100}%;background:${color};opacity:.45"></div></div>
-      </div>`;
-    }).join("")}</div>
-    ${matches.length > 1 ? `<h3>Also a lot like</h3>${matches.slice(1).map((m) =>
-      `<div class="runner"><strong>${esc(m.player.name)}</strong>${positionChips(m.player.positions.slice(0, 2))}<span class="club">${esc(m.player.club)}</span><span class="pct">${m.score}%</span></div>`).join("")}` : ""}
-    <div class="actions"><button class="btn primary" id="again">Take It Again</button><button class="btn" id="see-all">See Everyone's Results</button></div>
-  </div>`;
+  view.innerHTML = `<div class="pitch"><div class="reveal-hero">
+      ${playerCard(p)}
+      <div class="reveal-text">
+        <div class="lead">${name ? `${esc(name)}, you play like` : "You play like"}</div>
+        <h2>${esc(p.name)}</h2>
+        <div class="row"><span class="score-pill">${top.score}% match</span><span class="sub">${esc(p.era === "Legend" ? "Legend" : p.club)}</span></div>
+        <p class="why">${esc(why(profile, top))}</p>
+        <div class="reveal-actions">
+          <button class="gold-btn" id="again">Take It Again</button>
+          <button class="chalk-btn" id="share">⇪ Share</button>
+          <button class="chalk-btn" id="see-all">Everyone's Results</button>
+        </div>
+      </div>
+    </div></div>
+    <div class="page">
+      <h3 class="section-title">Your style vs ${esc(p.name)} <small>Bars show each side's relative strengths</small></h3>
+      <div class="compare">${core.TRAITS.map((t, i) => {
+        const mine = keeper ? profile.traits[core.TRAITS.indexOf(core.KEEPER_SOURCE[i])] : profile.traits[i];
+        const color = traitColor(t);
+        return `<div class="display" style="font-weight:700">${esc(core.traitName(p, t))}</div><div class="bars">
+          <span>You</span><div class="track"><div style="width:${mine * 100}%;background:${color}"></div></div>
+          <span>${p.traits[i]}</span><div class="track"><div style="width:${rel(p.traits[i]) * 100}%;background:${color};opacity:.45"></div></div>
+        </div>`;
+      }).join("")}</div>
+      ${matches.length > 1 ? `<h3 class="section-title">Also a lot like</h3><div class="runners">${matches.slice(1).map((m) =>
+        `<figure>${playerCard(m.player, true)}<figcaption>${m.score}% match</figcaption></figure>`).join("")}</div>` : ""}
+    </div>`;
   $("#again").onclick = restart;
+  $("#share").onclick = () => share(top);
   $("#see-all").onclick = () => go("results");
 }
 
 function restart() {
-  Object.assign(state.quiz, { stage: "start", index: 0, answers: {}, name: "", result: null });
+  Object.assign(state.quiz, { stage: "start", index: 0, answers: {}, name: "", result: null, back: true });
+  featuredSeed++;
   renderQuiz();
 }
 
@@ -220,8 +298,9 @@ function renderResults() {
   const view = $("#view");
   const responses = state.responses;
   if (!responses.length) {
-    view.innerHTML = `<div class="empty"><h2>No responses yet</h2><p>Each completed quiz is saved in this browser with a summary of everyone's answers.</p>
-      <button class="btn primary" id="take">Take the Quiz</button></div>`;
+    view.innerHTML = `<div class="empty-pitch pitch"><div><div class="emoji">📋</div><h2>No one's kicked off yet</h2>
+      <p>Every finished quiz lands here, with a matchday report on who everyone plays like. Responses stay in this browser.</p>
+      <button class="gold-btn" id="take">Take the Quiz</button></div></div>`;
     $("#take").onclick = () => go("quiz");
     return;
   }
@@ -242,19 +321,19 @@ function renderResults() {
   const sorted = [...responses].sort((a, b) => (a.date < b.date ? 1 : -1));
   const sel = state.results.selected;
   view.innerHTML = `<div class="page wide">
-    <div class="tiles">
-      <div class="tile"><small>Responses</small><div>${s.total.toLocaleString()}</div></div>
-      <div class="tile"><small>Most common match</small><div>${s.topPlayers[0] ? `${esc(s.topPlayers[0].name)} (${s.topPlayers[0].count})` : "—"}</div></div>
-      <div class="tile"><small>Most common position</small><div>${s.total ? core.GROUP_NAMES[topGroup] : "—"}</div></div>
-    </div>
+    <div class="report pitch"><h2>Matchday report</h2><div class="tiles">
+      <div class="tile"><span class="emoji">🙋</span><div><small>Players scouted</small><div>${s.total.toLocaleString()}</div></div></div>
+      <div class="tile"><span class="emoji">⭐️</span><div><small>Most common match</small><div>${s.topPlayers[0] ? `${esc(s.topPlayers[0].name)} (${s.topPlayers[0].count})` : "—"}</div></div></div>
+      <div class="tile"><span class="emoji">📍</span><div><small>Most common position</small><div>${s.total ? core.GROUP_NAMES[topGroup] : "—"}</div></div></div>
+    </div></div>
     <div class="charts">
-      <div><h3>Top matches</h3>${s.topPlayers.slice(0, 10).map((x) => bar(x.name, x.count, maxTop, "var(--accent)", x.count)).join("")}</div>
+      <div><h3 class="section-title">Top matches</h3>${s.topPlayers.slice(0, 10).map((x) => bar(x.name, x.count, maxTop, "var(--accent)", x.count)).join("")}</div>
       <div>
-        <h3>Average style</h3>${core.TRAITS.map((t, i) => bar(core.TRAIT_NAMES[t], s.averageTraits[i], 1, traitColor(t), "")).join("")}
-        <h3>Where people play</h3>${core.GROUPS.map((g) => bar(core.GROUP_NAMES[g], s.positions[g] ?? 0, maxPos, groupColor(g), s.positions[g] ?? 0)).join("")}
+        <h3 class="section-title">Average style</h3>${core.TRAITS.map((t, i) => bar(core.TRAIT_NAMES[t], s.averageTraits[i], 1, traitColor(t), "")).join("")}
+        <h3 class="section-title">Where people play</h3>${core.GROUPS.map((g) => bar(core.GROUP_NAMES[g], s.positions[g] ?? 0, maxPos, groupColor(g), s.positions[g] ?? 0)).join("")}
       </div>
     </div>
-    <h3>Responses <small>Select rows, then press Delete or use the button</small></h3>
+    <h3 class="section-title">Responses <small>Select rows, then press Delete or use the button</small></h3>
     <div class="row" style="margin-bottom:8px"><button class="btn danger" id="delete-selected" ${sel.size ? "" : "disabled"}>Delete Selected (${sel.size})</button></div>
     <div class="table-wrap"><table>
       <thead><tr><th></th><th>Date</th><th>Name</th><th>Top Match</th><th>Positions</th><th class="num">Score</th><th>Plays as</th></tr></thead>
@@ -307,8 +386,8 @@ function renderPlayers() {
   const ps = state.players;
   const all = allPlayers();
   if (!all.length) {
-    view.innerHTML = `<div class="empty"><h2>No players</h2><p>Turn the bundled players back on in Settings, or upload a CSV. You can also drop a file anywhere on this page or paste it with ⌘V / Ctrl+V.</p>
-      <button class="btn primary" id="empty-upload">Upload Players…</button></div>`;
+    view.innerHTML = `<div class="empty-pitch pitch"><div><div class="emoji">👟</div><h2>The squad is empty</h2><p>Turn the bundled players back on in Settings, or upload a CSV. You can also drop a file anywhere on this page or paste it with ⌘V / Ctrl+V.</p>
+      <button class="gold-btn" id="empty-upload">Upload Players…</button></div></div>`;
     $("#empty-upload").onclick = () => $("#file-input").click();
     return;
   }
@@ -325,7 +404,7 @@ function renderPlayers() {
   });
   const th = (k, label, num = false) => `<th class="sortable ${num ? "num" : ""} ${ps.sort === k ? "sorted" + (ps.asc ? " asc" : "") : ""}" data-sort="${k}">${label}</th>`;
   const select = (id, value, options) => `<select id="${id}">${options.map(([v, l]) => `<option value="${v}" ${v === value ? "selected" : ""}>${l}</option>`).join("")}</select>`;
-  view.innerHTML = `<div class="page wide">
+  view.innerHTML = `<div class="squad-head pitch"><h2>The squad</h2><span>Everyone you can be matched with</span></div><div class="page wide" style="padding-top:16px">
     <div class="filters">
       <input type="search" id="search" placeholder="Name, club or nation" value="${esc(ps.search)}">
       ${select("f-group", ps.group, [["", "All positions"], ...core.GROUPS.map((g) => [g, core.GROUP_NAMES[g] + "s"])])}
@@ -521,7 +600,7 @@ async function start() {
   setUpSettings();
   setUpFeedback();
   setUpKeys();
-  // Screenshot helpers: ?section=results|players, ?demo=1 shows a sample result without saving it.
+  // Screenshot helpers: ?section=results|players, ?demo=1 shows a sample result without saving it, ?question=2 opens on that question.
   const params = new URLSearchParams(location.search);
   if (TITLES[params.get("section")]) state.section = params.get("section");
   try {
@@ -531,9 +610,11 @@ async function start() {
     banner(`Couldn't load the bundled players: ${e.message}`, true);
   }
   if (params.get("demo") === "1") {
-    const answers = { pitch: 0, ball: 0, weapon: 3, duel: 3, goal: 1, fitness: 3, captain: 1, pressure: 1, style: 0, loss: 2, weekend: 1, role: 2 };
+    const answers = { pitch: 0, ball: 0, weapon: 3, duel: 4, goal: 1, fitness: 3, captain: 1, pressure: 1, style: 0, loss: 2, weekend: 1, role: 2 };
     const profile = core.profileFrom(answers);
     Object.assign(state.quiz, { stage: "result", name: "Sam", answers, result: { profile, matches: core.rank(profile, allPlayers(), filter(), state.settings.matchCount) } });
+  } else if (params.has("question")) {
+    Object.assign(state.quiz, { stage: "question", index: Math.min(core.QUESTIONS.length - 1, Math.max(0, Number(params.get("question")) || 0)) });
   }
   render();
 }

@@ -63,7 +63,7 @@ The website works like the Mac app, with a few differences:
 - Settings open with the gear button, ⌘, on a Mac or Ctrl+, elsewhere.
 - Feedback can be saved in the browser or opened as a pre-filled GitHub issue, which the visitor reviews before posting.
 - Very large imports may be too big to keep in the browser. They still work for that visit, and the site says so.
-- Screenshot helpers are URL parameters: `?section=results` (or `players`) and `?demo=1`.
+- Screenshot helpers are URL parameters: `?section=results` (or `players`), `?demo=1` and `?question=2`.
 
 ## Use it
 
@@ -131,5 +131,6 @@ Two launch arguments help with taking screenshots:
 
 - `-startSection results` (or `players`) opens the app on that page.
 - `-demoResult YES` opens on a sample result. That result isn't saved.
+- `-startQuestion 2` opens on that question (counting from 0).
 
 `-sizedOnce NO` resets the window to its first-launch size (1200×780).

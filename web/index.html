@@ -7,6 +7,9 @@
   <meta name="description" content="A 12-question quiz that tells you which soccer player you play like.">
   <link rel="icon" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="app.js"></script>
 </head>
@@ -19,7 +22,7 @@
         <button data-section="results" class="nav-item"><span class="ico">📊</span>Results</button>
         <button data-section="players" class="nav-item"><span class="ico">👥</span>Players</button>
       </nav>
-      <button class="feedback-link" id="feedback-open" title="Send feedback about the site">💬 Feedback</button>
+      <button class="feedback-link" id="feedback-open" title="Send feedback about the site" aria-label="Feedback">💬 <span>Feedback</span></button>
     </aside>
     <main>
       <header class="toolbar">

@@ -8,9 +8,13 @@ A Mac app and website with a 12-question quiz that tells you which soccer player
 
 ![Your match](docs/screenshots/Your%20Match.png)
 
-| Take the quiz | Everyone's results (dark mode) | Player pool |
-|---|---|---|
-| ![Quiz](docs/screenshots/Quiz.png) | ![Results](docs/screenshots/Results.png) | ![Players](docs/screenshots/Players.png) |
+| Kick off | Answer 12 questions (dark mode) |
+|---|---|
+| ![Welcome](docs/screenshots/Quiz.png) | ![Question](docs/screenshots/Question.png) |
+
+| Everyone's results (dark mode) | The squad |
+|---|---|
+| ![Results](docs/screenshots/Results.png) | ![Players](docs/screenshots/Players.png) |
 
 | The website | On a phone (dark mode) |
 |---|---|

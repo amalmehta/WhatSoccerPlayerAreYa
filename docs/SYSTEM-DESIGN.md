@@ -155,6 +155,24 @@ Matching changes are kept only if they measurably help.
 
 `WSPAY_DATA_DIR` overrides the Application Support folder, which is used for demos and screenshots.
 
+## Look and feel ("Matchday")
+
+Both apps share one design language, so the website feels like the Mac app:
+
+- **Pitch hero surfaces:** a green gradient with mown stripes, a halfway line, a centre circle and floodlight glow. They're used for the welcome screen, the scouting step, the result reveal, the Results report and the Players header. They stay green in light and dark mode; everything else follows the system theme.
+- **Gold call-to-action buttons** ("Kick off", "Take It Again"), white "chalk" secondary buttons and gold-when-selected pills.
+- **Heavy rounded display type:** SF Pro Rounded on the Mac; on the web, `ui-rounded` falling back to Nunito from Google Fonts.
+- **Quiz flow:**
+  1. Welcome hero with a sample player card ("Could this be you?").
+  2. Questions as emoji answer cards, with a ⚽️ that moves up a pitch-shaped progress bar towards the 🥅.
+  3. A 1.8-second "Scouting your style" build-up.
+  4. The top match revealed as a collectible player card that flips in, with a plain-words "why you match" sentence and Share (the macOS share sheet; on the web, the browser's share sheet or a copy to the clipboard).
+- **Player cards are generic:** gold for current players, cream for legends, silver for imports, with initials instead of photos. No club badges, photos or EA marks.
+- **Emoji per answer** live in the UI layer (`AnswerIcons` in `Theme.swift`, `ICONS` in `web/app.js`), so the parity-checked quiz data doesn't change.
+- **The website honours `prefers-reduced-motion`** by cutting the animations.
+
+Code: `Sources/WhatSoccerPlayerAreYa/Theme.swift` holds the theme, the pitch background, the button styles, `PlayerCard`, `EmptyPitch` and the answer icons. On the web, the "Matchday" section of `web/styles.css` and `playerCard()` in `web/app.js` do the same.
+
 ## Colour coding
 
 Related categories share a hue family. Shades within a family are spaced apart in hue, saturation and brightness so they're easy to tell apart. Every colour has a darker version for light mode and a brighter one for dark mode, built with `NSColor(name:dynamicProvider:)`.

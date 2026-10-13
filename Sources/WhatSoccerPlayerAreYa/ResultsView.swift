@@ -12,19 +12,21 @@ struct ResultsView: View {
     var body: some View {
         let responses = model.responses
         if responses.isEmpty {
-            ContentUnavailableView {
-                Label("No responses yet", systemImage: "chart.bar.xaxis")
-            } description: {
-                Text("Each completed quiz is saved here with a summary of everyone's answers.")
-            } actions: {
-                Button("Take the Quiz") { model.section = .quiz }
-            }
+            EmptyPitch(emoji: "📋", title: "No one's kicked off yet",
+                       message: "Every finished quiz lands here, with a matchday report on who everyone plays like.",
+                       button: "Take the Quiz") { model.section = .quiz }
         } else {
             let summary = ResponseSummary(responses)
             VSplitView {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 24) {
-                        tiles(summary)
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Matchday report").font(Theme.display(30)).foregroundStyle(.white)
+                            tiles(summary)
+                        }
+                        .padding(24)
+                        .background(PitchBackground())
+                        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
                         HStack(alignment: .top, spacing: 24) {
                             topPlayersChart(summary)
                             VStack(alignment: .leading, spacing: 24) {
@@ -57,29 +59,32 @@ struct ResultsView: View {
 
     private func tiles(_ s: ResponseSummary) -> some View {
         HStack(spacing: 16) {
-            tile("Responses", s.total.formatted())
-            tile("Most common match", s.topPlayers.first.map { "\($0.name) (\($0.count))" } ?? "—")
+            tile("🙋", "Players scouted", s.total.formatted())
+            tile("⭐️", "Most common match", s.topPlayers.first.map { "\($0.name) (\($0.count))" } ?? "—")
             let topGroup = s.positions.max { $0.value < $1.value }?.key
-            tile("Most common position", topGroup?.name ?? "—")
+            tile("📍", "Most common position", topGroup?.name ?? "—")
         }
     }
 
-    private func tile(_ title: String, _ value: String) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title).font(.caption).foregroundStyle(.secondary)
-            Text(value).font(.title2.weight(.semibold)).lineLimit(1).minimumScaleFactor(0.6)
+    private func tile(_ emoji: String, _ title: String, _ value: String) -> some View {
+        HStack(spacing: 12) {
+            Text(emoji).font(.system(size: 26))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title).font(Theme.display(13, .semibold)).foregroundStyle(.white.opacity(0.8))
+                Text(value).font(Theme.display(22)).foregroundStyle(.white).lineLimit(1).minimumScaleFactor(0.6)
+            }
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 12))
+        .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
     private func topPlayersChart(_ s: ResponseSummary) -> some View {
         VStack(alignment: .leading) {
-            Text("Top matches").font(.headline)
+            Text("Top matches").font(Theme.display(18))
             Chart(s.topPlayers.prefix(10)) { item in
                 BarMark(x: .value("People", item.count), y: .value("Player", item.name))
-                    .foregroundStyle(Color.accentColor)
+                    .foregroundStyle(Theme.grass.gradient)
                     .annotation(position: .trailing) { Text("\(item.count)").font(.caption).foregroundStyle(.secondary) }
             }
             .chartXAxis(.hidden)
@@ -90,7 +95,7 @@ struct ResultsView: View {
 
     private func traitsChart(_ s: ResponseSummary) -> some View {
         VStack(alignment: .leading) {
-            Text("Average style").font(.headline)
+            Text("Average style").font(Theme.display(18))
             Chart(Trait.allCases) { trait in
                 BarMark(x: .value("Average", s.averageTraits[trait.rawValue] * 100), y: .value("Trait", trait.name))
                     .foregroundStyle(Palette.color(trait: trait))
@@ -104,7 +109,7 @@ struct ResultsView: View {
 
     private func positionsChart(_ s: ResponseSummary) -> some View {
         VStack(alignment: .leading) {
-            Text("Where people play").font(.headline)
+            Text("Where people play").font(Theme.display(18))
             Chart(PositionGroup.allCases) { group in
                 BarMark(x: .value("People", s.positions[group] ?? 0), y: .value("Position", group.name))
                     .foregroundStyle(Palette.color(group: group))

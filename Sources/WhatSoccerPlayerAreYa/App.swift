@@ -11,6 +11,7 @@ struct WhatSoccerPlayerAreYaApp: App {
             ContentView()
                 .environment(model)
                 .preferredColorScheme(Appearance(rawValue: appearance)?.colorScheme)
+                .tint(Theme.grass)
                 .frame(minWidth: 900, idealWidth: 1200, minHeight: 620, idealHeight: 780)
         }
         .defaultSize(width: 1200, height: 780)

@@ -80,6 +80,15 @@ final class AppModel {
         allPlayers.filter(filter.allows).count
     }
 
+    /// A well-known player for the welcome screen's sample card, picked fresh each launch.
+    let featuredSeed = Int.random(in: 0..<10_000)
+    var featuredPlayer: Player? {
+        let f = filter
+        let stars = allPlayers.filter { f.allows($0) && $0.overall >= 88 && !$0.isKeeper }
+        let pool = stars.isEmpty ? allPlayers.filter(f.allows) : stars
+        return pool.isEmpty ? nil : pool[featuredSeed % pool.count]
+    }
+
     func rank(_ profile: Profile) -> [Match] {
         let count = max(1, UserDefaults.standard.integer(forKey: SettingsKey.matchCount))
         return Matcher.rank(profile, against: allPlayers, filter: filter, limit: count)

@@ -11,8 +11,16 @@ struct ContentView: View {
     var body: some View {
         @Bindable var model = model
         NavigationSplitView {
-            List(AppModel.Section.allCases, selection: $model.section) { section in
-                Label(section.rawValue, systemImage: section.icon).tag(section)
+            List(selection: $model.section) {
+                HStack(spacing: 10) {
+                    Image(nsImage: NSApp.applicationIconImage).resizable().frame(width: 34, height: 34)
+                    Text("What Soccer Player Are Ya").font(Theme.display(13, .heavy)).lineLimit(2)
+                }
+                .padding(.vertical, 6)
+                .selectionDisabled()
+                ForEach(AppModel.Section.allCases) { section in
+                    Label(section.rawValue, systemImage: section.icon).tag(section)
+                }
             }
             .navigationSplitViewColumnWidth(min: 180, ideal: 200)
             .safeAreaInset(edge: .bottom) {

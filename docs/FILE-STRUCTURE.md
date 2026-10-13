@@ -25,17 +25,18 @@ WhatSoccerPlayerAreYa/
 │       ├── App.swift             App entry, menus, Settings scene, settings keys
 │       ├── AppModel.swift        Shared state: players, responses, import, feedback
 │       ├── ContentView.swift     Sidebar, toolbar (Upload, Settings), drop, ⌘V
-│       ├── QuizView.swift        Quiz flow, result card, trait comparison
+│       ├── QuizView.swift        Welcome, questions, scouting, card reveal, trait comparison
 │       ├── ResultsView.swift     Summary tiles, charts, response table, export
 │       ├── PlayersView.swift     Searchable, filterable player table
 │       ├── SettingsView.swift    Quiz / Players / Data settings tabs
 │       ├── FeedbackView.swift    Feedback sheet
-│       └── Palette.swift         Category colours, chips
+│       ├── Palette.swift         Category colours, chips
+│       └── Theme.swift           Matchday look: pitch, buttons, player card, answer emoji
 ├── web/                          The website (static, no build step)
 │   ├── index.html                Page shell, Settings and Feedback dialogs
 │   ├── styles.css                Layout, light/dark themes, phone layout
 │   ├── core.js                   Quiz, matching, CSV import (port of SoccerCore)
-│   ├── app.js                    Pages, importing, settings, storage
+│   ├── app.js                    Pages, player cards, importing, settings, storage
 │   ├── players.csv               Copy of the bundled players
 │   ├── icon.png                  Copy of the app icon
 │   └── tests/

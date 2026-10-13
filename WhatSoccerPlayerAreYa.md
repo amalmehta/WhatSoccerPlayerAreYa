@@ -120,3 +120,4 @@ CHANGELOG:
 - 2026-10-13 — added a men's / women's filter (quiz start screen, Settings, Players page) and a gender column in the player data
 - 2026-10-13 — built the website (web/): full parity with the Mac app, parity tests against the Swift code, GitHub Pages deploy workflow
 - 2026-10-13 — accuracy pass: player data verified against EA FC 27; quiz rebalanced (pace, positions); keepers compared with keepers; alternative positions count in matching; EA FC import columns and non-UTF-8 files; persona benchmark and accuracy tests
+- 2026-10-13 — Matchday redesign of both apps: pitch hero welcome, emoji answer cards with pitch progress, scouting build-up, player-card reveal with share, warmer Results and Players pages
