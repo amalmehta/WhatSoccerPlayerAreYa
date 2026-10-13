@@ -35,7 +35,7 @@ swift test
 
 ## Use it
 
-**Take the Quiz.** Enter a name if you like, then answer 12 questions. Click an answer or press its number key (1–6). You can go back with **Back**. When you finish you'll see:
+**Take the Quiz.** Enter a name if you like and pick who to be matched with (Men's & Women's, Men's or Women's), then answer 12 questions. Click an answer or press its number key (1–6). You can go back with **Back**. When you finish you'll see:
 
 - your closest player and a match score
 - the traits you share with that player
@@ -54,7 +54,7 @@ Every finished quiz is saved automatically.
 
 The table at the bottom lists each response. Select rows and press Delete to remove them. Use **Export CSV…** in the toolbar to save all responses as a spreadsheet, one column per question. **Clear All…** deletes every response.
 
-**Players.** Browse the players the quiz matches against. Search by name, club or nation, and filter by position or era. Click a column header to sort.
+**Players.** Browse the players the quiz matches against. Search by name, club or nation, and filter by position, era or game (men's or women's). Click a column header to sort.
 
 **Import more players.** Any of these imports a CSV of players:
 
@@ -64,15 +64,17 @@ The table at the bottom lists each response. Select rows and press Delete to rem
 
 The app reads two kinds of CSV:
 
-- **Its own format:** `name,nationality,club,positions,era,overall,pace,shooting,passing,dribbling,defending,physical`
+- **Its own format:** `name,nationality,club,positions,era,overall,pace,shooting,passing,dribbling,defending,physical,gender`
 - **FIFA / EA FC exports**, such as sofifa or Kaggle files. These use columns like `short_name`, `player_positions`, `overall`, `pace`, `shooting`, `passing`, `dribbling`, `defending`, `physic`, `club_name` and `nationality_name`. For goalkeepers it uses `goalkeeping_*` columns when the outfield ones are blank.
+
+An optional `gender` (or `sex`) column marks men's and women's players. It accepts values like Men/Women, Male/Female or M/F. Players from a file without that column are only matched when the filter is set to Men's & Women's.
 
 Rows missing a name, a position or one of the six attributes are skipped, and the app tells you how many it skipped. Imported players are tagged **Imported**, and they're kept between launches.
 
 **Settings (⌘, or the gear button).**
 
 - **Quiz:** whether to ask for a name, how many matches to show (1–10), and appearance (System, Light or Dark).
-- **Players:** which eras to match against (Current, Legends, Imported) and the minimum overall rating. The default is 75, which keeps matches to well-known names. You can also turn off the bundled players, upload a CSV, or remove imported players.
+- **Players:** men's, women's or both (the same choice as on the quiz start screen), which eras to match against (Current, Legends, Imported) and the minimum overall rating. The default is 75, which keeps matches to well-known names. You can also turn off the bundled players, upload a CSV, or remove imported players.
 - **Data:** where your data is stored, Show in Finder, and Export Responses.
 
 **Feedback.** The small **Feedback** link at the bottom of the sidebar, or Help ▸ Send Feedback…, saves a note to `Feedback.json` on this Mac. Nothing is sent anywhere.

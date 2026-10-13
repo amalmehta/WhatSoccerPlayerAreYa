@@ -12,10 +12,17 @@ public struct Match: Identifiable, Hashable, Sendable {
 public struct MatchFilter: Sendable, Equatable {
     public var minimumOverall: Int
     public var eras: Set<Era>
+    /// Nil matches everyone. Set to one game, it leaves out players whose gender isn't known.
+    public var gender: Gender?
 
-    public init(minimumOverall: Int = 0, eras: Set<Era> = Set(Era.allCases)) {
+    public init(minimumOverall: Int = 0, eras: Set<Era> = Set(Era.allCases), gender: Gender? = nil) {
         self.minimumOverall = minimumOverall
         self.eras = eras
+        self.gender = gender
+    }
+
+    public func allows(_ player: Player) -> Bool {
+        player.overall >= minimumOverall && eras.contains(player.era) && (gender == nil || player.gender == gender)
     }
 }
 
@@ -30,7 +37,7 @@ public enum Matcher {
 
     public static func rank(_ profile: Profile, against players: [Player],
                             filter: MatchFilter = MatchFilter(), limit: Int = 5) -> [Match] {
-        let candidates = players.filter { $0.overall >= filter.minimumOverall && filter.eras.contains($0.era) }
+        let candidates = players.filter(filter.allows)
         let bestShare = profile.positions.values.max() ?? 1
         var scored: [(player: Player, score: Double)] = []
         for player in candidates {

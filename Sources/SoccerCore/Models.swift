@@ -74,6 +74,31 @@ public enum Era: String, Codable, Sendable, CaseIterable {
     case imported = "Imported"
 }
 
+/// Whether a player plays in the men's or the women's game.
+public enum Gender: String, Codable, Sendable, CaseIterable, Identifiable {
+    case men = "Men"
+    case women = "Women"
+
+    public var id: String { rawValue }
+
+    /// "Men's" / "Women's", as people say it.
+    public var name: String {
+        switch self {
+        case .men: "Men's"
+        case .women: "Women's"
+        }
+    }
+
+    /// Reads the values CSVs tend to use: Men, Male, M, Women, Female, F, W…
+    public init?(text: String) {
+        switch text.trimmingCharacters(in: .whitespaces).lowercased() {
+        case "men", "man", "male", "m", "men's", "mens": self = .men
+        case "women", "woman", "female", "f", "w", "women's", "womens": self = .women
+        default: return nil
+        }
+    }
+}
+
 public struct Player: Identifiable, Codable, Hashable, Sendable {
     public var id: String { "\(name)|\(club)|\(era.rawValue)" }
     public var name: String
@@ -85,9 +110,11 @@ public struct Player: Identifiable, Codable, Hashable, Sendable {
     public var overall: Int
     /// One value per `Trait`, in `Trait.allCases` order, each 1–99.
     public var traits: [Int]
+    /// Nil when an imported file doesn't say.
+    public var gender: Gender?
 
     public init(name: String, nationality: String = "", club: String = "", positions: [String],
-                era: Era, overall: Int, traits: [Int]) {
+                era: Era, overall: Int, traits: [Int], gender: Gender? = nil) {
         precondition(traits.count == Trait.allCases.count, "need one value per trait")
         self.name = name
         self.nationality = nationality
@@ -96,6 +123,7 @@ public struct Player: Identifiable, Codable, Hashable, Sendable {
         self.era = era
         self.overall = overall
         self.traits = traits
+        self.gender = gender
     }
 
     public var group: PositionGroup {

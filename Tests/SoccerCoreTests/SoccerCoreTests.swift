@@ -49,11 +49,24 @@ import Testing
         #expect(throws: ImportError.empty) { try PlayerImporter.load(csv: "") }
     }
 
+    @Test func genderColumnAndAliases() throws {
+        let csv = """
+        name,position,pace,shooting,passing,dribbling,defending,physical,sex
+        A,ST,80,80,80,80,40,70,Female
+        B,ST,80,80,80,80,40,70,M
+        C,ST,80,80,80,80,40,70,
+        """
+        let r = try PlayerImporter.load(csv: csv)
+        #expect(r.players.map(\.gender) == [.women, .men, nil])
+    }
+
     @Test func bundledDatasetLoads() {
         let players = BundledPlayers.load()
         #expect(players.count >= 150)
         #expect(Set(players.map(\.group)) == Set(PositionGroup.allCases))
         #expect(players.contains { $0.era == .legend })
+        #expect(players.allSatisfy { $0.gender != nil })
+        #expect(players.filter { $0.gender == .women }.count >= 40)
     }
 }
 
@@ -122,6 +135,11 @@ import Testing
         #expect(!currentOnly.contains { $0.player.era == .legend })
         #expect(Matcher.rank(p, against: all, filter: MatchFilter(minimumOverall: 90)).isEmpty)
         #expect(Matcher.rank(p, against: all, limit: 2).count == 2)
+        let mixed = [poacher, Player(name: "Her", positions: ["ST"], era: .current, overall: 85,
+                                     traits: [88, 92, 70, 80, 35, 78], gender: .women)]
+        let women = Matcher.rank(p, against: mixed, filter: MatchFilter(gender: .women), limit: 10)
+        #expect(women.map(\.player.name) == ["Her"])  // poacher has no gender, so it's left out
+        #expect(Matcher.rank(p, against: mixed, limit: 10).count == 2)
         #expect(Matcher.rank(p, against: all, limit: 10).allSatisfy { (0...100).contains($0.score) })
     }
 }

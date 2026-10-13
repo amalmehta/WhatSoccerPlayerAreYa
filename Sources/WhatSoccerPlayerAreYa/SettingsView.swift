@@ -39,10 +39,12 @@ private struct PlayerSettings: View {
     @AppStorage(SettingsKey.includeCurrent) private var includeCurrent = true
     @AppStorage(SettingsKey.includeLegends) private var includeLegends = true
     @AppStorage(SettingsKey.includeImported) private var includeImported = true
+    @AppStorage(SettingsKey.gender) private var gender = "All"
 
     var body: some View {
         Form {
             Section("Match against") {
+                GenderPicker(selection: $gender)
                 Toggle("Current players", isOn: $includeCurrent)
                 Toggle("Legends", isOn: $includeLegends)
                 Toggle("Imported players", isOn: $includeImported)
@@ -50,8 +52,8 @@ private struct PlayerSettings: View {
                     Text("Minimum overall rating: \(minimumOverall)")
                     Slider(value: Binding(get: { Double(minimumOverall) }, set: { minimumOverall = Int($0) }), in: 40...90, step: 1)
                 }
-                let _ = (useBundled, minimumOverall, includeCurrent, includeLegends, includeImported)
-                Text("\(model.eligibleCount.formatted()) players are eligible. A higher minimum keeps matches to well-known names.")
+                let _ = (useBundled, minimumOverall, includeCurrent, includeLegends, includeImported, gender)
+                Text("\(model.eligibleCount.formatted()) players are eligible. A higher minimum keeps matches to well-known names. Choosing men's or women's only leaves out imported players whose file doesn't say which.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

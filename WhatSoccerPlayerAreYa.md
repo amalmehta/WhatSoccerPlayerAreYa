@@ -76,6 +76,9 @@ Decided without asking:
   ratings, and weights position. Goalkeepers use a trait translation.
   Default minimum overall rating is 75 so matches are well-known names.
 - Feedback is saved to a local file, not emailed.
+- Men's / women's filter: one shared setting (quiz start screen and Settings).
+  Imported players whose file has no gender column are left out unless
+  matching against both.
 - Built as a SwiftPM package plus a build script (no Xcode project). The app is
   ad hoc signed.
 - Two screenshot-only launch arguments (-startSection, -demoResult) and a
@@ -83,7 +86,6 @@ Decided without asking:
 - The website version hasn't been started (it's its own later step).
 
 Proposals (not done):
-- A gender column, with a men's / women's filter.
 - The website version.
 
 CHANGELOG:
@@ -110,3 +112,4 @@ CHANGELOG:
 - 2026-10-12 — built the Mac app: quiz, matching against 228 bundled players + CSV import, saved responses with summary and export, settings, feedback, docs
 - 2026-10-13 — created the private GitHub repo WhatSoccerPlayerAreYa and pushed
 - 2026-10-13 — added an app icon (soccer ball on a pitch with a "?" badge), drawn in code
+- 2026-10-13 — added a men's / women's filter (quiz start screen, Settings, Players page) and a gender column in the player data

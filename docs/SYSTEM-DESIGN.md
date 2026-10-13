@@ -47,9 +47,9 @@ flowchart TB
 
 | Component | Job |
 |---|---|
-| `Models.swift` | `Player`, `Trait` (the six card attributes, and what each one means for a goalkeeper), `PositionGroup` (maps EA position codes to a group) and `Era`. |
+| `Models.swift` | `Player`, `Gender` (men's or women's game), `Trait` (the six card attributes, and what each one means for a goalkeeper), `PositionGroup` (maps EA position codes to a group) and `Era`. |
 | `CSVParser` | A small RFC 4180 reader. It handles quotes, escaped quotes, newlines inside fields, CRLF line endings and a byte-order mark. |
-| `PlayerImporter` | Turns CSV rows into players. It maps column-name aliases so both the app's own format and FIFA/EA FC (sofifa/Kaggle) exports work, falls back to `goalkeeping_*` columns for keepers, skips incomplete rows and removes duplicates. `BundledPlayers` loads `players.csv` from the app bundle first, then from the SwiftPM resource bundle. |
+| `PlayerImporter` | Turns CSV rows into players. It maps column-name aliases so both the app's own format and FIFA/EA FC (sofifa/Kaggle) exports work, falls back to `goalkeeping_*` columns for keepers, reads an optional `gender`/`sex` column, skips incomplete rows and removes duplicates. `BundledPlayers` loads `players.csv` from the app bundle first, then from the SwiftPM resource bundle. |
 | `Quiz` | Holds the 12 questions: 6 on playing style and 6 on personality. Each answer adds weight to traits and to position groups. `Quiz.profile` turns the answers into a `Profile`: traits min–max scaled to 0–1, plus position shares that sum to 1. |
 | `Matcher` | Ranks players against a profile. See *Matching* below. |
 | `ResponseStore` | Keeps saved quiz responses in one JSON file, written atomically. |
@@ -71,7 +71,8 @@ flowchart TB
    - a drop anywhere on the window (`onDrop` on the root view, with a full-window highlight)
    - ⌘V, caught by a local key monitor that ignores the key while a text field is focused, which reads file URLs or CSV text from the pasteboard
 3. **Review results.** `ResultsView` rebuilds a `ResponseSummary` from all saved responses each time it draws. Deleting rows or clearing everything goes through `ResponseStore`. Export writes the CSV through a save panel.
-4. **Change settings.** The values live in `UserDefaults` through `@AppStorage`. `AppModel` reads them whenever it ranks players, so a change applies to the next quiz.
+4. **Choose men's or women's.** One setting (`gender`: All, Men or Women) is shared by the quiz start screen and Settings. `MatchFilter.allows` applies it with the era and rating filters. When it's set to one game, players with no known gender (from imports without the column) are left out. The Players page has its own browse-only picker.
+5. **Change settings.** The values live in `UserDefaults` through `@AppStorage`. `AppModel` reads them whenever it ranks players, so a change applies to the next quiz.
 
 ## Matching
 
@@ -104,7 +105,7 @@ score = 0.60 × shape + 0.35 × position + 0.05 × fame
 
 | Data | Location | Format |
 |---|---|---|
-| Bundled players (228: 156 current, 72 legends, about 48 women) | `Sources/SoccerCore/Resources/players.csv`, copied to `Contents/Resources` in the app | CSV |
+| Bundled players (228: 156 current, 72 legends; 180 men, 48 women, tagged in a `gender` column) | `Sources/SoccerCore/Resources/players.csv`, copied to `Contents/Resources` in the app | CSV |
 | Saved responses | `~/Library/Application Support/What Soccer Player Are Ya/Responses.json` | JSON, ISO 8601 dates |
 | Imported players | `…/Imported Players.json` | JSON |
 | Feedback | `…/Feedback.json` | JSON |
@@ -146,12 +147,12 @@ Related categories share a hue family. Shades within a family are spaced apart i
 
 ## Testing
 
-`swift test` runs 17 Swift Testing tests in `Tests/SoccerCoreTests` covering:
+`swift test` runs 18 Swift Testing tests in `Tests/SoccerCoreTests` covering:
 
 - **CSV parsing:** quotes, newlines, byte-order mark and CRLF.
-- **Import:** the app's own format, sofifa format with keeper fallback and skipped rows, missing-column errors, and that the bundled dataset loads and covers every position.
+- **Import:** the app's own format, gender column and value aliases, sofifa format with keeper fallback and skipped rows, missing-column errors, and that the bundled dataset loads and covers every position.
 - **Quiz:** unique question IDs, profile scaling, an empty quiz, and a JSON round trip.
-- **Matching:** striker, playmaker, defender and keeper answers each find the right archetype, plus filters and the result limit.
+- **Matching:** striker, playmaker, defender and keeper answers each find the right archetype, plus filters (including men's/women's) and the result limit.
 - **Responses:** saving, reloading and deleting, summary counts, and CSV escaping.
 
 **Checked by hand:** the app was launched with demo data, and the Quiz, Result, Results (dark mode) and Players pages were captured and checked visually. The matcher weights were tuned with random-answer simulations.
@@ -161,7 +162,7 @@ Related categories share a hue family. Shades within a family are spaced apart i
 ## Known limits
 
 - Bundled ratings are approximate EA FC-style values compiled from memory, and legends are rated at their peak. Clubs reflect summer 2025.
-- There's no gender column, so you can't filter men's and women's players separately.
+- Imported players without a gender column only appear when matching against both men's and women's players.
 - The goalkeeper trait translation is a heuristic.
 - Imports read UTF-8 only. Files in other encodings may show garbled accents.
 - Very large imports (tens of thousands of rows) load all at once on the main thread.

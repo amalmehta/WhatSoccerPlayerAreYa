@@ -41,6 +41,7 @@ final class AppModel {
             SettingsKey.includeLegends: true,
             SettingsKey.includeImported: true,
             SettingsKey.useBundled: true,
+            SettingsKey.gender: "All",
         ])
         if let override = ProcessInfo.processInfo.environment["WSPAY_DATA_DIR"] {
             dataDirectory = URL(fileURLWithPath: override)
@@ -71,12 +72,12 @@ final class AppModel {
         if d.bool(forKey: SettingsKey.includeCurrent) { eras.insert(.current) }
         if d.bool(forKey: SettingsKey.includeLegends) { eras.insert(.legend) }
         if d.bool(forKey: SettingsKey.includeImported) { eras.insert(.imported) }
-        return MatchFilter(minimumOverall: d.integer(forKey: SettingsKey.minimumOverall), eras: eras)
+        return MatchFilter(minimumOverall: d.integer(forKey: SettingsKey.minimumOverall), eras: eras,
+                           gender: Gender(rawValue: d.string(forKey: SettingsKey.gender) ?? ""))
     }
 
     var eligibleCount: Int {
-        let f = filter
-        return allPlayers.filter { $0.overall >= f.minimumOverall && f.eras.contains($0.era) }.count
+        allPlayers.filter(filter.allows).count
     }
 
     func rank(_ profile: Profile) -> [Match] {

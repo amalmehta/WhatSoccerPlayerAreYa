@@ -42,6 +42,21 @@ enum SettingsKey {
     static let includeImported = "includeImported"
     static let useBundled = "useBundled"
     static let appearance = "appearance"
+    /// "All", "Men" or "Women".
+    static let gender = "gender"
+}
+
+/// The men's / women's choice shown in Settings, on the quiz start screen and on the Players page.
+struct GenderPicker: View {
+    @Binding var selection: String
+    var label = "Players"
+
+    var body: some View {
+        Picker(label, selection: $selection) {
+            Text("Men's & Women's").tag("All")
+            ForEach(Gender.allCases) { Text($0.name).tag($0.rawValue) }
+        }
+    }
 }
 
 enum Appearance: String, CaseIterable, Identifiable {

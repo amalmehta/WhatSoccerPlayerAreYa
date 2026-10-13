@@ -8,6 +8,7 @@ struct PlayersView: View {
     @State private var search = ""
     @State private var group: PositionGroup?
     @State private var era: Era?
+    @State private var gender = "All"
     @State private var sortOrder = [KeyPathComparator(\Player.overall, order: .reverse)]
 
     var body: some View {
@@ -15,6 +16,7 @@ struct PlayersView: View {
         let players = model.allPlayers.filter { p in
             (group == nil || p.group == group)
                 && (era == nil || p.era == era)
+                && (gender == "All" || p.gender?.rawValue == gender)
                 && (search.isEmpty || p.name.localizedStandardContains(search)
                     || p.club.localizedStandardContains(search) || p.nationality.localizedStandardContains(search))
         }
@@ -30,6 +32,8 @@ struct PlayersView: View {
                     ForEach(Era.allCases, id: \.self) { Text($0.rawValue).tag(Era?.some($0)) }
                 }
                 .fixedSize()
+                GenderPicker(selection: $gender, label: "Game")
+                    .fixedSize()
                 Spacer()
                 Text("\(players.count.formatted()) players").foregroundStyle(.secondary)
             }

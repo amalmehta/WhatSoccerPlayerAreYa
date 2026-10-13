@@ -6,6 +6,7 @@ struct QuizView: View {
 
     @Environment(AppModel.self) private var model
     @AppStorage(SettingsKey.askForName) private var askForName = true
+    @AppStorage(SettingsKey.gender) private var gender = "All"
     @State private var stage: Stage = .start
     @State private var name = ""
     @State private var answers: [String: Int] = [:]
@@ -59,6 +60,9 @@ struct QuizView: View {
                     .textFieldStyle(.roundedBorder)
                     .frame(maxWidth: 280)
             }
+            GenderPicker(selection: $gender, label: "Match me with")
+                .pickerStyle(.segmented)
+                .frame(maxWidth: 420)
             Button {
                 answers = [:]
                 stage = .question(0)

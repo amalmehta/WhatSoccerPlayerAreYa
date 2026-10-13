@@ -27,6 +27,7 @@ public enum PlayerImporter {
         "club": ["club", "club_name", "team", "team_name"],
         "positions": ["positions", "player_positions", "position", "best_position", "best position", "pos"],
         "era": ["era"],
+        "gender": ["gender", "sex"],
         "overall": ["overall", "ovr", "overall_rating", "overall rating", "rating"],
         "pace": ["pace", "pac"],
         "shooting": ["shooting", "sho"],
@@ -96,7 +97,8 @@ public enum PlayerImporter {
             let era = Era(rawValue: text("era").capitalized) ?? defaultEra
             let overall = number("overall") ?? Int((Double(traits.reduce(0, +)) / 6).rounded())
             let player = Player(name: name, nationality: text("nationality"), club: text("club"),
-                                positions: positions, era: era, overall: overall, traits: traits)
+                                positions: positions, era: era, overall: overall, traits: traits,
+                                gender: Gender(text: text("gender")))
             guard seen.insert(player.id).inserted else { skipped += 1; continue }
             players.append(player)
         }

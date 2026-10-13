@@ -12,7 +12,7 @@ WhatSoccerPlayerAreYa/
 │   └── make-icon.swift           Draws Assets/AppIcon.png
 ├── Sources/
 │   ├── SoccerCore/               All logic, no UI
-│   │   ├── Models.swift          Player, Trait, PositionGroup, Era
+│   │   ├── Models.swift          Player, Gender, Trait, PositionGroup, Era
 │   │   ├── CSVParser.swift       CSV reader
 │   │   ├── PlayerImporter.swift  CSV → players (own and FIFA formats), bundled loader
 │   │   ├── Quiz.swift            The 12 questions and answers → Profile
@@ -32,7 +32,7 @@ WhatSoccerPlayerAreYa/
 │       └── Palette.swift         Category colours, chips
 ├── Tests/
 │   └── SoccerCoreTests/
-│       └── SoccerCoreTests.swift 17 tests for the core logic
+│       └── SoccerCoreTests.swift 18 tests for the core logic
 ├── docs/
 │   ├── INSTRUCTIONS.md           Setup, run, use
 │   ├── SYSTEM-DESIGN.md          Architecture, flows, decisions, limits
