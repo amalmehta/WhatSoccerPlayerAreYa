@@ -33,6 +33,38 @@ swift scripts/make-icon.swift && ./scripts/build-app.sh
 swift test
 ```
 
+## The website
+
+The website lives in `web/`: plain HTML, CSS and JavaScript with no build step. It's published at https://amalmehta.github.io/WhatSoccerPlayerAreYa/ by the **Website** GitHub Actions workflow on every push to `main`. The workflow runs the website's tests first and only deploys if they pass.
+
+To run it locally (it needs a web server, not a `file://` page, because it loads JavaScript modules and `players.csv`):
+
+```bash
+python3 -m http.server 8791 -d web
+```
+
+Then open http://localhost:8791.
+
+To run the website's tests (Node 18 or later):
+
+```bash
+node --test web/tests/*.test.mjs
+```
+
+The website reads its own copies of the bundled players and the app icon. After changing either, copy them over:
+
+```bash
+./scripts/sync-web.sh
+```
+
+The website works like the Mac app, with a few differences:
+
+- Responses, imported players, settings and feedback are kept in the visitor's browser (`localStorage`), not on a Mac.
+- Settings open with the gear button, ⌘, on a Mac or Ctrl+, elsewhere.
+- Feedback can be saved in the browser or opened as a pre-filled GitHub issue, which the visitor reviews before posting.
+- Very large imports may be too big to keep in the browser. They still work for that visit, and the site says so.
+- Screenshot helpers are URL parameters: `?section=results` (or `players`) and `?demo=1`.
+
 ## Use it
 
 **Take the Quiz.** Enter a name if you like and pick who to be matched with (Men's & Women's, Men's or Women's), then answer 12 questions. Click an answer or press its number key (1–6). You can go back with **Back**. When you finish you'll see:

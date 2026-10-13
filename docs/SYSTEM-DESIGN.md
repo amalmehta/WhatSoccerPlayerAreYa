@@ -59,6 +59,30 @@ flowchart TB
 | Views | Quiz flow, result card, Results dashboard, Players table, Settings window and Feedback sheet. |
 | `Palette` | Colours for each category, with light and dark variants. See *Colour coding* below. |
 
+## The website
+
+The website in `web/` is a static site with no build step and no server code:
+
+| File | Job |
+|---|---|
+| `core.js` | A JavaScript port of SoccerCore: CSV parsing, player import, the 12 questions, profiles, matching, summaries and CSV export. |
+| `app.js` | The pages (quiz, result, Results, Players), the Settings and Feedback dialogs, importing (Upload button, drop anywhere, paste), keyboard shortcuts and storage. |
+| `index.html`, `styles.css` | The page layout and styles: a sidebar on wide screens and a top bar on phones, with light and dark themes. |
+| `players.csv`, `icon.png` | Copies of the Mac app's bundled players and icon, made by `scripts/sync-web.sh`. |
+
+```mermaid
+flowchart LR
+    SW[Swift tests] -->|write| FX[(Tests/Fixtures/parity.json<br/>questions + 40 worked matches)]
+    FX --> JT[web/tests<br/>node --test]
+    CORE[web/core.js] --> JT
+    CSV1[Sources/.../players.csv] -.same file.- CSV2[web/players.csv]
+    JT -->|pass| GH[GitHub Actions] -->|deploy web/| PAGES[GitHub Pages]
+```
+
+**Keeping the two apps in step.** The quiz and matcher exist twice, in Swift and in JavaScript. `ParityTests.swift` writes the questions and 40 worked cases to `Tests/Fixtures/parity.json`. The cases use different answers, all four filters (all players, women's, men's, legends only), the resulting profiles and the top five matches with scores and shared strengths. The JavaScript tests check `core.js` against that file and check that `web/players.csv` is byte-for-byte the Mac app's file. If the Swift side changes without regenerating the fixture, `swift test` fails. If the JavaScript side drifts, the website tests fail, and the deploy is blocked.
+
+**Storage.** Each visitor's responses, imported players, settings and feedback are saved in their own browser under `wspay.*` keys in `localStorage`. Every read and write is wrapped so the site still works when storage is blocked or full. Nothing is sent to a server. The Results page summarises that browser's responses only.
+
 ## Main flows
 
 1. **Take the quiz.** The person answers the questions, then:
@@ -110,6 +134,7 @@ score = 0.60 × shape + 0.35 × position + 0.05 × fame
 | Imported players | `…/Imported Players.json` | JSON |
 | Feedback | `…/Feedback.json` | JSON |
 | Settings | `UserDefaults` (`com.amalmehta.WhatSoccerPlayerAreYa`) | plist |
+| Website: responses, imports, settings, feedback | the visitor's browser, `localStorage` keys `wspay.responses`, `wspay.imported`, `wspay.settings`, `wspay.feedback` | JSON |
 
 `WSPAY_DATA_DIR` overrides the Application Support folder, which is used for demos and screenshots.
 
@@ -141,13 +166,15 @@ Related categories share a hue family. Shades within a family are spaced apart i
 - **Bundled dataset plus CSV import, not a scraped third-party dataset.** Bundling a large FIFA dataset raises licensing questions. Instead the app ships 228 players compiled for it and imports any FIFA/EA FC CSV the user brings. *Trade-off:* the bundled ratings are approximations, not official card values.
 - **Matching on shape, not ratings.** Quiz answers say what someone is *like*, not how good they are. *Trade-off:* a player with a flat profile (good at everything) is a weaker match for anyone.
 - **SwiftPM package with a script that builds the .app, no Xcode project.** It's simple to build from the command line and keeps the repo small. The icon is drawn in code (`scripts/make-icon.swift`) and turned into an `.icns` by the build script. *Trade-off:* ad hoc code signing only, and no asset catalogue.
+- **Website as a static port, not shared code.** The site is plain JavaScript with no build step, so it can be hosted for free on GitHub Pages and opened with any web server. *Trade-off:* the logic is written twice, which is why the parity tests exist.
+- **Website responses stay in each browser.** No server, no accounts, no personal data collected. *Trade-off:* the Results page can't summarise visitors on different devices.
 - **Local-only storage in JSON.** Simple and private. *Trade-off:* no syncing or multi-device survey collection. Responses are only gathered on one Mac.
 - **Feedback saved locally, not emailed.** Nothing leaves the machine without the user doing it.
 - **The ⌘V import uses an `NSEvent` local monitor** rather than replacing the Paste menu command, so normal pasting into text fields keeps working.
 
 ## Testing
 
-`swift test` runs 18 Swift Testing tests in `Tests/SoccerCoreTests` covering:
+`swift test` runs 19 Swift Testing tests in `Tests/SoccerCoreTests`. One of them, `ParityTests`, checks that `Tests/Fixtures/parity.json` is up to date for the website (see above). The rest cover:
 
 - **CSV parsing:** quotes, newlines, byte-order mark and CRLF.
 - **Import:** the app's own format, gender column and value aliases, sofifa format with keeper fallback and skipped rows, missing-column errors, and that the bundled dataset loads and covers every position.
@@ -155,7 +182,25 @@ Related categories share a hue family. Shades within a family are spaced apart i
 - **Matching:** striker, playmaker, defender and keeper answers each find the right archetype, plus filters (including men's/women's) and the result limit.
 - **Responses:** saving, reloading and deleting, summary counts, and CSV escaping.
 
-**Checked by hand:** the app was launched with demo data, and the Quiz, Result, Results (dark mode) and Players pages were captured and checked visually. The matcher weights were tuned with random-answer simulations.
+**Website:** `node --test web/tests/*.test.mjs` runs 7 tests:
+
+- `web/players.csv` matches the Mac app's file.
+- The questions match the Swift ones exactly.
+- All 40 parity cases give the same profiles, matches, scores and shared strengths.
+- CSV parsing, sofifa import with gender, and missing-column errors.
+- Summary counts and CSV export.
+
+The website was also checked by hand in a browser:
+
+- the quiz from start to result, answered with number keys
+- importing by paste and by drag-and-drop, including the drop overlay
+- ⌘, opening Settings
+- the men's/women's setting carrying through to the quiz and Players pages
+- feedback being saved
+- dark mode
+- a 375px phone width with no sideways scrolling
+
+**Checked by hand (Mac app):** the app was launched with demo data, and the Quiz, Result, Results (dark mode) and Players pages were captured and checked visually. The matcher weights were tuned with random-answer simulations.
 
 **Not covered by automated tests:** the views themselves, drag-and-drop and ⌘V import. Their import logic is tested through `PlayerImporter`.
 
@@ -167,4 +212,6 @@ Related categories share a hue family. Shades within a family are spaced apart i
 - Imports read UTF-8 only. Files in other encodings may show garbled accents.
 - Very large imports (tens of thousands of rows) load all at once on the main thread.
 - The app is ad hoc signed, so other Macs will warn on first open.
-- The website version hasn't been built. The spec says it comes after the Mac app, as its own step.
+- The website can't combine responses from different visitors or devices. Each browser keeps its own.
+- Website feedback only reaches the developer if the visitor opens it as a GitHub issue and posts it.
+- GitHub Pages needs the repository to be public on a free GitHub plan.

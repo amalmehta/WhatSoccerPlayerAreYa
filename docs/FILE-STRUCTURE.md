@@ -9,7 +9,8 @@ WhatSoccerPlayerAreYa/
 │   └── AppIcon.png               App icon (1024×1024), drawn by make-icon.swift
 ├── scripts/
 │   ├── build-app.sh              Builds "build/What Soccer Player Are Ya.app" (and its .icns icon)
-│   └── make-icon.swift           Draws Assets/AppIcon.png
+│   ├── make-icon.swift           Draws Assets/AppIcon.png
+│   └── sync-web.sh               Copies players.csv and the icon into web/
 ├── Sources/
 │   ├── SoccerCore/               All logic, no UI
 │   │   ├── Models.swift          Player, Gender, Trait, PositionGroup, Era
@@ -30,9 +31,23 @@ WhatSoccerPlayerAreYa/
 │       ├── SettingsView.swift    Quiz / Players / Data settings tabs
 │       ├── FeedbackView.swift    Feedback sheet
 │       └── Palette.swift         Category colours, chips
+├── web/                          The website (static, no build step)
+│   ├── index.html                Page shell, Settings and Feedback dialogs
+│   ├── styles.css                Layout, light/dark themes, phone layout
+│   ├── core.js                   Quiz, matching, CSV import (port of SoccerCore)
+│   ├── app.js                    Pages, importing, settings, storage
+│   ├── players.csv               Copy of the bundled players
+│   ├── icon.png                  Copy of the app icon
+│   └── tests/
+│       └── core.test.mjs         Website tests, including parity with the Mac app
 ├── Tests/
-│   └── SoccerCoreTests/
-│       └── SoccerCoreTests.swift 18 tests for the core logic
+│   ├── SoccerCoreTests/
+│   │   ├── SoccerCoreTests.swift 18 tests for the core logic
+│   │   └── ParityTests.swift     Writes and checks Fixtures/parity.json
+│   └── Fixtures/
+│       └── parity.json           Questions + 40 worked matches shared with web/tests
+├── .github/workflows/
+│   └── website.yml               Tests the website, then deploys web/ to GitHub Pages
 ├── docs/
 │   ├── INSTRUCTIONS.md           Setup, run, use
 │   ├── SYSTEM-DESIGN.md          Architecture, flows, decisions, limits

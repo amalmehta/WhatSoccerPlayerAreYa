@@ -2,13 +2,19 @@
 
 # What Soccer Player Are Ya
 
-A Mac app with a 12-question quiz that tells you which soccer player you play like. It saves every response and shows a summary of everyone's answers.
+A Mac app and website with a 12-question quiz that tells you which soccer player you play like. It saves every response and shows a summary of everyone's answers.
+
+**[Take the quiz on the web →](https://amalmehta.github.io/WhatSoccerPlayerAreYa/)**
 
 ![Your match](docs/screenshots/Your%20Match.png)
 
 | Take the quiz | Everyone's results (dark mode) | Player pool |
 |---|---|---|
 | ![Quiz](docs/screenshots/Quiz.png) | ![Results](docs/screenshots/Results.png) | ![Players](docs/screenshots/Players.png) |
+
+| The website | On a phone (dark mode) |
+|---|---|
+| ![Website](docs/screenshots/Website.png) | <img src="docs/screenshots/Website%20on%20a%20Phone.png" width="260" alt="Website on a phone"> |
 
 ```mermaid
 flowchart LR

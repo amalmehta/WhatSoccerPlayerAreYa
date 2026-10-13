@@ -1,0 +1,229 @@
+name,nationality,club,positions,era,overall,pace,shooting,passing,dribbling,defending,physical,gender
+Thibaut Courtois,Belgium,Real Madrid,GK,Current,89,85,89,76,90,46,89,Men
+Alisson,Brazil,Liverpool,GK,Current,89,86,85,85,89,54,90,Men
+Gianluigi Donnarumma,Italy,Manchester City,GK,Current,88,90,83,75,90,53,85,Men
+Jan Oblak,Slovenia,Atlético Madrid,GK,Current,87,86,90,78,89,49,88,Men
+Manuel Neuer,Germany,Bayern Munich,GK,Current,85,83,85,91,85,55,87,Men
+Marc-André ter Stegen,Germany,Barcelona,GK,Current,85,85,84,90,88,48,86,Men
+Mike Maignan,France,AC Milan,GK,Current,87,87,83,87,88,58,84,Men
+Emiliano Martínez,Argentina,Aston Villa,GK,Current,87,85,84,80,90,52,85,Men
+David Raya,Spain,Arsenal,GK,Current,87,84,85,87,88,57,86,Men
+Diogo Costa,Portugal,Porto,GK,Current,85,84,82,84,87,55,83,Men
+Gregor Kobel,Switzerland,Borussia Dortmund,GK,Current,86,86,84,79,88,56,84,Men
+Unai Simón,Spain,Athletic Club,GK,Current,85,83,81,86,86,47,84,Men
+Ederson,Brazil,Fenerbahçe,GK,Current,85,84,80,93,85,64,84,Men
+Mary Earps,England,Paris Saint-Germain,GK,Current,87,85,84,82,88,55,86,Women
+Hannah Hampton,England,Chelsea,GK,Current,86,84,82,88,86,58,83,Women
+Cata Coll,Spain,Barcelona,GK,Current,86,85,82,80,89,62,82,Women
+Ann-Katrin Berger,Germany,Gotham FC,GK,Current,87,86,83,85,88,49,87,Women
+Virgil van Dijk,Netherlands,Liverpool,CB,Current,90,72,60,71,72,90,86,Men
+William Saliba,France,Arsenal,CB,Current,87,81,39,64,70,88,83,Men
+Gabriel Magalhães,Brazil,Arsenal,CB,Current,86,72,52,59,61,87,87,Men
+Rúben Dias,Portugal,Manchester City,CB,Current,87,63,38,66,67,89,86,Men
+Joško Gvardiol,Croatia,Manchester City,"CB, LB",Current,85,79,58,72,75,84,82,Men
+Antonio Rüdiger,Germany,Real Madrid,CB,Current,86,82,48,63,64,86,86,Men
+Éder Militão,Brazil,Real Madrid,"CB, RB",Current,84,85,55,64,68,84,82,Men
+Dean Huijsen,Spain,Real Madrid,CB,Current,82,73,40,74,70,82,80,Men
+Trent Alexander-Arnold,England,Real Madrid,"RB, CM",Current,86,76,71,91,79,74,70,Men
+Achraf Hakimi,Morocco,Paris Saint-Germain,"RB, RWB, RM",Current,89,92,77,83,83,79,79,Men
+Nuno Mendes,Portugal,Paris Saint-Germain,"LB, LWB",Current,87,92,62,78,84,81,77,Men
+Marquinhos,Brazil,Paris Saint-Germain,CB,Current,86,72,52,72,72,87,79,Men
+Theo Hernández,France,Al Hilal,"LB, LWB",Current,85,90,73,77,80,77,82,Men
+Alessandro Bastoni,Italy,Inter,CB,Current,86,67,48,78,74,86,80,Men
+Federico Dimarco,Italy,Inter,"LWB, LB, LM",Current,85,80,76,85,79,75,72,Men
+Jules Koundé,France,Barcelona,"RB, CB",Current,85,84,48,75,77,84,76,Men
+Ronald Araujo,Uruguay,Barcelona,"CB, RB",Current,84,80,45,62,64,85,88,Men
+Pau Cubarsí,Spain,Barcelona,CB,Current,83,68,30,78,72,83,72,Men
+Alejandro Balde,Spain,Barcelona,"LB, LWB",Current,82,93,51,74,82,74,68,Men
+Kim Min-jae,South Korea,Bayern Munich,CB,Current,84,80,35,64,62,85,85,Men
+Dayot Upamecano,France,Bayern Munich,CB,Current,83,80,40,62,66,84,85,Men
+Alphonso Davies,Canada,Bayern Munich,"LB, LM",Current,83,95,62,73,83,74,72,Men
+Jeremie Frimpong,Netherlands,Liverpool,"RB, RWB, RM",Current,83,94,70,75,84,68,66,Men
+Ibrahima Konaté,France,Liverpool,CB,Current,84,80,40,58,63,85,88,Men
+Reece James,England,Chelsea,"RB, CDM",Current,83,75,72,84,78,80,80,Men
+Marc Cucurella,Spain,Chelsea,"LB, LWB",Current,83,78,52,76,77,81,78,Men
+Cristian Romero,Argentina,Tottenham Hotspur,CB,Current,85,74,46,62,65,86,84,Men
+Micky van de Ven,Netherlands,Tottenham Hotspur,"CB, LB",Current,83,95,50,62,68,82,80,Men
+Sergio Ramos,Spain,Monterrey,CB,Current,80,55,64,70,64,80,79,Men
+Lucy Bronze,England,Chelsea,"RB, CB",Current,87,82,66,77,74,85,88,Women
+Wendie Renard,France,OL Lyonnes,CB,Current,87,58,64,70,62,89,89,Women
+Leah Williamson,England,Arsenal,"CB, CDM",Current,86,70,56,80,74,86,78,Women
+Naomi Girma,United States,Chelsea,CB,Current,87,78,40,74,73,88,80,Women
+Millie Bright,England,Chelsea,CB,Current,85,62,52,72,62,87,87,Women
+Mapi León,Spain,Barcelona,"CB, LB",Current,87,72,58,84,77,87,77,Women
+Giulia Gwinn,Germany,Bayern Munich,"RB, RM",Current,86,84,72,80,80,82,76,Women
+Sakina Karchaoui,France,Paris Saint-Germain,"LB, LM",Current,86,86,62,78,83,83,74,Women
+Rodri,Spain,Manchester City,"CDM, CM",Current,90,64,79,86,83,86,84,Men
+Jude Bellingham,England,Real Madrid,"CAM, CM",Current,90,79,85,83,88,77,84,Men
+Kevin De Bruyne,Belgium,Napoli,"CM, CAM",Current,88,67,86,93,85,63,72,Men
+Pedri,Spain,Barcelona,"CM, CAM",Current,89,77,72,88,90,72,70,Men
+Federico Valverde,Uruguay,Real Madrid,"CM, RM, CDM",Current,88,86,82,84,83,80,84,Men
+Aurélien Tchouaméni,France,Real Madrid,"CDM, CB",Current,85,72,68,80,75,84,85,Men
+Eduardo Camavinga,France,Real Madrid,"CM, CDM, LB",Current,83,79,64,80,83,80,79,Men
+Arda Güler,Turkey,Real Madrid,"CAM, RW",Current,82,74,80,85,86,40,58,Men
+Joshua Kimmich,Germany,Bayern Munich,"CDM, RB, CM",Current,88,70,74,90,82,80,72,Men
+Jamal Musiala,Germany,Bayern Munich,"CAM, LW",Current,88,82,81,83,93,38,62,Men
+Florian Wirtz,Germany,Liverpool,"CAM, LW",Current,88,79,82,88,91,42,62,Men
+Martin Ødegaard,Norway,Arsenal,"CAM, CM",Current,87,72,81,90,88,61,63,Men
+Declan Rice,England,Arsenal,"CDM, CM",Current,88,72,72,84,79,84,85,Men
+Martín Zubimendi,Spain,Arsenal,CDM,Current,85,64,60,83,78,82,76,Men
+Nicolò Barella,Italy,Inter,CM,Current,87,80,76,85,86,77,78,Men
+Hakan Çalhanoğlu,Turkey,Inter,"CDM, CM",Current,85,60,82,89,81,72,69,Men
+Vitinha,Portugal,Paris Saint-Germain,"CM, CDM",Current,89,73,76,90,89,73,66,Men
+João Neves,Portugal,Paris Saint-Germain,"CM, CDM, RB",Current,86,80,70,84,86,80,72,Men
+Alexis Mac Allister,Argentina,Liverpool,"CM, CDM",Current,87,68,79,86,84,79,77,Men
+Dominik Szoboszlai,Hungary,Liverpool,"CM, CAM, RB",Current,85,80,82,84,82,70,80,Men
+Ryan Gravenberch,Netherlands,Liverpool,"CDM, CM",Current,85,76,66,80,85,80,79,Men
+Enzo Fernández,Argentina,Chelsea,"CM, CAM",Current,85,72,78,85,81,73,76,Men
+Moisés Caicedo,Ecuador,Chelsea,"CDM, CM",Current,87,74,60,77,79,87,82,Men
+Cole Palmer,England,Chelsea,"CAM, RW",Current,87,77,86,86,88,47,62,Men
+Bruno Fernandes,Portugal,Manchester United,"CAM, CM",Current,87,72,85,90,82,67,75,Men
+Bernardo Silva,Portugal,Manchester City,"CM, RW, CAM",Current,86,74,76,86,90,66,68,Men
+Tijjani Reijnders,Netherlands,Manchester City,CM,Current,85,79,79,82,84,70,75,Men
+Sandro Tonali,Italy,Newcastle United,"CDM, CM",Current,85,74,74,84,80,80,80,Men
+Bruno Guimarães,Brazil,Newcastle United,"CM, CDM",Current,86,68,73,86,84,79,82,Men
+Scott McTominay,Scotland,Napoli,"CM, CAM",Current,85,73,83,76,78,74,85,Men
+Frenkie de Jong,Netherlands,Barcelona,"CM, CDM",Current,86,80,68,87,88,76,76,Men
+Dani Olmo,Spain,Barcelona,"CAM, CF",Current,84,77,80,83,87,48,64,Men
+Luka Modrić,Croatia,AC Milan,CM,Current,84,65,74,88,86,68,64,Men
+N'Golo Kanté,France,Al Ittihad,"CDM, CM",Current,83,74,64,76,79,83,80,Men
+Casemiro,Brazil,Manchester United,CDM,Current,82,52,72,76,70,81,84,Men
+Sergio Busquets,Spain,Inter Miami,CDM,Current,81,40,58,84,76,75,70,Men
+Eberechi Eze,England,Arsenal,"CAM, LW",Current,84,80,82,83,87,42,66,Men
+Aitana Bonmatí,Spain,Barcelona,"CM, CAM",Current,92,80,84,90,92,70,70,Women
+Alexia Putellas,Spain,Barcelona,"CAM, CM",Current,90,74,88,91,90,58,72,Women
+Patri Guijarro,Spain,Barcelona,"CDM, CM",Current,88,68,76,86,84,84,78,Women
+Mariona Caldentey,Spain,Arsenal,"CM, LW, CAM",Current,88,78,82,87,88,66,70,Women
+Lena Oberdorf,Germany,Bayern Munich,"CDM, CM",Current,87,76,66,80,80,87,88,Women
+Lindsey Heaps,United States,OL Lyonnes,"CM, CAM",Current,87,72,80,86,84,72,80,Women
+Melchie Dumornay,Haiti,OL Lyonnes,"CAM, CM",Current,87,84,82,82,89,60,80,Women
+Marta,Brazil,Orlando Pride,"CAM, ST",Current,84,70,84,84,87,40,66,Women
+Kylian Mbappé,France,Real Madrid,"ST, LW",Current,91,97,90,80,92,36,78,Men
+Erling Haaland,Norway,Manchester City,ST,Current,91,86,93,66,80,45,88,Men
+Mohamed Salah,Egypt,Liverpool,RW,Current,91,89,88,86,90,45,76,Men
+Harry Kane,England,Bayern Munich,"ST, CAM",Current,90,68,93,84,83,49,83,Men
+Vinícius Jr.,Brazil,Real Madrid,LW,Current,89,95,84,81,91,29,69,Men
+Robert Lewandowski,Poland,Barcelona,ST,Current,86,72,88,76,82,44,80,Men
+Lamine Yamal,Spain,Barcelona,RW,Current,89,85,80,85,92,32,59,Men
+Raphinha,Brazil,Barcelona,"LW, RW",Current,89,88,85,85,88,52,71,Men
+Bukayo Saka,England,Arsenal,"RW, RM",Current,88,86,84,83,88,59,70,Men
+Lautaro Martínez,Argentina,Inter,ST,Current,88,82,88,74,86,49,83,Men
+Marcus Thuram,France,Inter,"ST, LW",Current,84,86,82,72,80,42,85,Men
+Victor Osimhen,Nigeria,Galatasaray,ST,Current,86,89,86,62,81,40,82,Men
+Khvicha Kvaratskhelia,Georgia,Paris Saint-Germain,LW,Current,87,84,82,81,89,42,74,Men
+Ousmane Dembélé,France,Paris Saint-Germain,"ST, RW",Current,90,92,86,84,90,40,66,Men
+Désiré Doué,France,Paris Saint-Germain,"RW, LW, CAM",Current,85,86,79,80,87,40,64,Men
+Lionel Messi,Argentina,Inter Miami,"RW, CF",Current,86,74,85,90,89,33,63,Men
+Cristiano Ronaldo,Portugal,Al Nassr,ST,Current,85,77,88,76,79,34,74,Men
+Neymar,Brazil,Santos,"LW, CAM",Current,80,72,79,82,85,32,58,Men
+Karim Benzema,France,Al Ittihad,"ST, CF",Current,85,70,87,82,85,40,76,Men
+Antoine Griezmann,France,Atlético Madrid,"ST, CF, CAM",Current,85,73,84,86,85,58,72,Men
+Julián Álvarez,Argentina,Atlético Madrid,"ST, CF",Current,87,82,85,79,85,57,77,Men
+Son Heung-min,South Korea,LAFC,"LW, ST",Current,84,84,85,79,83,40,68,Men
+Alexander Isak,Sweden,Liverpool,ST,Current,87,85,86,74,86,40,74,Men
+Hugo Ekitike,France,Liverpool,ST,Current,84,86,82,73,85,38,74,Men
+Cody Gakpo,Netherlands,Liverpool,"LW, ST",Current,83,83,82,78,84,45,77,Men
+Phil Foden,England,Manchester City,"RW, CAM",Current,86,82,84,85,89,55,62,Men
+Jérémy Doku,Belgium,Manchester City,"LW, RW",Current,83,94,72,77,89,30,64,Men
+Viktor Gyökeres,Sweden,Arsenal,ST,Current,86,84,87,70,80,45,89,Men
+Gabriel Martinelli,Brazil,Arsenal,LW,Current,82,91,78,74,83,45,70,Men
+Michael Olise,France,Bayern Munich,"RW, CAM",Current,87,83,83,86,90,36,62,Men
+Luis Díaz,Colombia,Bayern Munich,LW,Current,85,90,80,78,88,45,73,Men
+Rafael Leão,Portugal,AC Milan,LW,Current,85,93,80,76,87,28,77,Men
+Christian Pulisic,United States,AC Milan,"RW, CAM",Current,84,85,81,80,85,45,64,Men
+Dušan Vlahović,Serbia,Juventus,ST,Current,83,77,85,68,78,30,84,Men
+Kenan Yıldız,Turkey,Juventus,"LW, CAM",Current,83,82,79,78,87,32,66,Men
+Ademola Lookman,Nigeria,Atalanta,"LW, ST",Current,84,87,82,77,86,38,66,Men
+Ollie Watkins,England,Aston Villa,ST,Current,84,86,84,73,79,45,78,Men
+Nico Williams,Spain,Athletic Club,LW,Current,85,93,77,78,87,36,64,Men
+Rodrygo,Brazil,Real Madrid,"RW, LW, ST",Current,84,88,81,79,86,35,62,Men
+Romelu Lukaku,Belgium,Napoli,ST,Current,82,74,83,70,74,35,89,Men
+Sam Kerr,Australia,Chelsea,ST,Current,86,82,88,72,82,40,82,Women
+Ada Hegerberg,Norway,OL Lyonnes,ST,Current,86,74,89,72,80,40,82,Women
+Caroline Graham Hansen,Norway,Barcelona,RW,Current,90,88,85,86,92,40,70,Women
+Salma Paralluelo,Spain,Barcelona,"LW, ST",Current,88,95,83,74,87,50,78,Women
+Ewa Pajor,Poland,Barcelona,ST,Current,89,88,90,74,85,40,80,Women
+Lauren James,England,Chelsea,"RW, CAM",Current,87,84,85,82,90,42,74,Women
+Alessia Russo,England,Arsenal,ST,Current,87,78,87,80,84,45,80,Women
+Chloe Kelly,England,Arsenal,"RW, LW",Current,85,87,82,80,84,40,72,Women
+Trinity Rodman,United States,Washington Spirit,"RW, ST",Current,87,92,82,76,87,45,80,Women
+Sophia Wilson,United States,Portland Thorns,"ST, LW",Current,88,92,87,76,87,38,74,Women
+Mallory Swanson,United States,Chicago Stars,"LW, ST",Current,87,91,86,78,86,35,70,Women
+Kadidiatou Diani,France,OL Lyonnes,"RW, ST",Current,87,90,84,78,86,40,80,Women
+Bunny Shaw,Jamaica,Manchester City,ST,Current,88,82,90,68,80,40,90,Women
+Vivianne Miedema,Netherlands,Manchester City,"ST, CAM",Current,86,72,88,84,83,38,74,Women
+Lea Schüller,Germany,Bayern Munich,ST,Current,85,80,86,70,80,40,80,Women
+Temwa Chawinga,Malawi,Kansas City Current,"ST, LW",Current,87,94,87,70,86,35,72,Women
+Barbra Banda,Zambia,Orlando Pride,ST,Current,87,90,87,70,85,40,84,Women
+Gianluigi Buffon,Italy,Juventus,GK,Legend,92,89,88,72,92,60,93,Men
+Iker Casillas,Spain,Real Madrid,GK,Legend,91,92,82,70,95,65,87,Men
+Lev Yashin,Soviet Union,Dynamo Moscow,GK,Legend,91,90,89,65,93,57,92,Men
+Peter Schmeichel,Denmark,Manchester United,GK,Legend,90,89,86,75,92,58,88,Men
+Oliver Kahn,Germany,Bayern Munich,GK,Legend,91,91,90,70,92,55,91,Men
+Dino Zoff,Italy,Juventus,GK,Legend,89,86,91,68,88,50,92,Men
+Hope Solo,United States,Seattle Reign,GK,Legend,88,87,86,79,90,63,87,Women
+Paolo Maldini,Italy,AC Milan,"CB, LB",Legend,94,84,52,74,74,96,84,Men
+Franz Beckenbauer,Germany,Bayern Munich,"CB, CDM",Legend,94,77,72,90,85,92,80,Men
+Franco Baresi,Italy,AC Milan,CB,Legend,93,72,52,76,72,95,82,Men
+Cafu,Brazil,AC Milan,"RB, RWB",Legend,91,90,72,82,84,86,82,Men
+Roberto Carlos,Brazil,Real Madrid,"LB, LWB",Legend,91,93,84,82,82,84,84,Men
+Fabio Cannavaro,Italy,Juventus,CB,Legend,92,82,45,64,72,94,82,Men
+Carles Puyol,Spain,Barcelona,"CB, RB",Legend,90,78,58,68,68,91,87,Men
+John Terry,England,Chelsea,CB,Legend,90,62,62,70,64,92,88,Men
+Philipp Lahm,Germany,Bayern Munich,"RB, LB, CDM",Legend,91,82,64,86,84,90,72,Men
+Alessandro Nesta,Italy,AC Milan,CB,Legend,92,78,46,70,72,95,80,Men
+Bobby Moore,England,West Ham United,CB,Legend,92,64,52,78,70,94,80,Men
+Dani Alves,Brazil,Barcelona,"RB, RWB",Legend,89,88,72,86,85,80,76,Men
+Rio Ferdinand,England,Manchester United,CB,Legend,91,82,50,74,74,92,82,Men
+Javier Zanetti,Argentina,Inter,"RB, CDM",Legend,89,82,62,78,80,88,82,Men
+Steph Houghton,England,Manchester City,CB,Legend,87,66,62,76,68,88,80,Women
+Zinedine Zidane,France,Real Madrid,"CAM, CM",Legend,96,76,88,92,96,60,82,Men
+Xavi,Spain,Barcelona,CM,Legend,94,72,76,96,90,68,62,Men
+Andrés Iniesta,Spain,Barcelona,"CM, CAM",Legend,94,77,74,93,95,58,62,Men
+Andrea Pirlo,Italy,AC Milan,"CM, CDM",Legend,92,58,80,96,86,62,62,Men
+Steven Gerrard,England,Liverpool,"CM, CAM",Legend,92,80,90,90,82,74,84,Men
+Frank Lampard,England,Chelsea,"CM, CAM",Legend,91,72,90,88,80,68,80,Men
+Paul Scholes,England,Manchester United,CM,Legend,91,66,86,92,82,70,72,Men
+Roy Keane,Ireland,Manchester United,"CDM, CM",Legend,91,72,72,84,76,90,90,Men
+Patrick Vieira,France,Arsenal,"CDM, CM",Legend,92,78,72,84,82,90,92,Men
+Claude Makélélé,France,Chelsea,CDM,Legend,89,66,46,78,76,90,82,Men
+Kaká,Brazil,AC Milan,CAM,Legend,94,90,88,88,92,42,76,Men
+Diego Maradona,Argentina,Napoli,"CAM, CF",Legend,97,86,92,92,98,40,76,Men
+Michel Platini,France,Juventus,CAM,Legend,94,78,92,94,90,48,70,Men
+Lothar Matthäus,Germany,Inter,"CM, CDM",Legend,93,82,86,86,84,84,84,Men
+Toni Kroos,Germany,Real Madrid,CM,Legend,90,54,80,94,82,70,70,Men
+David Beckham,England,Manchester United,"RM, CM",Legend,90,74,84,96,80,60,74,Men
+Pavel Nedvěd,Czech Republic,Juventus,"CAM, LM",Legend,92,82,88,86,88,58,82,Men
+Juan Román Riquelme,Argentina,Boca Juniors,CAM,Legend,91,60,84,94,92,40,68,Men
+Zico,Brazil,Flamengo,CAM,Legend,94,82,93,90,92,42,66,Men
+Homare Sawa,Japan,INAC Kobe Leonessa,"CM, CAM",Legend,91,72,84,90,88,70,70,Women
+Carli Lloyd,United States,Gotham FC,"CAM, ST",Legend,91,76,89,84,84,58,84,Women
+Pelé,Brazil,Santos,"CF, ST, CAM",Legend,98,95,96,93,96,60,76,Men
+Ronaldo Nazário,Brazil,Real Madrid,ST,Legend,96,97,95,81,95,45,80,Men
+Thierry Henry,France,Arsenal,"ST, LW",Legend,94,94,91,84,91,40,80,Men
+Eusébio,Portugal,Benfica,"ST, CF",Legend,94,92,94,80,90,40,80,Men
+Alfredo Di Stéfano,Argentina,Real Madrid,"CF, ST",Legend,95,86,93,90,92,60,82,Men
+Ferenc Puskás,Hungary,Real Madrid,"CF, ST",Legend,95,80,96,88,92,40,72,Men
+Gerd Müller,Germany,Bayern Munich,ST,Legend,94,80,97,72,84,40,82,Men
+Marco van Basten,Netherlands,AC Milan,ST,Legend,95,84,96,80,90,40,82,Men
+Romário,Brazil,Barcelona,ST,Legend,93,88,94,76,92,30,66,Men
+Ronaldinho,Brazil,Barcelona,"LW, CAM",Legend,95,88,88,90,97,38,76,Men
+Johan Cruyff,Netherlands,Ajax,"CF, CAM",Legend,96,90,90,92,96,45,70,Men
+Didier Drogba,Ivory Coast,Chelsea,ST,Legend,91,82,90,70,82,40,93,Men
+Samuel Eto'o,Cameroon,Barcelona,ST,Legend,91,92,90,72,86,42,78,Men
+Zlatan Ibrahimović,Sweden,AC Milan,ST,Legend,92,76,92,82,88,40,90,Men
+Wayne Rooney,England,Manchester United,"ST, CF",Legend,91,82,90,84,84,56,86,Men
+Raúl,Spain,Real Madrid,"ST, CF",Legend,91,82,91,82,87,40,72,Men
+Gabriel Batistuta,Argentina,Fiorentina,ST,Legend,92,84,95,70,80,40,88,Men
+Dennis Bergkamp,Netherlands,Arsenal,"CF, ST",Legend,92,76,88,90,92,40,74,Men
+Roberto Baggio,Italy,Juventus,"CF, CAM",Legend,93,82,90,88,93,40,66,Men
+Francesco Totti,Italy,Roma,"CF, CAM",Legend,91,74,90,90,88,44,78,Men
+George Best,Northern Ireland,Manchester United,"RW, LW",Legend,94,92,88,84,96,40,70,Men
+Garrincha,Brazil,Botafogo,RW,Legend,94,92,84,82,97,30,64,Men
+Mia Hamm,United States,Washington Freedom,"ST, CF",Legend,93,90,92,82,88,44,72,Women
+Abby Wambach,United States,Western New York Flash,ST,Legend,92,76,92,70,78,45,90,Women
+Megan Rapinoe,United States,OL Reign,"LW, CAM",Legend,91,82,86,90,88,40,66,Women
+Alex Morgan,United States,Orlando Pride,ST,Legend,91,90,90,74,84,40,74,Women
+Birgit Prinz,Germany,1. FFC Frankfurt,ST,Legend,92,82,92,74,82,45,86,Women
+Christine Sinclair,Canada,Portland Thorns,"ST, CF",Legend,92,80,92,82,84,45,80,Women
+Kelly Smith,England,Arsenal,"CF, CAM",Legend,90,78,90,86,88,40,72,Women

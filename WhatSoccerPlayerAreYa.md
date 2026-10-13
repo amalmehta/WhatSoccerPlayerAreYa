@@ -83,10 +83,13 @@ Decided without asking:
   ad hoc signed.
 - Two screenshot-only launch arguments (-startSection, -demoResult) and a
   WSPAY_DATA_DIR override for demo data.
-- The website version hasn't been started (it's its own later step).
+- Website (2026-10-13), asked and answered: static site in web/ on GitHub Pages;
+  responses kept in each visitor's browser; full parity with the Mac app;
+  JavaScript port checked against the Swift code by a shared parity fixture.
+  Decided: website feedback is saved in the browser or opened as a GitHub issue.
 
 Proposals (not done):
-- The website version.
+- None open.
 
 CHANGELOG:
 
@@ -113,3 +116,4 @@ CHANGELOG:
 - 2026-10-13 — created the private GitHub repo WhatSoccerPlayerAreYa and pushed
 - 2026-10-13 — added an app icon (soccer ball on a pitch with a "?" badge), drawn in code
 - 2026-10-13 — added a men's / women's filter (quiz start screen, Settings, Players page) and a gender column in the player data
+- 2026-10-13 — built the website (web/): full parity with the Mac app, parity tests against the Swift code, GitHub Pages deploy workflow

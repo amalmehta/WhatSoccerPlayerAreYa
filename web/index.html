@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Soccer Player Are Ya</title>
+  <meta name="description" content="A 12-question quiz that tells you which soccer player you play like.">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><img src="icon.png" alt=""><span>What Soccer Player Are Ya</span></div>
+      <nav>
+        <button data-section="quiz" class="nav-item"><span class="ico">⚽</span>Take the Quiz</button>
+        <button data-section="results" class="nav-item"><span class="ico">📊</span>Results</button>
+        <button data-section="players" class="nav-item"><span class="ico">👥</span>Players</button>
+      </nav>
+      <button class="feedback-link" id="feedback-open" title="Send feedback about the site">💬 Feedback</button>
+    </aside>
+    <main>
+      <header class="toolbar">
+        <h1 id="title">Take the Quiz</h1>
+        <div class="toolbar-actions" id="section-actions"></div>
+        <div class="toolbar-actions">
+          <button class="btn" id="upload" title="Import a CSV of players (FIFA / EA FC exports work). You can also drop or paste files.">⇪ Upload</button>
+          <button class="icon-btn" id="settings-open" title="Settings (⌘, or Ctrl+,)" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+        </div>
+        <input type="file" id="file-input" accept=".csv,.txt,.tsv,text/csv,text/plain" multiple hidden>
+      </header>
+      <div id="banner" class="banner" hidden></div>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <div id="drop-overlay" class="drop-overlay" hidden><div>⬇︎ Drop a player CSV to import</div></div>
+
+  <dialog id="settings" class="sheet">
+    <form method="dialog">
+      <h2>Settings</h2>
+      <fieldset>
+        <legend>Quiz</legend>
+        <label class="row"><input type="checkbox" name="askForName"> Ask for a name before the quiz</label>
+        <label class="row">Matches per result <input type="number" name="matchCount" min="1" max="10"></label>
+        <label class="row">Appearance
+          <select name="appearance"><option>System</option><option>Light</option><option>Dark</option></select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Match against</legend>
+        <label class="row">Players
+          <select name="gender"><option value="All">Men's &amp; Women's</option><option value="Men">Men's</option><option value="Women">Women's</option></select>
+        </label>
+        <label class="row"><input type="checkbox" name="includeCurrent"> Current players</label>
+        <label class="row"><input type="checkbox" name="includeLegends"> Legends</label>
+        <label class="row"><input type="checkbox" name="includeImported"> Imported players</label>
+        <label class="row col">Minimum overall rating: <output name="minOut"></output>
+          <input type="range" name="minimumOverall" min="40" max="90" step="1">
+        </label>
+        <p class="hint" id="eligible"></p>
+      </fieldset>
+      <fieldset>
+        <legend>Player pool</legend>
+        <label class="row"><input type="checkbox" name="useBundled"> Use the <span id="bundled-count"></span> bundled players</label>
+        <p class="row">Imported players: <strong id="imported-count"></strong></p>
+        <div class="row buttons">
+          <button type="button" class="btn" id="settings-upload">Upload Players…</button>
+          <button type="button" class="btn danger" id="clear-imported">Remove Imported</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Data</legend>
+        <p class="hint">Responses, imported players and feedback are saved in this browser only. Nothing is sent anywhere.</p>
+        <p class="row">Saved responses: <strong id="response-count"></strong></p>
+        <div class="row buttons"><button type="button" class="btn" id="settings-export">Export Responses…</button></div>
+      </fieldset>
+      <div class="sheet-actions"><button class="btn primary" value="close">Done</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="feedback" class="sheet">
+    <form method="dialog" id="feedback-form">
+      <h2>Send Feedback</h2>
+      <div class="segmented" id="feedback-kind">
+        <label><input type="radio" name="kind" value="Idea" checked><span>Idea</span></label>
+        <label><input type="radio" name="kind" value="Bug"><span>Bug</span></label>
+        <label><input type="radio" name="kind" value="Wrong match"><span>Wrong match</span></label>
+        <label><input type="radio" name="kind" value="Other"><span>Other</span></label>
+      </div>
+      <textarea name="message" rows="7" placeholder="What's on your mind?"></textarea>
+      <p class="hint">Save keeps it in this browser. To send it to the developer, open it as a GitHub issue (you'll review it before posting).</p>
+      <div class="sheet-actions">
+        <button class="btn" value="cancel" formnovalidate>Cancel</button>
+        <button type="button" class="btn" id="feedback-github">Open as GitHub Issue</button>
+        <button class="btn primary" value="save" id="feedback-save">Save</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
